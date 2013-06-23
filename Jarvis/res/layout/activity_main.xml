@@ -10,7 +10,6 @@
         android:layout_centerHorizontal="true"
         android:text="@string/str_btn_speak" />
  
-
         <ListView
             android:id="@+id/lv_text"
             android:layout_width="fill_parent"
