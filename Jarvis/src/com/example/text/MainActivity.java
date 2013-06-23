@@ -49,11 +49,12 @@ public class MainActivity extends Activity  implements OnInitListener {
 		speechRecognizer = SpeechRecognizer.createSpeechRecognizer(getBaseContext());
 		talker = new TextToSpeech(this, this);
 		Button btnSpeak = (Button) findViewById(R.id.btn_speak);
+		btnSpeak.setBackgroundResource(R.drawable.androido);
 		OnClickListener onClickListener = new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-
+				    
 				Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
 				PackageManager pm = getPackageManager();
 				List<ResolveInfo> activities = pm.queryIntentActivities(intent, 0);
@@ -216,15 +217,14 @@ public class MainActivity extends Activity  implements OnInitListener {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		if (talker != null) {
-			talker.stop();
-			talker.shutdown();
-		}
 	}
 
 	@Override
 	protected void onDestroy() {
+		ciao=false;
+		esci=false;
 		super.onDestroy();
+		
 		if (talker != null) {
 			talker.stop();
 			talker.shutdown();
