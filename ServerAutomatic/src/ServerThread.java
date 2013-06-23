@@ -142,7 +142,10 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 						MainServer.file.write("Ricezione: Con stringa= "+f);
 						f=f.replace( " ","%20" ); 
 						java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://www.google.com/search?q="+f));
-						
+//						Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
+//						Runtime.getRuntime().exec("taskkill /F /FI "USERNAME eq Quinn"); killa tt
+//						Process p  = Runtime.getRuntime().exec("notepad.exe");
+//						p.waitFor(); attende che il processo sia terminato (meglio fare tt come thread)
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
