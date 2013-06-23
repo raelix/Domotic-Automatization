@@ -78,32 +78,7 @@ public class MainActivity extends Activity  implements OnInitListener {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		String giusto=".*[Ss]i.*|" +
-				".*[Ee]satt.*|" +
-				".*[Pp]erfett.*|" +
-				".*[Gg]iusto.*|" +
-				".*[Cc]orrett.*|" +
-				".*[Rr]agion.*|" +
-				".*[Ff]inalment.*";
-		
-		String sbagliato=".*[Nn]o.*|" +
-				".*[Nn]eanch.*|" +
-				".*[Ss]bagli.*|" +
-				".*[Nn]on.*|";
-		
-		String name="^[Gg]iord.*|" +
-				"^[Jj]arv.*|" +
-				"^[Gg]iard.*|" +
-				"^[Gg]iar.*|" +
-				"^[Gg]ior.*|" ;
-		
-		String inizio="^[Hh]o [Dd]ett.*|";
-		
-		String inizio1="^[Tt]i [Hh]o [Dd]ett.*|"+
-					"^[Tt]i [Ss]to [Dd]ic.*|";
-		
-		String orario=".*[Oo]ra.*|"+
-				".*[Oo]rario.*|";
+	
 		
 		switch (requestCode) {
 		case SPEECHTOTEXT:
@@ -118,14 +93,14 @@ public class MainActivity extends Activity  implements OnInitListener {
 					{
 						String testo=textOther.get(i);
 
-						if(testo.matches(sbagliato)){
+						if(testo.matches(WORD_CONSTANTS.sbagliato)){
 							say("Scusa ho capito male,,,ripeti???");
 							ciao=false;
 							esci=true;
 							while(talker.isSpeaking());
 							break;
 						}
-						else if(testo.matches(giusto)){
+						else if(testo.matches(WORD_CONSTANTS.giusto)){
 							say(" OK spedisco");
 							while(talker.isSpeaking());
 							ciao=false;
@@ -140,31 +115,25 @@ public class MainActivity extends Activity  implements OnInitListener {
 				while(talker.isSpeaking());
 				if(!esci)
 				{
-					if(text.get(0).matches(name)){
+					if(text.get(0).matches(WORD_CONSTANTS.name)){
 						String c[]=text.get(0).split("\\s",2);
 						text.add(0, c[1]);
 						}
-					else if(text.get(0).matches(inizio) || (text.get(0).matches(inizio1))){
-						if(text.get(0).matches(inizio1)){
+					else if(text.get(0).matches(WORD_CONSTANTS.inizio) || (text.get(0).matches(WORD_CONSTANTS.inizio1))){
+							if(text.get(0).matches(WORD_CONSTANTS.inizio1)){
 								String c[]=text.get(0).split("\\s",4);
 								text.add(0, c[3]);}
-						else {
+							else {
 							String c[]=text.get(0).split("\\s",3);
 							text.add(0, c[2]);}}
-					if(text.get(0).matches(orario)){
+					if(text.get(0).matches(WORD_CONSTANTS.orario)){
 						say("L'ora è,,,");
 						while(talker.isSpeaking());
 						say( java.text.DateFormat.getTimeInstance().format(Calendar.getInstance().getTime()));
 						while(talker.isSpeaking());
 						break;
 					}
-					/*if(text.get(0).matches(orario)){
-						say("L'ora è,,,");
-						while(talker.isSpeaking());
-						say( java.text.DateFormat.getTimeInstance().format(Calendar.getInstance().getTime()));
-						while(talker.isSpeaking());
-						break;
-					}*/
+					
 					else say("Hai detto "+text.get(0)+"?");
 				}
 				
