@@ -3,13 +3,10 @@ package com.domotica.jarviseSSH;
 import java.io.IOException;
 import java.net.ProtocolException;
 import java.net.Socket;
-
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import com.jcraft.jsch.UserInfo;
-
-
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.os.AsyncTask;
@@ -24,18 +21,27 @@ import android.os.StrictMode;
  */
 @SuppressLint("NewApi")
 public class MultiThread{
+	private static String nameFile = "jarvise.txt";
 	Socket sock;
 	DataSocket btsock;
 	int port;
 	String dest;
 	Pacco pkt;
 	String returned;
+	private String host;
+	private String user;
+	private String password;
 	Session session ;
+	Configuration readFile;
 	
 	@TargetApi(Build.VERSION_CODES.GINGERBREAD)
 	@SuppressLint("NewApi")
 	@SuppressWarnings("unchecked")
 	public MultiThread(String dest, int port,Pacco pkt){
+		this.readFile = new Configuration(nameFile);
+		this.host = readFile.getHost();
+		this.user = readFile.getUser();
+		this.password = readFile.getPass();
 		this.session = null;
 		this.dest = dest;
 		this.port = port;
@@ -128,9 +134,7 @@ public class MultiThread{
 		private void execute(){
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy); 
-			String user="";//username ssh 
-			String password="";//password ssh
-			String  host="";//host ssh
+		
 			String rhost="127.0.0.1";
 			int rport=20;	
 			String lhost="127.0.0.1";

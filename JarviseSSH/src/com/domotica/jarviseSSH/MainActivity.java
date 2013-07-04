@@ -1,5 +1,9 @@
 package com.domotica.jarviseSSH;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -11,6 +15,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.os.Environment;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
@@ -52,6 +57,23 @@ public class MainActivity extends Activity  implements OnInitListener {
 		talker = new TextToSpeech(this, this);
 		Button btnSpeak = (Button) findViewById(R.id.btn_speak);
 		btnSpeak.setBackgroundResource(R.drawable.androido);
+		File file = new File(Environment.getExternalStorageDirectory()+"/jarvise.txt");
+		if (!file.exists()) {
+		        try {
+		            file.createNewFile();
+		            BufferedWriter br = new BufferedWriter(new FileWriter(file));
+		            br.write("host address / ip address ");
+		            br.write("\n");
+		            br.write("username");
+		            br.write("\n");
+		            br.write("password");
+		            br.flush();
+		            br.close();
+		        } catch (IOException e) {
+		        	System.out.println("erroree creazione file");
+		            e.printStackTrace();
+		        }
+		}
 		OnClickListener onClickListener = new OnClickListener() {
 
 			@Override

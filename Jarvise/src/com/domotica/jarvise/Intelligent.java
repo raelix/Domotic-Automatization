@@ -5,16 +5,20 @@ import java.util.Calendar;
 import java.util.LinkedList;
 
 public class Intelligent {
-	private static String host="";//host
-	private static int port=20;
+	private static String nameFile = "jarvise.txt";
+	private String host;
+	private static int port = 20;
 	ArrayList<String> text;
 	public boolean domanda;
 	public boolean risposta;
 	public boolean fine;
 	LinkedList<String> texts;
 	int state;
-
+	Configuration readFile;
+	
 	public Intelligent() {
+		this.readFile = new Configuration(nameFile);
+		this.host = readFile.getHost();
 		this.state = 0;
 		this.fine = false;
 		this.risposta = false;
