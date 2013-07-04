@@ -36,7 +36,7 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 		System.out.println("Ricevo pacchetto di Riconoscimento");
 		MainServer.file.write("Ricevo pacchetto di Riconoscimento");
 		Pacco pkt1 = clientData.readPkt();
-		if(pkt1 != null)
+		if(pkt1 != null){
 			if (pkt1.getType() != PROTOCOL_CONSTANTS.PACKET_TYPE_START){
 				System.out.println("Ricezione: Errore Protocollo o Riconoscimento Errato");
 				MainServer.file.write("Ricezione: Errore Protocollo o Riconoscimento Errato");
@@ -47,7 +47,20 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 			MainServer.file.write("Ricezione: Riconoscimento avvenuto con Successo");
 		}
 		recv1 = new Recv1Thread();
-		recv1.start();
+		recv1.start();}
+		else if(pkt1 == null){
+			System.out.println("Pacchetto nullo Disconnetto");
+			clientData.close();
+			try {
+				clientSock.close();
+				socketS.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
 	}
 
 
@@ -151,6 +164,42 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 					}
 					break;
 
+				case PROTOCOL_CONSTANTS.PACKET_TYPE_STRINGON:
+					System.out.println("Ricezione: ricevuto pacco Accensione");
+					MainServer.file.write("Ricezione: ricevuto pacco Accensione");
+					try {
+						String f=new PaccoStringOn(pkt).getString();
+						System.out.println("Ricezione: Con stringa= "+f);
+						MainServer.file.write("Ricezione: Con stringa= "+f);
+						f=f.replace( " ","%20" ); 
+						java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://www.google.com/search?q="+f));
+//						Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
+//						Runtime.getRuntime().exec("taskkill /F /FI "USERNAME eq Quinn"); killa tt
+//						Process p  = Runtime.getRuntime().exec("notepad.exe");
+//						p.waitFor(); attende che il processo sia terminato (meglio fare tt come thread)
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					break;
+					
+				case PROTOCOL_CONSTANTS.PACKET_TYPE_STRINGOFF:
+					System.out.println("Ricezione: ricevuto pacco Spegnimento");
+					MainServer.file.write("Ricezione: ricevuto pacco Spegnimento");
+					try {
+						String f=new PaccoStringOff(pkt).getString();
+						System.out.println("Ricezione: Con stringa= "+f);
+						MainServer.file.write("Ricezione: Con stringa= "+f);
+						f=f.replace( " ","%20" ); 
+						java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://www.google.com/search?q="+f));
+//						Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
+//						Runtime.getRuntime().exec("taskkill /F /FI "USERNAME eq Quinn"); killa tt
+//						Process p  = Runtime.getRuntime().exec("notepad.exe");
+//						p.waitFor(); attende che il processo sia terminato (meglio fare tt come thread)
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					break;
+					
 				default:
 					System.out.println("Ricezione: ricevuto pacco " + pkt.getType());
 					MainServer.file.write("Ricezione: ricevuto pacco " + pkt.getType());
