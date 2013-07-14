@@ -1,5 +1,4 @@
-package com.domotica.jarviseSSH;
-
+package com.domotica.jarvise;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -9,7 +8,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -26,7 +24,7 @@ import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
-import com.domotica.jarviseSSH.R;
+import com.domotica.jarvise.R;
 
 /**
  * @author raelix
@@ -42,7 +40,7 @@ public class MainActivity extends Activity  implements OnInitListener {
 	ArrayList<String> trueChoose;
 	ArrayList<String> falseChoose;
 	static PrintWriter printwriter;
-	Intelligent jarvis;
+	Jarvise jarvis;
 	static Socket client;
 	static Socket clientSocket;
 	static ServerSocket  serverSocket;
@@ -52,7 +50,7 @@ public class MainActivity extends Activity  implements OnInitListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-		jarvis = new Intelligent();
+		jarvis = new Jarvise();
 		speechRecognizer = SpeechRecognizer.createSpeechRecognizer(getBaseContext());
 		talker = new TextToSpeech(this, this);
 		Button btnSpeak = (Button) findViewById(R.id.btn_speak);
@@ -62,7 +60,7 @@ public class MainActivity extends Activity  implements OnInitListener {
 		        try {
 		            file.createNewFile();
 		            BufferedWriter br = new BufferedWriter(new FileWriter(file));
-		            br.write("host address / ip address ");
+		            br.write("host address / ip address");
 		            br.write("\n");
 		            br.write("username");
 		            br.write("\n");
@@ -108,11 +106,7 @@ public class MainActivity extends Activity  implements OnInitListener {
 			if (resultCode == RESULT_OK && null != data) {
 				text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
 				jarvis.fine = false;
-				if(jarvis.risposta)
-					jarvis.execute(text.get(0));
-				else if(jarvis.domanda ){
-					jarvis.execute(text.get(0));
-				}
+				jarvis.execute(text.get(0));
 				if(!jarvis.fine)listen();
 			}
 		}

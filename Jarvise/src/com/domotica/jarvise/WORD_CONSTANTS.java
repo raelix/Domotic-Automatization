@@ -15,18 +15,20 @@ public interface WORD_CONSTANTS {
 			".*[Ss]bagli.*|" +
 			".*[Nn]on.*|";
 	
-	String name="^[Gg]iord.*|" +
-			"^[Jj]arv.*|" +
-			"^[Gg]iard.*|" +
-			"^[Gg]iar.*|" +
-			"^[Gg]ior.*|" ;
+	String name=".*[Gg]iord.*|" +
+			".*[Jj]arv.*|" +
+			".*[Gg]iard.*|" +
+			".*[Gg]iar.*|" +
+			".*[Gg]ior.*|" ;
 	
 	
-	String on="^[Aa]ccendi.*|" +
-			"^[Aa]ttiva.*|" ;
+	String on=".*[Aa]ccendi.*|" +
+			".*[Aa]ttiv.*|"+
+			".*[Aa]pr.*";
 	
-	String off="^[Ss]pegni.*|" +
-			"^[Dd]isattiva.*|";
+	String off=".*[Ss]pegni.*|" +
+			".*[Dd]isattiv.*|" +
+			".*[Cc]hiud.*";
 	
 	String inizio="^[Hh]o [Dd]ett.*|";
 	
@@ -40,6 +42,30 @@ public interface WORD_CONSTANTS {
 			".*[Rr]icerca.*|" +
 			".*[Tt]rova.*|";
 	
-	String cerca1="^[Cc]erca [Ss]u [Ii]nter.*|"+
-			"^[Cc]erca [Ss]u [Cc]ro.*|";
+	String sentimento = ".*[Cc]ome.*|";
+	
+	String ciao = ".*[Cc]iao.*|" +
+				  ".*[Cc]ia.*|";
+	
+	String cerca1 = "^[Cc]erca [Ss]u [Ii]nter.*|"+
+				    "^[Cc]erca [Ss]u [Cc]ro.*|";
+	
+	String allarme = ".*[Aa]llarm.*|" +
+					 ".*[Pp]erimet.*|" +
+					 ".*[Pr]otezione.*|";
+	
+	String uscita = ".*[Uu]scend.*|" +
+			 ".*[Uu]scir.*|" +
+			 ".*[Pp]art.*|" +
+			 ".*[Aa]nda.* .*[Vv]ia.*|";
+	
+	String entrata = ".*[En]tra.*|" +
+			 ".*[Tt]orn.*|" +
+			 ".*[Vv]ene.*|" +
+			 ".*[Aa]rriv.*|";
+	
+	String garage = ".*[Gg]arag.*|" +
+			 ".*[Ss]erran.*|";
+	
+	String ritornello = ".*[Ss]opra [Ll]a [Pp]anc.*|";
 }
