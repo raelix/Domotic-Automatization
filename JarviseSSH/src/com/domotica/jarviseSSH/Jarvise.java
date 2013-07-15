@@ -108,6 +108,7 @@ public class Jarvise {
 			state = 2;
 			onSuccess();
 		}
+		
 
 		else if(texts.getFirst().matches(WORD_CONSTANTS.on)){
 			state = 3;
@@ -155,6 +156,10 @@ public class Jarvise {
 			return;
 			}
 		
+		else if(texts.getFirst().matches(WORD_CONSTANTS.movimento)){
+			state = 7;
+			onSuccess();
+		}
 		
 		else {
 			while(MainActivity.talker.isSpeaking());
@@ -175,17 +180,17 @@ public class Jarvise {
 		case 0:
 			MainActivity.say(" OK spedisco");
 			while(MainActivity.talker.isSpeaking());
-			new MultiThread(host, port,new Pacco1(1));
+			new MultiThread("127.0.0.1", 9001,new Pacco1(1));
 			break;
 		case 1:
 			MainActivity.say(" OK cerco su internet");
 			while(MainActivity.talker.isSpeaking());
-			new MultiThread(host, port,new PaccoString((texts.getFirst().split("\\s",2)[1])));
+			new MultiThread("127.0.0.1", 9001,new PaccoString((texts.getFirst().split("\\s",2)[1])));
 			break;
 		case 2:
 			MainActivity.say(" OK cerco su internet");
 			while(MainActivity.talker.isSpeaking());
-			new MultiThread(host, port,new PaccoString((texts.getFirst().split("\\s",4)[3])));
+			new MultiThread("127.0.0.1", 9001,new PaccoString((texts.getFirst().split("\\s",4)[3])));
 			break;
 		case 3:
 			if(texts.getFirst().matches(WORD_CONSTANTS.allarme)){
@@ -196,7 +201,7 @@ public class Jarvise {
 				}
 			else MainActivity.say(" OK provo ad Accendere");
 			while(MainActivity.talker.isSpeaking());
-			new MultiThread(host, port,new PaccoStringOn("Accensione: "+(texts.getFirst().split("\\s",2)[1])));
+			new MultiThread("127.0.0.1", 9001,new PaccoStringOn("Accensione: "+(texts.getFirst().split("\\s",2)[1])));
 			break;
 		case 4:
 			if(texts.getFirst().matches(WORD_CONSTANTS.allarme)){
@@ -207,15 +212,15 @@ public class Jarvise {
 				}
 			else MainActivity.say(" OK provo a Spegnere");
 			while(MainActivity.talker.isSpeaking());
-			new MultiThread(host, port,new PaccoStringOff("Spegnimento: "+(texts.getFirst().split("\\s",2)[1])));
+			new MultiThread("127.0.0.1", 9001,new PaccoStringOff("Spegnimento: "+(texts.getFirst().split("\\s",2)[1])));
 			break;
 		case 5:
-		new MultiThread(host, port,new PaccoStringOn("Accensione: Garage"));
+		new MultiThread("127.0.0.1", 9001,new PaccoStringOn("Accensione: Garage"));
 		try {
 			Thread.sleep(4000);
 			} catch (InterruptedException e) {
 			e.printStackTrace();}
-		new MultiThread(host, port,new PaccoStringOff("Spegnimento: Allarme"));
+		new MultiThread("127.0.0.1", 9001,new PaccoStringOff("Spegnimento: Allarme"));
 		try {
 			Thread.sleep(3000);
 			} catch (InterruptedException e) {
@@ -226,12 +231,12 @@ public class Jarvise {
 			   return;	
 		
 		case 6:
-		new MultiThread(host, port,new PaccoStringOn("Accensione: Allarme"));
+		new MultiThread("127.0.0.1", 9001,new PaccoStringOn("Accensione: Allarme"));
 		try {
 			Thread.sleep(4000);
 			} catch (InterruptedException e) {
 			e.printStackTrace();}
-	   new MultiThread(host, port,new PaccoStringOff("Spegnimento: Garage"));
+	   new MultiThread("127.0.0.1", 9001,new PaccoStringOff("Spegnimento: Garage"));
 	   try {
 			Thread.sleep(3000);
 			} catch (InterruptedException e) {
@@ -240,9 +245,14 @@ public class Jarvise {
 	   while (MainActivity.talker.isSpeaking());
 	  	   fine = false;
 		   return;	
+		case 7:
+			MainActivity.say(" OK controllo ultimo movimento");
+			while(MainActivity.talker.isSpeaking());
+			new MultiThread("127.0.0.1", 9001,new PaccoString((texts.getFirst().split("\\s",2)[1])));
+			break;
 		}
 		/*
-		if(state==0)new MultiThread(host, port,new Pacco1(1));
+		if(state==0)new MultiThread("127.0.0.1", 9001,new Pacco1(1));
 		else if(state==1)new MultiThread("127.0.0.1", 9001,new PaccoString((texts.getFirst().split("\\s",2)[1])));
 		else if(state==2)new MultiThread("127.0.0.1", 9001,new PaccoString((texts.getFirst().split("\\s",4)[3])));
 		else if(state==3)new MultiThread("127.0.0.1", 9001,new PaccoStringOn("Accensione: "+(texts.getFirst().split("\\s",2)[1])));

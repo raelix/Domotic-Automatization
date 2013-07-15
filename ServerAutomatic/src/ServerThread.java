@@ -151,12 +151,12 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 					MainServer.file.write("Ricezione: ricevuto pacco 5");
 					try {
 						String f=new PaccoString(pkt).getString();
-						System.out.println("Ricezione: Con stringa= "+f);
-						MainServer.file.write("Ricezione: Con stringa= "+f);
-						f=f.replace( " ","%20" ); 
-						java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://www.google.com/search?q="+f));
-//						Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
-//						Runtime.getRuntime().exec("taskkill /F /FI "USERNAME eq Quinn"); killa tt
+						if(f.matches(WORD_CONSTANTS.movimento)){
+							//FIXME es. s=gpio.accenditelecamera();
+							s = "Ultimo movimento  alle ore "+MainServer.movimento+" secondi";
+							MainServer.file.write("Ricezione: "+s);
+						}
+						//						Runtime.getRuntime().exec("taskkill /F /FI "USERNAME eq Quinn"); killa tt
 //						Process p  = Runtime.getRuntime().exec("notepad.exe");
 //						p.waitFor(); attende che il processo sia terminato (meglio fare tt come thread)
 					} catch (IOException e) {
@@ -171,8 +171,34 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 						String f=new PaccoStringOn(pkt).getString();
 						System.out.println("Ricezione: Con stringa= "+f);
 						MainServer.file.write("Ricezione: Con stringa= "+f);
-						f=f.replace( " ","%20" ); 
-						java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://www.google.com/search?q="+f));
+						if(f.matches(WORD_CONSTANTS.luce)){
+							//FIXME es. s=gpio.accendiluce();
+						s = MainServer.gpio.accendiluce();
+						MainServer.file.write("Ricezione: Accendo luce "+s);
+						}
+						else if(f.matches(WORD_CONSTANTS.telecamera)){
+							//FIXME es. s=gpio.accenditelecamera();
+							s = MainServer.gpio.accenditelecamera();
+							MainServer.file.write("Ricezione: Accendo telecamera "+s);
+						}
+						else if(f.matches(WORD_CONSTANTS.allarme)){
+							//FIXME es. s=gpio.accenditelecamera();
+							s = MainServer.gpio.attivaAllarme();
+							MainServer.file.write("Ricezione: Attivo allarme "+s);
+						}
+						else if(f.matches(WORD_CONSTANTS.garage)){
+							//FIXME es. s=gpio.accenditelecamera();
+							s = MainServer.gpio.apriGarage();
+							MainServer.file.write("Ricezione: Apro garage "+s);
+						}
+						else if(f.matches(WORD_CONSTANTS.movimento)){
+							//FIXME es. s=gpio.accenditelecamera();
+							s = "Ultimo movimento  il "+MainServer.movimento;
+							MainServer.file.write("Ricezione: "+s);
+						}
+						else s = "non ho capito cosa devo accendere";
+//						f=f.replace( " ","%20" ); 
+//						java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://www.google.com/search?q="+f));
 //						Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
 //						Runtime.getRuntime().exec("taskkill /F /FI "USERNAME eq Quinn"); killa tt
 //						Process p  = Runtime.getRuntime().exec("notepad.exe");
@@ -189,8 +215,30 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 						String f=new PaccoStringOff(pkt).getString();
 						System.out.println("Ricezione: Con stringa= "+f);
 						MainServer.file.write("Ricezione: Con stringa= "+f);
-						f=f.replace( " ","%20" ); 
-						java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://www.google.com/search?q="+f));
+						if(f.matches(WORD_CONSTANTS.luce)){
+							//FIXME es. s=gpio.spegniluce();
+							s = MainServer.gpio.spegniluce();
+							System.out.println("RRicezione: Spengo Luce "+s);
+							MainServer.file.write("Ricezione: Spengo Luce "+s);
+						}
+						else if(f.matches(WORD_CONSTANTS.telecamera)){
+							//FIXME es. s=gpio.spegnitelecamera();
+							s = MainServer.gpio.spegnitelecamera();
+							MainServer.file.write("Ricezione: Spengo Telecamera "+s);
+						}
+						else if(f.matches(WORD_CONSTANTS.allarme)){
+							//FIXME es. s=gpio.accenditelecamera();
+							s = MainServer.gpio.disattivaAllarme();
+							MainServer.file.write("Ricezione: Disattivo allarme "+s);
+						}
+						else if(f.matches(WORD_CONSTANTS.garage)){
+							//FIXME es. s=gpio.accenditelecamera();
+							s = MainServer.gpio.chiudiGarage();
+							MainServer.file.write("Ricezione: Chiudo garage "+s);
+						}
+						else s = "non ho capito cosa devo spegnere";
+//						f=f.replace( " ","%20" ); 
+//						java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://www.google.com/search?q="+f));
 //						Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
 //						Runtime.getRuntime().exec("taskkill /F /FI "USERNAME eq Quinn"); killa tt
 //						Process p  = Runtime.getRuntime().exec("notepad.exe");

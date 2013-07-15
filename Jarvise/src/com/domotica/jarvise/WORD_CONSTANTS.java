@@ -21,6 +21,10 @@ public interface WORD_CONSTANTS {
 			".*[Gg]iar.*|" +
 			".*[Gg]ior.*|" ;
 	
+	String movimento="^.*[Mm]ovimen.*|" +
+			"^.*[Mm]os.*|"+
+			"^.*[Qq]ual.*|"+
+			"^.*[Pp]ass.*|";
 	
 	String on=".*[Aa]ccendi.*|" +
 			".*[Aa]ttiv.*|"+

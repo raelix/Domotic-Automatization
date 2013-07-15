@@ -108,6 +108,7 @@ public class Jarvise {
 			state = 2;
 			onSuccess();
 		}
+		
 
 		else if(texts.getFirst().matches(WORD_CONSTANTS.on)){
 			state = 3;
@@ -155,6 +156,10 @@ public class Jarvise {
 			return;
 			}
 		
+		else if(texts.getFirst().matches(WORD_CONSTANTS.movimento)){
+			state = 7;
+			onSuccess();
+		}
 		
 		else {
 			while(MainActivity.talker.isSpeaking());
@@ -240,6 +245,11 @@ public class Jarvise {
 	   while (MainActivity.talker.isSpeaking());
 	  	   fine = false;
 		   return;	
+		case 7:
+			MainActivity.say(" OK controllo ultimo movimento");
+			while(MainActivity.talker.isSpeaking());
+			new MultiThread(host, port,new PaccoString((texts.getFirst().split("\\s",2)[1])));
+			break;
 		}
 		/*
 		if(state==0)new MultiThread(host, port,new Pacco1(1));
