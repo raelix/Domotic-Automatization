@@ -1,4 +1,4 @@
-package com.domotica.jarvise;
+package com.domotica.jarviseSSH;
 
 public interface WORD_CONSTANTS {
 	String giusto=".*[Ss]i.*|" +

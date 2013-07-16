@@ -1,4 +1,4 @@
-package com.domotica.jarvise;
+package com.domotica.jarviseSSH;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.LinkedList;

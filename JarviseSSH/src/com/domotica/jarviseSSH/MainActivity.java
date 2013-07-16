@@ -1,4 +1,4 @@
-package com.domotica.jarvise;
+package com.domotica.jarviseSSH;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -24,7 +24,7 @@ import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
-import com.domotica.jarvise.R;
+import com.domotica.jarviseSSH.R;
 
 /**
  * @author raelix
