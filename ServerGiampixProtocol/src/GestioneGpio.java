@@ -37,6 +37,8 @@ public class GestioneGpio {
 	public static GpioPinDigitalOutput gpio9 ;       //sensore acqua casa
 	public static GpioPinDigitalOutput gpio10;    	//sensore movimento casa
 	ThreadListenGpio movimento;
+	ThreadListenGpioAcquaAcquario AcquaAcquario;
+	ThreadListenGpioAcquaCasa AcquaCasa;
 	Garage GarageAllarme;
 	
 	
@@ -47,6 +49,8 @@ public class GestioneGpio {
 		this.secAlarm = 4000;
 		this.GarageAllarme = new Garage(gpio); 
 		this.movimento = new ThreadListenGpio(gpio);
+		this.AcquaAcquario = new ThreadListenGpioAcquaAcquario(gpio);
+		this.AcquaCasa = new ThreadListenGpioAcquaCasa(gpio);
 		this.default0 = MainServer.default0;
 		this.default1 = MainServer.default1;
 		this.default2 = MainServer.default2;
