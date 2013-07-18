@@ -65,10 +65,19 @@ public class MainActivity extends Activity  implements OnInitListener {
 		            br.write("username");
 		            br.write("\n");
 		            br.write("password");
+		            br.write("\n");
+		            br.write("default0");
+		            br.write("\n");
+		            br.write("default1");
+		            br.write("\n");
+		            br.write("default2");
+		            br.write("\n");
+		            br.write("default3");
+		            br.write("\n");
 		            br.flush();
 		            br.close();
 		        } catch (IOException e) {
-		        	System.out.println("erroree creazione file");
+		        	System.out.println("errore creazione file");
 		            e.printStackTrace();
 		        }
 		}
