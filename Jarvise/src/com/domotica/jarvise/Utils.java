@@ -65,4 +65,18 @@ public abstract class Utils {
 		}
 		return baos.toByteArray();
 	}
+	
+	public static byte[] serialize2Int(int x,int y){
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		DataOutputStream w = new DataOutputStream(baos);
+		try {
+			w.writeInt(x);
+			w.writeInt(y);
+			w.flush();
+			w.close(); //FIXME 
+		} catch (IOException e) {
+			return null;
+		}
+		return baos.toByteArray();
+	}
 }
