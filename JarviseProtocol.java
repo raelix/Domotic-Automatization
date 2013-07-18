@@ -108,103 +108,168 @@ public class JarviseProtocol {
 
 		else if(texts.getFirst().matches(WORD_CONSTANTS.on)){
 				
-					if(texts.getFirst().matches(WORD_CONSTANTS.garage)){
-					MainActivity.say(" OK provo ad Aprirlo");
-					state = 4;
-					}
+					
 			
-					else if(texts.getFirst().matches(WORD_CONSTANTS.allarme)){
+				 if(texts.getFirst().matches(WORD_CONSTANTS.allarme)){
 						if(texts.getFirst().matches(WORD_CONSTANTS.garage)){
-							MainActivity.say(" OK provo ad Attivarla");
+							MainActivity.say(" OK provo ad Attivare l'allarme del garage");
 							state = 6;}
 						else if(texts.getFirst().matches(WORD_CONSTANTS.casa)){
-						MainActivity.say(" OK provo ad Attivarla");
+						MainActivity.say(" OK provo ad Attivare l'allarme di casa");
 					state = 7;}	
+						else {MainActivity.say(" non ho capito di quale allarme parli");
+						while(MainActivity.talker.isSpeaking());
+						return;}
 					}
 				
-					else if(texts.getFirst().matches(".*"+default0+".*")){
-					MainActivity.say(" OK provo ad accendere");
+				 else if(texts.getFirst().matches(WORD_CONSTANTS.garage)){
+						MainActivity.say(" OK provo ad Aprire il garage");
+						state = 4;
+						}
+					
+				
+				 else if(texts.getFirst().matches(".*"+default0+".*")){
+						if(texts.getFirst().matches(".*[Aa]ccendi.*"))
+							MainActivity.say(" OK provo a accendere");
+					else if (texts.getFirst().matches("^[Aa]ttiv.*"))
+						MainActivity.say(" OK provo a attivare");
+					else if (texts.getFirst().matches(".*[Aa]pr.*"))
+						MainActivity.say(" OK provo ad aprire");
 					state = 0;
 					}
+				 
+				 
 					else if(texts.getFirst().matches(".*"+default1+".*")){
-					MainActivity.say(" OK provo ad accendere");
+						if(texts.getFirst().matches(".*[Aa]ccendi.*"))
+							MainActivity.say(" OK provo a accendere");
+					else if (texts.getFirst().matches("^[Aa]ttiv.*"))
+						MainActivity.say(" OK provo a attivare");
+					else if (texts.getFirst().matches(".*[Aa]pr.*"))
+						MainActivity.say(" OK provo ad aprire");
 					state = 1;
 					}
 				
 					else if(texts.getFirst().matches(".*"+default2+".*")){
-					MainActivity.say(" OK provo ad accendere");
-					state = 2;
+						if(texts.getFirst().matches(".*[Aa]ccendi.*"))
+							MainActivity.say(" OK provo a accendere");
+					else if (texts.getFirst().matches("^[Aa]ttiv.*"))
+						MainActivity.say(" OK provo a attivare");
+					else if (texts.getFirst().matches(".*[Aa]pr.*"))
+						MainActivity.say(" OK provo ad aprire");
+						state = 2;
 					}
 				
 					else if(texts.getFirst().matches(".*"+default3+".*")){
-					MainActivity.say(" OK provo ad accendere");
-					state = 3;
+						if(texts.getFirst().matches(".*[Aa]ccendi.*"))
+							MainActivity.say(" OK provo a accendere");
+					else if (texts.getFirst().matches("^[Aa]ttiv.*"))
+						MainActivity.say(" OK provo a attivare");
+					else if (texts.getFirst().matches(".*[Aa]pr.*"))
+						MainActivity.say(" OK provo ad aprire");
+						state = 3;
 					}
-				/*else if(texts.getFirst().matches(".*"+default4+".*")){
-					MainActivity.say(" OK provo ad accendere");
-					state = 4;
-					}
-				else if(texts.getFirst().matches(".*"+default5+".*")){
-					MainActivity.say(" OK provo ad accendere");
-					state = 5;
-					}
-				else if(texts.getFirst().matches(".*"+default6+".*")){
-					MainActivity.say(" OK provo ad accendere");
-					state = 6;
-					}
-				else if(texts.getFirst().matches(".*"+default7+".*")){
-					MainActivity.say(" OK provo ad accendere");
-					state = 7;
-					}
-				else if(texts.getFirst().matches(".*"+default8+".*")){
-					MainActivity.say(" OK provo ad accendere");
-					state = 8;
-					}
-				else if(texts.getFirst().matches(".*"+default9+".*")){
-					MainActivity.say(" OK provo ad accendere");
-					state = 9;
-					}
-				else if(texts.getFirst().matches(".*"+default10+".*")){
-					MainActivity.say(" OK provo ad accendere");
-					state = 10;
-					}*/
+					
+					else {
+						while(MainActivity.talker.isSpeaking());
+						MainActivity.say("Non ho capito ripeti?");
+						fine= false;
+						while(MainActivity.talker.isSpeaking());
+						return;}
+				
 				while(MainActivity.talker.isSpeaking());
 
 				onSuccess(1);
 		}
 
 		else if(texts.getFirst().matches(WORD_CONSTANTS.off)){
-			if(texts.getFirst().matches(WORD_CONSTANTS.garage)){
-				MainActivity.say(" OK provo ad Chiuderlo");
-				state = 5;
-				}
-		
-				else if(texts.getFirst().matches(WORD_CONSTANTS.allarme)){
-					if(texts.getFirst().matches(WORD_CONSTANTS.garage)){
-						MainActivity.say(" OK provo ad Disattivarla");
+			
+			
+			if(texts.getFirst().matches(WORD_CONSTANTS.allarme)){
+				if(texts.getFirst().matches(WORD_CONSTANTS.garage)){
+						MainActivity.say(" OK provo a Disattivare l'allarme del garage");
 						state = 6;}
 					else if(texts.getFirst().matches(WORD_CONSTANTS.casa)){
-					MainActivity.say(" OK provo ad Disttivarla");
+					MainActivity.say(" OK provo a Disattivare l'allarme di casa");
 				state = 7;}	
+					else {MainActivity.say(" non ho capito di quale allarme parli");
+					while(MainActivity.talker.isSpeaking());
+					return;}
 				}
 			
+			else if(texts.getFirst().matches(WORD_CONSTANTS.garage)){
+				MainActivity.say(" OK provo a Chiudere il garage");
+				state = 5;
+				}
+			
+			
 				else if(texts.getFirst().matches(".*"+default0+".*")){
-				MainActivity.say(" OK provo ad spegnere");
+				if(texts.getFirst().matches(".*[Ss]pegni.*"))
+						MainActivity.say(" OK provo a spegnere");
+				else if (texts.getFirst().matches(".*[Dd]isattiv.*"))
+					MainActivity.say(" OK provo a disativare");
+				else if (texts.getFirst().matches(".*[Cc]hiud.*"))
+					MainActivity.say(" OK provo a chiudere");
 				state = 0;
 				}
 				else if(texts.getFirst().matches(".*"+default1+".*")){
-				MainActivity.say(" OK provo ad spegnere");
+					if(texts.getFirst().matches(".*[Ss]pegni.*"))
+						MainActivity.say(" OK provo a spegnere");
+				else if (texts.getFirst().matches(".*[Dd]isattiv.*"))
+					MainActivity.say(" OK provo a disativare");
+				else if (texts.getFirst().matches(".*[Cc]hiud.*"))
+					MainActivity.say(" OK provo a chiudere");
 				state = 1;
 				}
 			
 				else if(texts.getFirst().matches(".*"+default2+".*")){
-				MainActivity.say(" OK provo ad spegnere");
+					if(texts.getFirst().matches(".*[Ss]pegni.*"))
+						MainActivity.say(" OK provo a spegnere");
+				else if (texts.getFirst().matches(".*[Dd]isattiv.*"))
+					MainActivity.say(" OK provo a disativare");
+				else if (texts.getFirst().matches(".*[Cc]hiud.*"))
+					MainActivity.say(" OK provo a chiudere");
 				state = 2;
 				}
 			
 				else if(texts.getFirst().matches(".*"+default3+".*")){
-				MainActivity.say(" OK provo ad spegnere");
+					if(texts.getFirst().matches(".*[Ss]pegni.*"))
+						MainActivity.say(" OK provo a spegnere");
+				else if (texts.getFirst().matches(".*[Dd]isattiv.*"))
+					MainActivity.say(" OK provo a disativare");
+				else if (texts.getFirst().matches(".*[Cc]hiud.*"))
+					MainActivity.say(" OK provo a chiudere");
 				state = 3;}
+				
+				else {
+					while(MainActivity.talker.isSpeaking());
+					MainActivity.say("Non ho capito ripeti?");
+					fine= false;
+					while(MainActivity.talker.isSpeaking());
+					return;}
+			
+			onSuccess(0);
+		}
+		
+		else if(texts.getFirst().matches(".*[Aa]cqu.*|"+".*[Pp]erd.*")){
+			if(texts.getFirst().matches(".*[Aa]cquari.*")){
+			state = 8;
+			MainActivity.say(" Controllo perdite dall'acquario");
+			while(MainActivity.talker.isSpeaking());}
+			else if(texts.getFirst().matches(".*[Cc]asa.*")){
+				state = 9;
+				MainActivity.say(" Controllo perdite in casa");
+				while(MainActivity.talker.isSpeaking());}
+			else {MainActivity.say(" non ho capito di quale sensore d'acqua parli");
+			while(MainActivity.talker.isSpeaking());
+			return;}
+			onSuccess(0);
+		}
+		
+		
+		else if(texts.getFirst().matches(WORD_CONSTANTS.movimento)){
+			state = 10;
+			MainActivity.say(" Controllo Ultimo movimento memorizzato");
+			while(MainActivity.talker.isSpeaking());
 			onSuccess(0);
 		}
 
@@ -234,10 +299,7 @@ public class JarviseProtocol {
 			return;
 			}
 		*/
-		else if(texts.getFirst().matches(WORD_CONSTANTS.movimento)){
-			state = 10;
-			onSuccess(0);
-		}
+		
 		
 		else {
 			while(MainActivity.talker.isSpeaking());
@@ -254,6 +316,7 @@ public class JarviseProtocol {
 		else if(state==4)MainActivity.say(" OK provo a Spegnere");
 		while(MainActivity.talker.isSpeaking());
 		*/
+//		if(state <= 10 && state >= 0 && (bit==0 || bit==1)){new MultiThread(host, port,new PaccoGpio(state, bit));}
 		switch (state){
 		case 0:
 			while(MainActivity.talker.isSpeaking());
