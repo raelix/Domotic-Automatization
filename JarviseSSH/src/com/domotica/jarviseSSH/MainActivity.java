@@ -40,7 +40,7 @@ public class MainActivity extends Activity  implements OnInitListener {
 	ArrayList<String> trueChoose;
 	ArrayList<String> falseChoose;
 	static PrintWriter printwriter;
-	Jarvise jarvis;
+	JarviseProtocol jarvis;
 	static Socket client;
 	static Socket clientSocket;
 	static ServerSocket  serverSocket;
@@ -50,7 +50,7 @@ public class MainActivity extends Activity  implements OnInitListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-		jarvis = new Jarvise();
+		jarvis = new JarviseProtocol();
 		speechRecognizer = SpeechRecognizer.createSpeechRecognizer(getBaseContext());
 		talker = new TextToSpeech(this, this);
 		Button btnSpeak = (Button) findViewById(R.id.btn_speak);
@@ -65,10 +65,19 @@ public class MainActivity extends Activity  implements OnInitListener {
 		            br.write("username");
 		            br.write("\n");
 		            br.write("password");
+		            br.write("\n");
+		            br.write("default0");
+		            br.write("\n");
+		            br.write("default1");
+		            br.write("\n");
+		            br.write("default2");
+		            br.write("\n");
+		            br.write("default3");
+		            br.write("\n");
 		            br.flush();
 		            br.close();
 		        } catch (IOException e) {
-		        	System.out.println("erroree creazione file");
+		        	System.out.println("errore creazione file");
 		            e.printStackTrace();
 		        }
 		}

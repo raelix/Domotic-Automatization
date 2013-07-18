@@ -1,7 +1,7 @@
 package com.domotica.jarviseSSH;
 
 public interface WORD_CONSTANTS {
-	String giusto=".*[Ss]i.*|" +
+	String giusto="^[Ss]i.*|" +
 			".*[Ee]satt.*|" +
 			".*[Pp]erfett.*|" +
 			".*[Gg]iusto.*|" +
@@ -10,7 +10,7 @@ public interface WORD_CONSTANTS {
 			".*[Bb]rav.*|" +
 			".*[Ff]inalment.*";
 	
-	String sbagliato=".*[Nn]o.*|" +
+	String sbagliato="^[Nn]o.*|" +
 			".*[Nn]eanch.*|" +
 			".*[Ss]bagli.*|" +
 			".*[Nn]on.*|";
@@ -23,12 +23,16 @@ public interface WORD_CONSTANTS {
 	
 	String movimento="^.*[Mm]ovimen.*|" +
 			"^.*[Mm]os.*|"+
+			"^.*[Ee]ntrat.*|"+
 			"^.*[Qq]ual.*|"+
 			"^.*[Pp]ass.*|";
 	
 	String on=".*[Aa]ccendi.*|" +
-			".*[Aa]ttiv.*|"+
+			"^[Aa]ttiv.*|"+
 			".*[Aa]pr.*";
+	
+	String casa=".*[Cc]asa.*|" +
+			"^[Aa]ppartamento.*";
 	
 	String off=".*[Ss]pegni.*|" +
 			".*[Dd]isattiv.*|" +
@@ -56,7 +60,7 @@ public interface WORD_CONSTANTS {
 	
 	String allarme = ".*[Aa]llarm.*|" +
 					 ".*[Pp]erimet.*|" +
-					 ".*[Pr]otezione.*|";
+					 ".*[Pr]otezione.*";
 	
 	String uscita = ".*[Uu]scend.*|" +
 			 ".*[Uu]scir.*|" +
@@ -68,8 +72,8 @@ public interface WORD_CONSTANTS {
 			 ".*[Vv]ene.*|" +
 			 ".*[Aa]rriv.*|";
 	
-	String garage = ".*[Gg]arag.*|" +
-			 ".*[Ss]erran.*|";
+	String garage = ".*[Gg]arage.*|" +
+			 ".*[Ss]erran.^";
 	
 	String ritornello = ".*[Ss]opra [Ll]a [Pp]anc.*|";
 }
