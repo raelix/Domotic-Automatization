@@ -1,0 +1,283 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+    <Button
+        android:id="@+id/Button01"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/textView1"
+        android:layout_toRightOf="@+id/button1"
+        android:minWidth="25dp"
+        android:text="Off" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Button03"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="73dp"
+        android:text="default1" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/Button01"
+        android:layout_marginRight="19dp"
+        android:text="default0" />
+
+    <Button
+        android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/Button01"
+        android:layout_alignBottom="@+id/Button01"
+        android:layout_alignParentLeft="true"
+        android:minWidth="25dp"
+        android:text="On" />
+
+    <Button
+        android:id="@+id/Button02"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/Button01"
+        android:layout_alignBottom="@+id/Button01"
+        android:layout_alignRight="@+id/TextView01"
+        android:layout_marginRight="22dp"
+        android:minWidth="25dp"
+        android:text="On" />
+
+    <Button
+        android:id="@+id/Button03"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/Button02"
+        android:layout_alignBottom="@+id/Button02"
+        android:layout_alignLeft="@+id/TextView01"
+        android:layout_marginLeft="33dp"
+        android:minWidth="25dp"
+        android:text="Off" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/Button01"
+        android:layout_marginTop="18dp"
+        android:text="default2" />
+
+    <Button
+        android:id="@+id/Button04"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/TextView02"
+        android:layout_toLeftOf="@+id/Button01"
+        android:minWidth="25dp"
+        android:text="On" />
+
+    <Button
+        android:id="@+id/Button05"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/Button04"
+        android:layout_alignBottom="@+id/Button04"
+        android:layout_alignLeft="@+id/Button01"
+        android:minWidth="25dp"
+        android:text="Off" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView02"
+        android:layout_alignBottom="@+id/TextView02"
+        android:layout_alignLeft="@+id/TextView01"
+        android:text="default3" />
+
+    <Button
+        android:id="@+id/Button06"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/Button05"
+        android:layout_alignBottom="@+id/Button05"
+        android:layout_alignLeft="@+id/Button02"
+        android:minWidth="25dp"
+        android:text="On" />
+
+    <Button
+        android:id="@+id/Button07"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/Button03"
+        android:layout_below="@+id/TextView03"
+        android:minWidth="25dp"
+        android:text="Off" />
+
+    <TextView
+        android:id="@+id/TextView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView02"
+        android:layout_below="@+id/Button04"
+        android:layout_marginTop="18dp"
+        android:text="garage" />
+
+    <Button
+        android:id="@+id/Button08"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/TextView04"
+        android:layout_toLeftOf="@+id/Button05"
+        android:minWidth="25dp"
+        android:text="On" />
+
+    <Button
+        android:id="@+id/Button09"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/Button08"
+        android:layout_alignBottom="@+id/Button08"
+        android:layout_alignLeft="@+id/Button05"
+        android:minWidth="25dp"
+        android:text="Off" />
+
+    <Button
+        android:id="@+id/Button10"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/Button09"
+        android:layout_alignBottom="@+id/Button09"
+        android:layout_alignLeft="@+id/Button06"
+        android:minWidth="25dp"
+        android:text="On" />
+
+    <Button
+        android:id="@+id/Button11"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/Button10"
+        android:layout_alignBottom="@+id/Button10"
+        android:layout_alignLeft="@+id/Button07"
+        android:minWidth="25dp"
+        android:text="Off" />
+
+    <TextView
+        android:id="@+id/TextView05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Button10"
+        android:layout_alignRight="@+id/Button11"
+        android:text="AllarmeGarage" />
+
+    <Button
+        android:id="@+id/Button12"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/TextView06"
+        android:layout_below="@+id/TextView06"
+        android:minWidth="25dp"
+        android:text="On" />
+
+    <Button
+        android:id="@+id/Button13"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/Button12"
+        android:layout_alignBottom="@+id/Button12"
+        android:layout_alignLeft="@+id/Button09"
+        android:minWidth="25dp"
+        android:text="Off" />
+
+    <TextView
+        android:id="@+id/TextView07"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Button13"
+        android:layout_alignLeft="@+id/TextView05"
+        android:text="Perdita Acquario" />
+
+    <Button
+        android:id="@+id/Button14"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/Button13"
+        android:layout_alignBottom="@+id/Button13"
+        android:layout_alignLeft="@+id/TextView07"
+        android:layout_alignRight="@+id/Button11"
+        android:minWidth="25dp"
+        android:text="Controlla" />
+
+    <TextView
+        android:id="@+id/TextView08"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Button12"
+        android:layout_below="@+id/Button12"
+        android:layout_marginTop="18dp"
+        android:text="Perdita in Casa" />
+
+    <TextView
+        android:id="@+id/TextView06"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Button08"
+        android:layout_below="@+id/Button08"
+        android:layout_marginTop="15dp"
+        android:text="AllarmeCasa" />
+
+    <Button
+        android:id="@+id/Button15"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/TextView08"
+        android:layout_alignRight="@+id/TextView08"
+        android:layout_below="@+id/TextView08"
+        android:minWidth="25dp"
+        android:text="Controlla" />
+
+    <TextView
+        android:id="@+id/TextView09"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Button15"
+        android:layout_alignLeft="@+id/Button10"
+        android:text="Ultimo Movimento" />
+
+    <Button
+        android:id="@+id/Button16"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/Button15"
+        android:layout_alignBottom="@+id/Button15"
+        android:layout_alignLeft="@+id/Button14"
+        android:layout_alignRight="@+id/Button14"
+        android:minWidth="25dp"
+        android:text="Controlla" />
+
+</RelativeLayout>
