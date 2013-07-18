@@ -36,7 +36,7 @@ public class PaccoGpio extends Pacco {
 			e.printStackTrace();
 		}
 		
-		return  new int[] {bit,pin};
+		return  new int[] {pin,bit};
 		
 	}
 	
