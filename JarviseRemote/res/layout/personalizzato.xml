@@ -1,0 +1,133 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/background_dark" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="344dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/infoPersonalizzato"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0,5" >
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="90dp" >
+
+                <TextView
+                    android:id="@+id/personalizzatoText1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default1"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/pesonalizzato1On"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/On" />
+
+                <Button
+                    android:id="@+id/pesonalizzato1Off"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/Off" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/personalizzatoText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default2"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/pesonalizzato2On"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/On" />
+
+                <Button
+                    android:id="@+id/pesonalizzato2Off"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/Off" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/personalizzatoText3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default3"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/pesonalizzato3On"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/On" />
+
+                <Button
+                    android:id="@+id/pesonalizzato3Off"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/Off" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/personalizzatoText4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default4"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/pesonalizzato4On"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/On" />
+
+                <Button
+                    android:id="@+id/pesonalizzato4Off"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/Off" />
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+
+</ScrollView>
