@@ -23,4 +23,7 @@
  	<string name="default8">Pedita Acquario</string>
  	<string name="default9">Perdita Casa</string>
  	<string name="default10">Ultimo Movimento</string>
+ 	<string name="nome">UserName</string>
+ 	<string name="password">Password</string>
+ 	<string name="host">host</string>
 </resources>
