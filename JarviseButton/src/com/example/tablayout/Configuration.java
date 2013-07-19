@@ -5,6 +5,7 @@ package com.example.tablayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import android.os.Environment;
 
@@ -59,6 +60,95 @@ public class Configuration {
 		catch (IOException e) {
 			System.out.println("errore caricamento file "+e.getMessage());
 		}
+	}
+	
+	public void write2File(String name, String passwd, String hoster, String def1, String def2,String def3,String def4) throws IOException{
+String h=this.getHost();
+String n=this.getUser();
+String p=this.getPass();
+String d1=this.getDefault0();
+String d2=this.getDefault1();
+String d3=this.getDefault2();
+String d4=this.getDefault3();
+FileWriter writer = new FileWriter(Environment.getExternalStorageDirectory()+"/jarvise.txt");
+
+if(hoster.length() != 0){
+ writer.write(hoster);
+ writer.write("\n");
+}
+else if(h != null && h.length() != 0){
+	writer.write(h);
+	writer.write("\n");}
+else {
+	writer.write("host");
+	writer.write("\n");
+}
+if(name.length() != 0){
+	writer.write(name);
+	writer.write("\n");	
+}
+else if(n != null && n.length() != 0){
+	writer.write(n);
+	writer.write("\n");
+}
+else {	writer.write("user");
+		writer.write("\n");
+}
+if(passwd.length() != 0){
+	writer.write(passwd);
+	writer.write("\n");	
+}
+else if(p != null && p.length() != 0){
+	writer.write(p);
+	writer.write("\n");}
+else{ writer.write("password");
+writer.write("\n");}
+if(def1.length() != 0){
+	writer.write(def1);
+	writer.write("\n");	
+}
+else if(d1 != null && d1.length()!= 0){
+	writer.write(d1);
+	writer.write("\n");}
+else {writer.write("default1");
+writer.write("\n");
+}
+if(def2.length() != 0){
+	writer.write(def2);
+	writer.write("\n");	
+}
+else if(d2 != null && d2.length()!= 0){
+	writer.write(d2);
+	writer.write("\n");}
+else {
+	writer.write("default1");
+	writer.write("\n");
+}
+
+if(def3.length() != 0){
+	writer.write(def3);
+	writer.write("\n");	
+}
+else if(d3 != null && d3.length()!= 0){
+	writer.write(d3);
+	writer.write("\n");}
+else {
+	writer.write("default3");
+	writer.write("\n");
+}
+
+if(def4.length() != 0){
+	writer.write(def4);
+	writer.write("\n");	
+}
+else if(d4 != null && d4.length()!= 0){
+	writer.write(d4);
+	writer.write("\n");}
+else {
+	writer.write("default4");
+	writer.write("\n");
+}
+writer.flush();
 	}
 
 	public String getHost(){

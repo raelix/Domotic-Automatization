@@ -156,6 +156,28 @@
 
             </TableRow>
             
+             <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/default4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default4"
+                    android:textColor="@android:color/white" />
+
+               <EditText
+                    android:id="@+id/default4Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                      android:background="@android:color/white"
+                    android:ems="10" >
+   </EditText>
+   
+
+            </TableRow>
+            
           
             
             

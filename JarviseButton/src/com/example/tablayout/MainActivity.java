@@ -1,10 +1,15 @@
 package com.example.tablayout;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Locale;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -26,6 +31,32 @@ public class MainActivity extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		File file = new File(Environment.getExternalStorageDirectory()+"/jarvise.txt");
+		if (!file.exists()) {
+		        try {
+		            file.createNewFile();
+		            BufferedWriter br = new BufferedWriter(new FileWriter(file));
+		            br.write("host address / ip address");
+		            br.write("\n");
+		            br.write("username");
+		            br.write("\n");
+		            br.write("password");
+		            br.write("\n");
+		            br.write("default1");
+		            br.write("\n");
+		            br.write("default2");
+		            br.write("\n");
+		            br.write("default3");
+		            br.write("\n");
+		            br.write("default4");
+		            br.write("\n");
+		            br.flush();
+		            br.close();
+		        } catch (IOException e) {
+		        	System.out.println("errore creazione file");
+		            e.printStackTrace();
+		        }
+		}
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		mSectionsPagerAdapter = new SectionsPagerAdapter(
