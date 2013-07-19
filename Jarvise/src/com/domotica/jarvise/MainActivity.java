@@ -54,7 +54,7 @@ public class MainActivity extends Activity  implements OnInitListener {
 		speechRecognizer = SpeechRecognizer.createSpeechRecognizer(getBaseContext());
 		talker = new TextToSpeech(this, this);
 		Button btnSpeak = (Button) findViewById(R.id.btn_speak);
-		btnSpeak.setBackgroundResource(R.drawable.androido);
+		btnSpeak.setBackgroundResource(R.drawable.jarv);
 		File file = new File(Environment.getExternalStorageDirectory()+"/jarvise.txt");
 		if (!file.exists()) {
 		        try {
