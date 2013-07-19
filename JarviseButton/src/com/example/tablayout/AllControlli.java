@@ -1,6 +1,7 @@
 package com.example.tablayout;
 import com.example.tablayout.R;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -13,6 +14,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class AllControlli extends Fragment implements OnClickListener{
+	private static String nameFile = "jarvise.txt";
+	TextView def1;
+	TextView def2;
+	TextView def3;
+	TextView def4;
+	String default1;
+	String default2;
+	String default3;
+	String default4;
 	Button button1on;
 	Button button1off;
 	Button button2on;
@@ -30,13 +40,19 @@ public class AllControlli extends Fragment implements OnClickListener{
 	Button AcquaAcquario;
 	Button AcquaCasa;
 	Button movimento;
-
-
+	static Activity thisActivity = null;
+	Configuration readFile;
+	@SuppressWarnings("static-access")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.e("Controlli", "Tutti");
-
+		this.thisActivity = this.getActivity();
+		this.readFile = new Configuration(nameFile);
+		this.default1 = readFile.getDefault0(); 
+		this.default2 = readFile.getDefault1();
+		this.default3 = readFile.getDefault2();
+		this.default4 = readFile.getDefault3();
 	}
 
 	@Override
@@ -51,6 +67,14 @@ public class AllControlli extends Fragment implements OnClickListener{
 		View view = inflater.inflate(R.layout.allcontrolli, container, false);
 		TextView textView = (TextView) view.findViewById(R.id.infoTuttiControlli);
 		textView.setText("Tutti i Controlli");
+		def1 = (TextView) view.findViewById(R.id.personalizzatoText1);
+		def2 = (TextView) view.findViewById(R.id.personalizzatoText2);
+		def3 = (TextView) view.findViewById(R.id.personalizzatoText3);
+		def4 = (TextView) view.findViewById(R.id.personalizzatoText4);
+		if(default1 != null)def1.setText(default1);
+		if(default2 != null)def2.setText(default2);
+		if(default3 != null)def3.setText(default3);
+		if(default4 != null)def4.setText(default4);
 		button1on = (Button)view.findViewById(R.id.pesonalizzato1On);
 		button1off = (Button)view.findViewById(R.id.pesonalizzato1Off);
 		button2on = (Button)view.findViewById(R.id.pesonalizzato2On);
@@ -89,8 +113,8 @@ public class AllControlli extends Fragment implements OnClickListener{
 		return view;
 	}
 
-	public void log(String log){
-		Toast.makeText(this.getActivity(), log, Toast.LENGTH_LONG).show();
+	public static void log(String log){
+		Toast.makeText(thisActivity, log, Toast.LENGTH_LONG).show();
 
 	}
 

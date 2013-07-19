@@ -101,6 +101,7 @@ public class MultiThread{
 				try {
 					System.out.println("Ricevuta Stringa di ritorno dal Server: "+new PaccoString(p).getString());
 //					MainActivity.say(new PaccoString(p).getString());
+					AllControlli.log(new PaccoString(p).getString());
 					this.close();
 				} catch (ProtocolException e) {
 					e.printStackTrace();
