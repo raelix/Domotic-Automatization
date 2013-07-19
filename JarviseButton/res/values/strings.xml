@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">JarviseButton</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-
+    <string name="app_name">Jarvise Remote</string>
+    <string name="action_settings">Settaggi</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_section4">Section 4</string>
+ 	<string name="title_section5">Section 5</string>
+ 	<string name="On">Accendi</string>
+ 	<string name="Off">Spegni</string>
+ 	<string name="apri">Apri</string>
+ 	<string name="chiudi">Chiudi</string>
+ 	<string name="controlla">Controlla</string>
+ 	<string name="default1">Default1</string>
+ 	<string name="default2">Default2</string>
+ 	<string name="default3">Default3</string>
+ 	<string name="default4">Default4</string>
+ 	<string name="default5">Garage</string>
+ 	<string name="default6">Allarme Garage</string>
+ 	<string name="default7">Allarme Casa</string>
+ 	<string name="default8">Pedita Acquario</string>
+ 	<string name="default9">Perdita Casa</string>
+ 	<string name="default10">Ultimo Movimento</string>
 </resources>
