@@ -93,6 +93,7 @@ String d1=this.getDefault0();
 String d2=this.getDefault1();
 String d3=this.getDefault2();
 String d4=this.getDefault3();
+@SuppressWarnings("resource")
 FileWriter writer = new FileWriter(Environment.getExternalStorageDirectory()+"/jarvise.txt");
 
 if(hoster.length() != 0){

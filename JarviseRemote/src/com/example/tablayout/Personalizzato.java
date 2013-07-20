@@ -13,6 +13,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Personalizzato extends Fragment implements OnClickListener{
+	private static String nameFile = "jarvise.txt";
+	Configuration readFile;
+	TextView def1;
+	TextView def2;
+	TextView def3;
+	TextView def4;
+	String default1;
+	String default2;
+	String default3;
+	String default4;
 	Button button1on;
 	Button button1off;
 	Button button2on;
@@ -25,8 +35,13 @@ public class Personalizzato extends Fragment implements OnClickListener{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.readFile = new Configuration(nameFile);
+		this.default1 = readFile.getDefault0(); 
+		this.default2 = readFile.getDefault1();
+		this.default3 = readFile.getDefault2();
+		this.default4 = readFile.getDefault3();
 		Log.e("Personalizzato", "Selezionato");
-		log("eccomi");
+		
 	}
 
 	@Override
@@ -49,6 +64,15 @@ public class Personalizzato extends Fragment implements OnClickListener{
 		button3off = (Button)view.findViewById(R.id.pesonalizzato3Off);
 		button4on = (Button)view.findViewById(R.id.pesonalizzato4On);
 		button4off = (Button)view.findViewById(R.id.pesonalizzato4Off);
+		refresh();
+		def1 = (TextView) view.findViewById(R.id.personalizzatoText1);
+		def2 = (TextView) view.findViewById(R.id.personalizzatoText2);
+		def3 = (TextView) view.findViewById(R.id.personalizzatoText3);
+		def4 = (TextView) view.findViewById(R.id.personalizzatoText4);
+		if(default1 != null)def1.setText(default1);
+		if(default2 != null)def2.setText(default2);
+		if(default3 != null)def3.setText(default3);
+		if(default4 != null)def4.setText(default4);
 		button1on.setOnClickListener(this);
 		button1off.setOnClickListener(this);
 		button2on.setOnClickListener(this);
@@ -64,6 +88,14 @@ public class Personalizzato extends Fragment implements OnClickListener{
 	public void log(String log){
 		Toast.makeText(this.getActivity(), log, Toast.LENGTH_LONG).show();
 
+	}
+	
+	public void refresh(){
+		this.readFile = new Configuration(nameFile);
+		this.default1 = readFile.getDefault0(); 
+		this.default2 = readFile.getDefault1();
+		this.default3 = readFile.getDefault2();
+		this.default4 = readFile.getDefault3();
 	}
 
 	@Override

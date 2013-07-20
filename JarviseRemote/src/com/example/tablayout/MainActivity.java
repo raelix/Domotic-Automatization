@@ -21,15 +21,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
-public class MainActivity extends FragmentActivity implements
-		ActionBar.TabListener {
+public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
+	public Configuration config=new Configuration("jarvise.txt");
 	SectionsPagerAdapter mSectionsPagerAdapter;
 	ViewPager mViewPager;
-	Configuration config=new Configuration("jarvise.txt");
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		File file = new File(Environment.getExternalStorageDirectory()+"/jarvise.txt");
 		if (!file.exists()) {
@@ -98,7 +99,7 @@ public class MainActivity extends FragmentActivity implements
 			actionBar.addTab(actionBar.newTab().setText("Controllo").setTabListener(this));
 			actionBar.addTab(actionBar.newTab().setText("Sensori").setTabListener(this));
 			actionBar.addTab(actionBar.newTab().setText("Avanzate").setTabListener(this));
-		
+
 		
 		
 	}

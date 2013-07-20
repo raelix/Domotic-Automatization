@@ -1,6 +1,7 @@
 package com.example.tablayout;
 import java.io.IOException;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
  
 public class Avanzate extends Fragment implements OnClickListener{
 	private static String nameFile = "jarvise.txt";
@@ -23,13 +25,16 @@ public class Avanzate extends Fragment implements OnClickListener{
 	EditText def4;
 	Button save;
 	Configuration readFile;
+	static Activity thisActivity = null;
 	
-    @Override
+    @SuppressWarnings("static-access")
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.e("Personalizzato", "Selezionato");
-
+        this.thisActivity = this.getActivity();
     	this.readFile = new Configuration(nameFile);
+    	
     }
  
     @Override
@@ -56,17 +61,28 @@ public class Avanzate extends Fragment implements OnClickListener{
         return view;
     }
 
-    
+    public static void log(String log){
+		Toast.makeText(thisActivity, log, Toast.LENGTH_LONG).show();
+
+	}
    
 	@Override
 	public void onClick(View button) {
 		if(button == save){
 			try {
+				log("Modifiche Salvate");
 				readFile.write2File(user.getText().toString(), pass.getText().toString(), host.getText().toString(), def1.getText().toString(), def2.getText().toString(), def3.getText().toString(), def4.getText().toString());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			user.getText().clear();
+			host.getText().clear();
+			pass.getText().clear();
+			def1.getText().clear();
+			def2.getText().clear();
+			def3.getText().clear();
+			def4.getText().clear();
 			
 		}
 		
