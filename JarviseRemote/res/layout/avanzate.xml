@@ -30,19 +30,12 @@
 
                 <TextView
                     android:id="@+id/UserTesto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/nome"
-                    android:textColor="@android:color/white" />
+					style="@style/textViewStyle" />
 
                 <EditText
                     android:id="@+id/UserValore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:background="@android:color/white"
-                    android:ems="10"
-                    android:textCursorDrawable="@layout/color_cursor" >
+                     style="@style/editTextStyle" >
                 </EditText>
             </TableRow>
 
@@ -52,20 +45,12 @@
 
                 <TextView
                     android:id="@+id/testoPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/password"
-                    android:textColor="@android:color/white" />
+					style="@style/textViewStyle"/>
 
                 <EditText
                     android:id="@+id/passwordValore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:layout_marginRight="15dp"
-                    android:ems="10"
-                    android:inputType="textPassword"
-                    android:textCursorDrawable="@layout/color_cursor" >
+                     style="@style/editTextStyle"  >
                 </EditText>
             </TableRow>
 
@@ -75,19 +60,12 @@
 
                 <TextView
                     android:id="@+id/testoHost"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/host"
-                    android:textColor="@android:color/white" />
+					style="@style/textViewStyle"
+                    android:text="@string/host" />
 
                 <EditText
                     android:id="@+id/hostValore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:layout_marginRight="15dp"
-                    android:ems="10"
-                    android:textCursorDrawable="@layout/color_cursor" >
+                     style="@style/editTextStyle"  >
                 </EditText>
             </TableRow>
 
@@ -97,19 +75,12 @@
 
                 <TextView
                     android:id="@+id/default1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default1"
-                    android:textColor="@android:color/white" />
+					style="@style/textViewStyle" />
 
                 <EditText
                     android:id="@+id/default1Value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:layout_marginRight="15dp"
-                    android:ems="10"
-                    android:textCursorDrawable="@layout/color_cursor" >
+                    style="@style/editTextStyle" >
                 </EditText>
             </TableRow>
 
@@ -119,19 +90,12 @@
 
                 <TextView
                     android:id="@+id/default2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default2"
-                    android:textColor="@android:color/white" />
+					style="@style/textViewStyle" />
 
                 <EditText
                     android:id="@+id/default2Value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:layout_marginRight="15dp"
-                    android:ems="10"
-                    android:textCursorDrawable="@layout/color_cursor" >
+                     style="@style/editTextStyle" >
                 </EditText>
             </TableRow>
 
@@ -141,19 +105,12 @@
 
                 <TextView
                     android:id="@+id/default3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default3"
-                    android:textColor="@android:color/white" />
+					style="@style/textViewStyle" />
 
                 <EditText
                     android:id="@+id/default3Value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:layout_marginRight="15dp"
-                    android:ems="10"
-                    android:textCursorDrawable="@layout/color_cursor" >
+                   style="@style/editTextStyle"  >
                 </EditText>
             </TableRow>
 
@@ -163,19 +120,12 @@
 
                 <TextView
                     android:id="@+id/default4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default4"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle"/>
 
                 <EditText
                     android:id="@+id/default4Value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:layout_marginRight="15dp"
-                    android:ems="10"
-                    android:textCursorDrawable="@layout/color_cursor" >
+                   style="@style/editTextStyle" >
                 </EditText>
             </TableRow>
 

@@ -30,10 +30,8 @@
 
                 <TextView
                     android:id="@+id/SensoreTextAcquario"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default8"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/ControlloPerditaAcquarioButton"
@@ -50,10 +48,8 @@
 
                 <TextView
                     android:id="@+id/SensoreTextCasa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default9"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/ControlloPerditaCasaButton"
@@ -70,10 +66,8 @@
 
                 <TextView
                     android:id="@+id/SensoreTextMovimento"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default10"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/ControlloMovimentoCasaButton"

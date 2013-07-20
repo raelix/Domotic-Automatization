@@ -30,10 +30,8 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/default1"
-                    android:textColor="@android:color/white" />
+                  	android:text="@string/default1"
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/pesonalizzato1On"
@@ -56,10 +54,8 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default2"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/pesonalizzato2On"
@@ -108,10 +104,8 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default4"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/pesonalizzato4On"
@@ -134,10 +128,8 @@
 
                 <TextView
                     android:id="@+id/ControlloTextGarage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default5"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/ControlloGarageOn"
@@ -160,10 +152,8 @@
 
                 <TextView
                     android:id="@+id/ControlloTextAllarmeGarage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default6"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeGarageOn"
@@ -186,10 +176,8 @@
 
                 <TextView
                     android:id="@+id/ControlloTextAllarmeCasa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default7"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeCasaOn"
@@ -211,10 +199,8 @@
 
                 <TextView
                     android:id="@+id/SensoreTextAcquario"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default8"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/ControlloPerditaAcquarioButton"
@@ -231,10 +217,8 @@
 
                 <TextView
                     android:id="@+id/SensoreTextCasa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default9"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle"/>
 
                 <Button
                     android:id="@+id/ControlloPerditaCasaButton"
@@ -251,10 +235,8 @@
 
                 <TextView
                     android:id="@+id/SensoreTextMovimento"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default10"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle"/>
 
                 <Button
                     android:id="@+id/ControlloMovimentoCasaButton"

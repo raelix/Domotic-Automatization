@@ -30,10 +30,8 @@
 
                 <TextView
                     android:id="@+id/ControlloTextGarage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default5"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle"/>
 
                 <Button
                     android:id="@+id/ControlloGarageOn"
@@ -56,10 +54,8 @@
 
                 <TextView
                     android:id="@+id/ControlloTextAllarmeGarage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default6"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeGarageOn"
@@ -82,10 +78,8 @@
 
                 <TextView
                     android:id="@+id/ControlloTextAllarmeCasa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default7"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeCasaOn"

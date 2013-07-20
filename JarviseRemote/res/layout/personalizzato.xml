@@ -30,10 +30,8 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default1"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/pesonalizzato1On"
@@ -82,10 +80,8 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default3"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/pesonalizzato3On"
@@ -108,10 +104,8 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/default4"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle" />
 
                 <Button
                     android:id="@+id/pesonalizzato4On"
