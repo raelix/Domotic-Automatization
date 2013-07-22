@@ -48,7 +48,6 @@ public class MultiThread{
 		this.port = port;
 		this.pkt = pkt;
 		new SSHConnection().execute();
-		new Connection().execute();
 	};
 
 
@@ -153,7 +152,10 @@ public class MultiThread{
 			} catch (JSchException e) {
 				System.out.println("errore");
 				e.printStackTrace();
+				return;
 			}
+
+			new Connection().execute();
 		};
 
 		@SuppressWarnings("unused")

@@ -68,7 +68,7 @@ public class MultiThread{
 		this.port = port;
 		this.pkt = pkt;
 		new SSHConnection().execute();
-		new Connection().execute();
+		
 	};
 
 
@@ -190,7 +190,9 @@ public class MultiThread{
 				return;
 			}
 			errore = false;
+			AllControlli.log("mando segnale al server");
 			new Connection().execute();
+			
 		};
 
 		@SuppressWarnings("unused")
