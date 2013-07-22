@@ -11,6 +11,7 @@ public interface PROTOCOL_CONSTANTS {
 	public static final int PACKET_TYPE_START = 0;
 	public static final int PACKET_TYPE_GPIO = 1;
 	public static final int PACKET_TYPE_STRING = 2;
+	public static final int PACKET_TYPE_STATUS = 3;
 	public static final int GPIO_00 = 0;
 	public static final int GPIO_01 = 1;
 	public static final int GPIO_02 = 2;

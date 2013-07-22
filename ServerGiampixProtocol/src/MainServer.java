@@ -86,7 +86,34 @@ public class MainServer {
 		}
 
 	};
-
+	
+public static int[] getStatus (){
+	int status[]= new int[]{0,0,0,0,0,0,0,0,0,0};
+	
+	if(GPIO_00)status[0]=0;
+	else if(!GPIO_00) status[0]=1;
+	if(GPIO_01)status[1]=0;
+	else if(!GPIO_01) status[1]=1;
+	if(GPIO_02)status[2]=0;
+	else if(!GPIO_02) status[2]=1;
+	if(GPIO_03)status[3]=0;
+	else if(!GPIO_03) status[3]=1;
+	if(garage)status[4]=0;
+	else if(!garage) status[4]=1;
+	if(AllarmeGarage)status[5]=0;
+	else if(!AllarmeGarage) status[5]=1;
+	if(AllarmeCasa)status[6]=0;
+	else if(!AllarmeCasa) status[6]=1;
+	if(acquaAquario == null) status[7]=0;
+	else if(acquaAquario != null) status[7]=1;
+	if(acquaCasa == null) status[8]=0;
+	else if(acquaCasa != null) status[8]=1;
+	if(movimento == null) status[9]=0;
+	else if(movimento != null) status[9]=1;
+	
+	return status;
+	
+}
 
 
 };

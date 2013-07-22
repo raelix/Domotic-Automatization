@@ -93,7 +93,23 @@ public abstract class Utils {
 
 	    }
 	}
-	
+	public static byte[] serializeManyInt(int ...x){
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		DataOutputStream w = new DataOutputStream(baos);
+		try {
+			int i = 0;
+			int legth = x.length;
+			while(i != legth){
+				w.writeInt(x[i]);
+				i++;
+			}
+			w.flush();
+			w.close(); //FIXME 
+		} catch (IOException e) {
+			return null;
+		}
+		return baos.toByteArray();
+	}
 	public static class WriteToFile {
 		private String path;
 		private boolean append = true;

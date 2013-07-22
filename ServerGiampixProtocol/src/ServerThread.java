@@ -68,20 +68,39 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 
 	private class Send1Thread extends Thread {
 		private String s;
+		private int [] status;
+		private boolean string = false;
 		public Send1Thread (String s) {
 			super();
 			this.s=s;
+			this.string = true;
+			System.out.println("Spedizione:Spedisco pacchetto di conferma");
+			MainServer.file.write("Spedizione:Spedisco pacchetto di conferma");
+		}
+		
+		public Send1Thread (int [] status) {
+			super();
+			this.status = status;
+			this.string = false;
 			System.out.println("Spedizione:Spedisco pacchetto di conferma");
 			MainServer.file.write("Spedizione:Spedisco pacchetto di conferma");
 		}
 
 		@Override
 		public void run () {
-			PaccoString ResponsPacket=null;
-			ResponsPacket = new PaccoString(s);
-			System.out.println("Spedizione:spedito pacchetto al Client "+ResponsPacket.getType());
-			MainServer.file.write("Spedizione:spedito pacchetto al Client "+ResponsPacket.getType());
-			clientData.writePkt(ResponsPacket);
+			PaccoStatus ResponsPacketStatus=null;
+			PaccoString ResponsPacketString=null;
+			if(string) {
+				ResponsPacketString = new PaccoString(s);
+				clientData.writePkt(ResponsPacketString);
+			}
+			else{
+				ResponsPacketStatus = new PaccoStatus(status);
+				clientData.writePkt(ResponsPacketStatus);
+				
+			}
+//			System.out.println("Spedizione:spedito pacchetto al Client "+ResponsPacket.getType());
+//			MainServer.file.write("Spedizione:spedito pacchetto al Client "+ResponsPacket.getType());
 			System.out.println("Spedizione: finita");
 			MainServer.file.write("Spedizione: finita");
 			this.close();
@@ -115,12 +134,18 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 			System.out.println("Ricezione: Ricevo Comando dal Client");
 			MainServer.file.write("Ricezione: Ricevo Comando dal Client");
 			String s="ricevuto correttamente";
+			int [] stato = null;
 			Pacco pkt;
 			pkt = clientData.readPkt();
 			if (pkt != null)
 				
 				switch (pkt.getType()) {
 				
+				case PROTOCOL_CONSTANTS.PACKET_TYPE_STATUS:
+					stato = MainServer.getStatus();
+					break;
+					
+					
 				case PROTOCOL_CONSTANTS.PACKET_TYPE_GPIO:
 					int [] gpio = new PaccoGpio(pkt).deserialize();
 					switch (gpio[0]){
@@ -366,10 +391,16 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 					break;*/
 				}
 
-			if (pkt != null && pkt.getType() != PROTOCOL_CONSTANTS.PACKET_TYPE_START  ){
+			if (pkt != null && pkt.getType() == PROTOCOL_CONSTANTS.PACKET_TYPE_GPIO  ){
 				System.out.println("Ricezione: finita");
 				MainServer.file.write("Ricezione: finita");
 				send1 = new Send1Thread(s);
+				send1.start();
+			}
+			else if (pkt != null && pkt.getType() == PROTOCOL_CONSTANTS.PACKET_TYPE_STATUS  ){
+				System.out.println("Ricezione: finita");
+				MainServer.file.write("Ricezione: finita");
+				send1 = new Send1Thread(stato);
 				send1.start();
 			}
 			else {System.out.println("Ricezione: Pacchetto Nullo");
