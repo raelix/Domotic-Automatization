@@ -1,0 +1,193 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/background_dark" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="344dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/infoStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*" >
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="90dp" >
+
+                <TextView
+                    android:id="@+id/personalizzatoText1"
+                    style="@style/textViewStyle"
+                    android:text="@string/default1" />
+
+                <ToggleButton
+                    android:id="@+id/pesonalizzato1"
+                   android:text="@string/On"
+                   style="@style/buttonGreenViewStyle" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/personalizzatoText2"
+                    style="@style/textViewStyle"
+                    android:text="@string/default2" />
+
+                <ToggleButton
+                    android:id="@+id/pesonalizzato2"
+                    android:text="@string/On" 
+                    style="@style/buttonGreenViewStyle" />
+
+               
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/personalizzatoText3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default3"
+                    android:textColor="@android:color/white" />
+
+                <ToggleButton
+                    android:id="@+id/pesonalizzato3"
+                   android:text="@string/On"
+                   style="@style/buttonGreenViewStyle"  />
+
+               
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/personalizzatoText4"
+                    style="@style/textViewStyle"
+                    android:text="@string/default4" />
+
+                <ToggleButton
+                    android:id="@+id/pesonalizzato4"
+                   android:text="@string/On" 
+                   style="@style/buttonGreenViewStyle" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/ControlloTextGarage"
+                    style="@style/textViewStyle"
+                    android:text="@string/default5" />
+
+                <ToggleButton
+                    android:id="@+id/ControlloGarage"
+                    android:text="@string/apri"
+                    style="@style/buttonGreenViewStyle" />
+
+               
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/ControlloTextAllarmeGarage"
+                    style="@style/textViewStyle"
+                    android:text="@string/default6" />
+
+                <ToggleButton
+                    android:id="@+id/ControlloAllarmeGarage"
+                   android:text="@string/On" 
+                   style="@style/buttonGreenViewStyle" />
+
+                
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/ControlloTextAllarmeCasa"
+                    style="@style/textViewStyle"
+                    android:text="@string/default7" />
+
+                <ToggleButton
+                    android:id="@+id/ControlloAllarmeCasa"
+                    android:text="@string/On" 
+                    style="@style/buttonGreenViewStyle" />
+
+                
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/SensoreTextAcquario"
+                    style="@style/textViewStyle"
+                    android:text="@string/default8" />
+
+                <ToggleButton
+                    android:id="@+id/ControlloPerditaAcquarioButton"
+                    android:text="@string/controlla" 
+                      style="@style/buttonBluViewStyle"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/SensoreTextCasa"
+                    style="@style/textViewStyle"
+                    android:text="@string/default9" />
+
+                <ToggleButton
+                    android:id="@+id/ControlloPerditaCasaButton"
+                    android:text="@string/controlla"
+                     style="@style/buttonBluViewStyle" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/SensoreTextMovimento"
+                    style="@style/textViewStyle"
+                    android:text="@string/default10" />
+
+                <ToggleButton
+                    android:id="@+id/ControlloMovimentoCasaButton"
+                    android:text="@string/controlla"
+                     style="@style/buttonBluViewStyle" />
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+
+</ScrollView>

@@ -103,6 +103,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			actionBar.addTab(actionBar.newTab().setText("Controllo").setTabListener(this));
 			actionBar.addTab(actionBar.newTab().setText("Sensori").setTabListener(this));
 			actionBar.addTab(actionBar.newTab().setText("Avanzate").setTabListener(this));
+			actionBar.addTab(actionBar.newTab().setText("Status").setTabListener(this));
+			
 
 		
 		
@@ -187,6 +189,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			return new Sensori();
 			case 4:
 			return new Avanzate();
+			case 5:
+				return new Status();
 				}
 			return null;}
 /*			Fragment fragment = new DummySectionFragment();
@@ -200,7 +204,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		@Override
 		public int getCount() {
 			// Show 3 total pages.
-			return 5;
+			return 6;
 		}
 
 		@Override
