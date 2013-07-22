@@ -2,7 +2,7 @@
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@android:color/background_dark" >
+    android:background="@drawable/layout" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,12 +21,15 @@
 
         <Button
             android:id="@+id/getStatus"
-            android:layout_width="wrap_content"
+            android:layout_width="150dip"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="35dp"
-            android:text="GetStatus" />
+            android:layout_marginTop="95dp"
+            android:text="GetStatus" 
+            android:background="@layout/spento"
+            android:textColor="@android:color/white"
+            />
 
         <TextView
             android:id="@+id/erroreConnessione"

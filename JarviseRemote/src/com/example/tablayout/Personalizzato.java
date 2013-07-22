@@ -55,7 +55,7 @@ public class Personalizzato extends Fragment implements OnClickListener{
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.personalizzato, container, false);
 		TextView textView = (TextView) view.findViewById(R.id.infoPersonalizzato);
-		textView.setText("Relè Personalizzati");
+		textView.setText("RELE'   PERSONALIZZATI");
 		button1on = (Button)view.findViewById(R.id.pesonalizzato1On);
 		button1off = (Button)view.findViewById(R.id.pesonalizzato1Off);
 		button2on = (Button)view.findViewById(R.id.pesonalizzato2On);

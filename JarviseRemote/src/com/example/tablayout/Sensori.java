@@ -31,7 +31,7 @@ public class Sensori extends Fragment implements OnClickListener{
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.sensori, container, false);
         TextView textView = (TextView) view.findViewById(R.id.infoSensori);
-        textView.setText("Sensori");
+        textView.setText("SENSORI");
         AcquaAcquario = (Button)view.findViewById(R.id.ControlloPerditaAcquarioButton);
 		AcquaCasa = (Button)view.findViewById(R.id.ControlloPerditaCasaButton);
 		movimento = (Button)view.findViewById(R.id.ControlloMovimentoCasaButton);

@@ -48,7 +48,7 @@ public class Avanzate extends Fragment implements OnClickListener{
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.avanzate, container, false);
         TextView textView = (TextView) view.findViewById(R.id.infoAvanzate);
-        textView.setText("Opzioni Avanzate");
+        textView.setText("OPZIONI  AVANZATE");
         save = (Button)	  view.findViewById(R.id.Salva);
         user = (EditText) view.findViewById(R.id.UserValore);
         host = (EditText) view.findViewById(R.id.hostValore);

@@ -2,7 +2,7 @@
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@android:color/background_dark" >
+    android:background="@drawable/iron" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,6 +12,9 @@
         <TextView
             android:id="@+id/infoTuttiControlli"
             android:layout_width="wrap_content"
+            
+           
+      android:textAllCaps = "true"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -70,10 +73,8 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/default3"
-                    android:textColor="@android:color/white" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default3" />
 
                 <Button
                     android:id="@+id/pesonalizzato3On"
