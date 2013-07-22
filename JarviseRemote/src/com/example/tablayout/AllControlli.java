@@ -133,55 +133,55 @@ public void refresh(){
 	public void onClick(View button) {
 
 		if(button == button1on){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 1));
 			}
 		if(button == button1off){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 0));
 		}
 		if(button == button2on){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(1, 1));
 		}
 		if(button == button2off){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(1, 0));
 		}
 		if(button == button3on){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(2, 1));
 		}
 		if(button == button3off){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(2, 0));
 		}
 		if(button == button4on){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(3, 1));
 		}
 		if(button == button4off){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(3, 0));
 		}
 		if(button == garageOn){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(4, 1));
 		}
 		if(button == garageOff){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(5, 0));
 		}
 		if(button == AllarmeCasaOn){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 1));
 		}
 		if(button == AllarmeCasaOff){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 0));
 		}
 		if(button == AllarmeGarageOff){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 0));
 		}
 		if(button == AllarmeGarageOn){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 1));
 		}
 		if(button == AcquaAcquario){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(8, 0));
 		}
 		if(button == AcquaCasa){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(9, 0));
 		}
 		if(button == movimento){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(10, 0));
 		}
 	}
 	// TODO Auto-generated method stub

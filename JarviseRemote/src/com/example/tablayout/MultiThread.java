@@ -180,7 +180,8 @@ public class MultiThread{
 				
 			} 
 			catch (JSchException e) {
-				System.out.println("errore");
+				System.out.println("non riesco a raggiungere il server");
+				AllControlli.log("non riesco a raggiungere il server");
 				e.printStackTrace();
 				errore = true;
 				if(sem != null)
