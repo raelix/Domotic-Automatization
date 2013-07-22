@@ -103,26 +103,29 @@ public class Personalizzato extends Fragment implements OnClickListener{
 		if(button == button1on){
 			log("bottone1");
 			}
+		if(button == button1on){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 1));
+			}
 		if(button == button1off){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 0));
 		}
 		if(button == button2on){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(1, 1));
 		}
 		if(button == button2off){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(1, 0));
 		}
 		if(button == button3on){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(2, 1));
 		}
 		if(button == button3off){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(2, 0));
 		}
 		if(button == button4on){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(3, 1));
 		}
 		if(button == button4off){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(3, 0));
 		}
 	}
 	// TODO Auto-generated method stub

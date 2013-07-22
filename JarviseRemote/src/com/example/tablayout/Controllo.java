@@ -53,22 +53,22 @@ public class Controllo extends Fragment  implements OnClickListener {
 	@Override
 	public void onClick(View button) {
 		if(button == garageOn){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(4, 1));
 		}
 		if(button == garageOff){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(5, 0));
 		}
 		if(button == AllarmeCasaOn){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 1));
 		}
 		if(button == AllarmeCasaOff){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 0));
 		}
 		if(button == AllarmeGarageOff){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 0));
 		}
 		if(button == AllarmeGarageOn){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 1));
 		}
 		
 	}

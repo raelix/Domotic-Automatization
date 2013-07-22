@@ -44,13 +44,13 @@ public class Sensori extends Fragment implements OnClickListener{
 	@Override
 	public void onClick(View button) {
 		if(button == AcquaAcquario){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(8, 0));
 		}
 		if(button == AcquaCasa){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(9, 0));
 		}
 		if(button == movimento){
-			
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(10, 0));
 		}
 		
 	}
