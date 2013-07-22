@@ -114,12 +114,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			// the adapter. Also specify this Activity object, which implements
 			// the TabListener interface, as the callback (listener) for when
 			// this tab is selected.
+
+			actionBar.addTab(actionBar.newTab().setText("Status").setTabListener(this));
 			actionBar.addTab(actionBar.newTab().setText("Pannello").setTabListener(this));
-			actionBar.addTab(actionBar.newTab().setText("Personalizzato").setTabListener(this));
+			actionBar.addTab(actionBar.newTab().setText("Personali").setTabListener(this));
 			actionBar.addTab(actionBar.newTab().setText("Controllo").setTabListener(this));
 			actionBar.addTab(actionBar.newTab().setText("Sensori").setTabListener(this));
-			actionBar.addTab(actionBar.newTab().setText("Avanzate").setTabListener(this));
-			actionBar.addTab(actionBar.newTab().setText("Status").setTabListener(this));
+			actionBar.addTab(actionBar.newTab().setText("Settaggi").setTabListener(this));
 			
 
 		
@@ -140,7 +141,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	  switch(item.getItemId()){
 	   case(R.id.action_settings):
 	    Toast.makeText(this, "Settaggi", Toast.LENGTH_LONG).show();
-	 	actionBar.setSelectedNavigationItem(4);
+	 	actionBar.setSelectedNavigationItem(5);
 //	    actionBar.setSelectedNavigationItem(5);
 	
 	   break;
@@ -192,21 +193,23 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			// below) with the page number as its lone argument.
 			// qui si scelgono le nuove schermate già create a priori
 			switch (position){
-			case 0: 
+			case 0:
+				return new Status();
+			case 1: 
 				return new AllControlli();
 			
-			case 1: 
+			case 2: 
 			return new Personalizzato();
-			
-			case 2:
+	
+			case 3:
 			return new Controllo();
 				
-			case 3:
-			return new Sensori();
 			case 4:
-			return new Avanzate();
+			return new Sensori();
+			
 			case 5:
-				return new Status();
+			return new Avanzate();
+			
 				}
 			return null;}
 /*			Fragment fragment = new DummySectionFragment();
