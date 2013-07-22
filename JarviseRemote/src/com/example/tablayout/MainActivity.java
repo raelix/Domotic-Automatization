@@ -28,8 +28,16 @@ import android.widget.Toast;
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 	public Configuration config=new Configuration("jarvise.txt");
 	SectionsPagerAdapter mSectionsPagerAdapter;
+	public static String host;
+	public static String user;
+	public static String pass;
+	public static String def1;
+	public static String def2;
+	public static String def3;
+	public static String def4;
 	ViewPager mViewPager;
 	ActionBar actionBar ;
+	@SuppressWarnings("static-access")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,6 +69,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		        	System.out.println("errore creazione file");
 		            e.printStackTrace();
 		        }
+		        
+		        this.user = config.getUser();
+		        this.pass = config.getPass();
+		        this.host = config.getHost();
+		        this.def1 = config.getDefault0();
+		        this.def2 = config.getDefault1();
+		        this.def3 = config.getDefault2();
+		        this.def4 = config.getDefault3();
 		}
 		actionBar =  getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);

@@ -1,4 +1,6 @@
 package com.example.tablayout;
+import java.util.concurrent.Semaphore;
+
 import com.example.tablayout.R;
 
 import android.app.Activity;
@@ -10,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -26,27 +27,24 @@ public class Status extends Fragment implements OnClickListener{
 	String default3;
 	String default4;
 	Button getStatus;
-	Button button1on;
-	Button button1off;
-	Button button2on;
-	Button button2off;
-	Button button3on;
-	Button button3off;
-	Button button4on;
-	Button button4off;
-	Button garageOn;
-	Button garageOff;
-	Button AllarmeCasaOn;
-	Button AllarmeCasaOff;
-	Button AllarmeGarageOn;
-	Button AllarmeGarageOff;
-	Button AcquaAcquario;
-	Button AcquaCasa;
-	Button movimento;
 	ToggleButton personalizzato1;
+	ToggleButton personalizzato2;
+	ToggleButton personalizzato3;
+	ToggleButton personalizzato4;
+	ToggleButton personalizzato5;
+	ToggleButton personalizzato6;
+	ToggleButton personalizzato7;
+	ToggleButton personalizzato8;
+	ToggleButton personalizzato9;
+	ToggleButton personalizzato10;
+	ToggleButton personalizzato11;
+	TextView errore;
 	static Activity thisActivity = null;
 	Configuration readFile;
+	int [] status;
 	View view;
+	Semaphore sem = new Semaphore(0, true);
+	MultiThread thread;
 	@SuppressWarnings("static-access")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -82,32 +80,182 @@ public class Status extends Fragment implements OnClickListener{
 
 	}
 	
-	public void changeInflate(){
-		getActivity().getLayoutInflater().inflate(R.layout.status, ((ViewGroup)getView().getParent()), false);
-	}
 
+
+public void checkButton(ToggleButton personale){
+	if(personale.isChecked())
+	{
+		personale.setBackgroundResource(R.layout.acceso);
+		personale.setText("Acceso");
+	}
+	else
+	{
+		personale.setBackgroundResource(R.layout.spento);
+		personale.setText("Spento");
+	}
+}
+
+public void checkButtonAlarm(ToggleButton personale, String log){
+	if(personale.isChecked())
+	{
+		personale.setBackgroundResource(R.layout.spento);
+		personale.setText(log);
+	}
+	else
+	{
+		personale.setBackgroundResource(R.layout.acceso);
+		personale.setText(log);
+	}
+}
+
+	
+	
 	@SuppressWarnings("static-access")
 	@Override
 	public void onClick(View button) {
 
 		if(button == getStatus){
 			log("Waiting refresh....");
+			
+			errore =(TextView) view.findViewById(R.id.erroreConnessione);
+			
+			try {
+			thread = new MultiThread("127.0.0.1", 9001,new PaccoStatus(1), sem);
+			sem.acquire();
+			}
+			catch (InterruptedException e) {
+			errore.setText("Non riesco a raggiungere il Server di Casa");
+			log("Nessun server trovato");
+			System.out.println("Non riesco a raggiungere il Server di Casa");
+			e.printStackTrace();
+			return;
+			}
+		if(thread.errore){
+			errore.setText("Non riesco a raggiungere il Server di Casa");
+			log("Nessun server trovato");
+			System.out.println("Non riesco a raggiungere il Server di Casa");
+			return;
+		} else {
 			((ViewGroup) view).removeAllViews();
+
 			view = getView().inflate(getView().getContext(), R.layout.status,((ViewGroup) view) );	
+
 			personalizzato1 = (ToggleButton) view.findViewById(R.id.pesonalizzato1);
-			personalizzato1.setOnClickListener(this);
-//			personalizzato1.setClickable(false);
-			personalizzato1.setChecked(true);
-			if(personalizzato1.isChecked())
-			{
-				personalizzato1.setBackgroundResource(R.layout.acceso);
-				personalizzato1.setText("Acceso");
+			personalizzato2 = (ToggleButton) view.findViewById(R.id.pesonalizzato2);
+			personalizzato3 = (ToggleButton) view.findViewById(R.id.pesonalizzato3);
+			personalizzato4 = (ToggleButton) view.findViewById(R.id.pesonalizzato4);
+			personalizzato5 = (ToggleButton) view.findViewById(R.id.ControlloGarage);
+			personalizzato6 = (ToggleButton) view.findViewById(R.id.ControlloAllarmeGarage);
+			personalizzato7 = (ToggleButton) view.findViewById(R.id.ControlloAllarmeCasa);
+			personalizzato8 = (ToggleButton) view.findViewById(R.id.ControlloPerditaAcquarioButton);
+			personalizzato9 = (ToggleButton) view.findViewById(R.id.ControlloPerditaCasaButton);
+			personalizzato10 = (ToggleButton) view.findViewById(R.id.ControlloMovimentoCasaButton);
+			personalizzato1.setClickable(false);
+			personalizzato2.setClickable(false);
+			personalizzato3.setClickable(false);
+			personalizzato4.setClickable(false);
+			personalizzato5.setClickable(false);
+			personalizzato6.setClickable(false);
+			personalizzato7.setClickable(false);
+			personalizzato8.setClickable(false);
+			personalizzato9.setClickable(false);
+			personalizzato10.setClickable(false);
+			
+//			int [] prova = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
+			status = thread.settings;
+//			status = prova;
+			if(status[0] == 0){
+				personalizzato1.setChecked(false);
+				checkButton(personalizzato1);
 			}
-			else
-			{
-				personalizzato1.setBackgroundResource(R.layout.spento);
-				personalizzato1.setText("Spento");
+			else if(status[0] == 1){
+				personalizzato1.setChecked(true);
+				checkButton(personalizzato1);
 			}
+			
+			if(status[1] == 0){
+				personalizzato2.setChecked(false);
+				checkButton(personalizzato2);
+			}
+			else if(status[1]==1){
+				personalizzato2.setChecked(true);
+				checkButton(personalizzato2);
+			}
+			
+			if(status[2] == 0){
+				personalizzato3.setChecked(false);
+				checkButton(personalizzato3);
+			}
+			else if(status[2]==1){
+				personalizzato3.setChecked(true);
+				checkButton(personalizzato3);
+			}
+			
+			if(status[3] == 0){
+				personalizzato4.setChecked(false);
+				checkButton(personalizzato4);
+			}
+			else if(status[3]==1){
+				personalizzato4.setChecked(true);
+				checkButton(personalizzato4);
+			}
+			
+			if(status[4] == 0){
+				personalizzato5.setChecked(false);
+				checkButton(personalizzato5);
+			}
+			else if(status[4]==1){
+				personalizzato5.setChecked(true);
+				checkButton(personalizzato5);
+			}
+			
+			if(status[5] == 0){
+				personalizzato6.setChecked(false);
+				checkButton(personalizzato6);
+			}
+			else if(status[5]==1){
+				personalizzato6.setChecked(true);
+				checkButton(personalizzato6);
+			}
+			
+			if(status[6] == 0){
+				personalizzato7.setChecked(false);
+				checkButton(personalizzato7);
+			}
+			else if(status[6]==1){
+				personalizzato7.setChecked(true);
+				checkButton(personalizzato7);
+			}
+			
+			if(status[7] == 0){
+				personalizzato8.setChecked(false);
+				checkButtonAlarm(personalizzato8,"OK");
+			}
+			else if(status[7]==1){
+				personalizzato8.setChecked(true);
+				checkButtonAlarm(personalizzato8,"allarme");
+			}
+			
+			if(status[8] == 0){
+				personalizzato9.setChecked(false);
+				checkButtonAlarm(personalizzato9,"OK");
+			}
+			else if(status[8]==1){
+				personalizzato9.setChecked(true);
+				checkButtonAlarm(personalizzato9,"allarme");
+			}
+
+			if(status[9] == 0){
+				personalizzato10.setChecked(false);
+				checkButtonAlarm(personalizzato10,"OK");
+			}
+			else if(status[9]==1){
+				personalizzato10.setChecked(true);
+				checkButtonAlarm(personalizzato10,"allarme");
+			}
+		}
+
+			
 
 		}
 		
@@ -116,63 +264,8 @@ public class Status extends Fragment implements OnClickListener{
 		
 		
 		
-		if(button == personalizzato1){
-			if(personalizzato1.isChecked())
-			{
-				personalizzato1.setBackgroundResource(R.layout.acceso);
-				personalizzato1.setText("Acceso");
-			}
-			else
-			{
-				personalizzato1.setBackgroundResource(R.layout.spento);
-				personalizzato1.setText("Spento");
-			}
-		}
-		if(button == button2on){
-			
-		}
-		if(button == button2off){
-			
-		}
-		if(button == button3on){
-			
-		}
-		if(button == button3off){
-			
-		}
-		if(button == button4on){
-			
-		}
-		if(button == button4off){
-			
-		}
-		if(button == garageOn){
-			
-		}
-		if(button == garageOff){
-			
-		}
-		if(button == AllarmeCasaOn){
-			
-		}
-		if(button == AllarmeCasaOff){
-			
-		}
-		if(button == AllarmeGarageOff){
-			
-		}
-		if(button == AllarmeGarageOn){
-			
-		}
-		if(button == AcquaAcquario){
-			
-		}
-		if(button == AcquaCasa){
-			
-		}
-		if(button == movimento){
-			
-		}
+		
+		
 	}
 	// TODO Auto-generated method stub
 

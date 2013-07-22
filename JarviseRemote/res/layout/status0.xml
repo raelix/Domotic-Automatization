@@ -27,6 +27,15 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="35dp"
             android:text="GetStatus" />
+
+        <TextView
+            android:id="@+id/erroreConnessione"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/getStatus"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="41dp" />
      
     </RelativeLayout>
 

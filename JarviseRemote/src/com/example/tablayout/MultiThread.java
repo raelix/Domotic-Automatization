@@ -3,10 +3,13 @@ package com.example.tablayout;
 import java.io.IOException;
 import java.net.ProtocolException;
 import java.net.Socket;
+import java.util.concurrent.Semaphore;
+
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import com.jcraft.jsch.UserInfo;
+
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -23,6 +26,7 @@ import android.os.StrictMode;
 @SuppressLint("NewApi")
 public class MultiThread{
 	private static String nameFile = "jarvise.txt";
+	public boolean errore = false;
 	Socket sock;
 	DataSocket btsock;
 	int port;
@@ -34,9 +38,24 @@ public class MultiThread{
 	private String password;
 	Session session ;
 	Configuration readFile;
-	
+	Semaphore sem;
+	int[] settings;
 	@TargetApi(Build.VERSION_CODES.GINGERBREAD)
 	@SuppressLint("NewApi")
+	@SuppressWarnings("unchecked")
+	public MultiThread(String dest, int port,Pacco pkt,Semaphore sem){
+		this.readFile = new Configuration(nameFile);
+		this.host = readFile.getHost();
+		this.user = readFile.getUser();
+		this.password = readFile.getPass();
+		this.session = null;
+		this.dest = dest;
+		this.port = port;
+		this.pkt = pkt;
+		this.sem = sem;
+		new SSHConnection().execute();
+	};
+	
 	@SuppressWarnings("unchecked")
 	public MultiThread(String dest, int port,Pacco pkt){
 		this.readFile = new Configuration(nameFile);
@@ -44,6 +63,7 @@ public class MultiThread{
 		this.user = readFile.getUser();
 		this.password = readFile.getPass();
 		this.session = null;
+		this.sem = null;
 		this.dest = dest;
 		this.port = port;
 		this.pkt = pkt;
@@ -93,7 +113,7 @@ public class MultiThread{
 		}
 		public void connected(){
 			Pacco p = btsock.readPkt();
-			if (p == null || p.getType() != PROTOCOL_CONSTANTS.PACKET_TYPE_STRING){
+			if (p == null || p.getType() != PROTOCOL_CONSTANTS.PACKET_TYPE_STRING || p.getType()!= PROTOCOL_CONSTANTS.PACKET_TYPE_STATUS){
 				this.close();
 				return;
 			}
@@ -105,11 +125,18 @@ public class MultiThread{
 					this.close();
 				} catch (ProtocolException e) {
 					e.printStackTrace();
-				}
+				}}
+				else if(p.getType() == PROTOCOL_CONSTANTS.PACKET_TYPE_STATUS){
+					System.out.println("Ricevuta Status di ritorno dal Server ");
+//						MainActivity.say(new PaccoString(p).getString());
+//						AllControlli.log(new PaccoString(p).getString());
+					settings = new PaccoStatus(p).getSettings();
+					sem.release();
+					this.close();
 			}
 		};
 
-		private void close(){
+		public void close(){
 			System.out.println("Ricezione: Finito");
 			btsock.close();
 			try {
@@ -150,10 +177,19 @@ public class MultiThread{
 				System.out.println("connesso? "+session.isConnected());
 				int assinged_port = session.setPortForwardingL(lhost,lport, rhost, rport);
 				System.out.println("localhost:"+assinged_port+" -> "+rhost+":"+rport);
-			} catch (JSchException e) {
+				
+			} 
+			catch (JSchException e) {
 				System.out.println("errore");
 				e.printStackTrace();
+				errore = true;
+				if(sem != null)
+				sem.release();
+				Thread.interrupted();
+				return;
 			}
+			errore = false;
+			new Connection().execute();
 		};
 
 		@SuppressWarnings("unused")

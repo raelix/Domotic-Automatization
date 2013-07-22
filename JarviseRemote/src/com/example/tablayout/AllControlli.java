@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class AllControlli extends Fragment implements OnClickListener{
-	private static String nameFile = "jarvise.txt";
+	public static String nameFile = "jarvise.txt";
 	TextView def1;
 	TextView def2;
 	TextView def3;
