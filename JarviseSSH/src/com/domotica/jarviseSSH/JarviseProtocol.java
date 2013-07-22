@@ -128,7 +128,49 @@ public class JarviseProtocol {
 						state = 4;
 						}
 					
+				 else if(texts.getFirst().matches(".*"+default0+".*")){
+						if(texts.getFirst().matches(".*[Aa]ccendi.*"))
+							MainActivity.say(" OK provo a accendere");
+					else if (texts.getFirst().matches("^[Aa]ttiv.*"))
+						MainActivity.say(" OK provo a attivare");
+					else if (texts.getFirst().matches(".*[Aa]pr.*"))
+						MainActivity.say(" OK provo ad aprire");
+					state = 0;
+					}
 				
+				else if(texts.getFirst().matches(".*"+default1+".*")){
+					if(texts.getFirst().matches(".*[Aa]ccendi.*"))
+						MainActivity.say(" OK provo a accendere");
+					else if (texts.getFirst().matches("^[Aa]ttiv.*"))
+					MainActivity.say(" OK provo a attivare");
+					else if (texts.getFirst().matches(".*[Aa]pr.*"))
+					MainActivity.say(" OK provo ad aprire");
+					while(MainActivity.talker.isSpeaking());
+				state = 1;
+				}
+			
+				else if(texts.getFirst().matches(".*"+default2+".*")){
+					if(texts.getFirst().matches(".*[Aa]ccendi.*"))
+						MainActivity.say(" OK provo a accendere");
+				else if (texts.getFirst().matches("^[Aa]ttiv.*"))
+					MainActivity.say(" OK provo a attivare");
+				else if (texts.getFirst().matches(".*[Aa]pr.*"))
+					MainActivity.say(" OK provo ad aprire");
+					while(MainActivity.talker.isSpeaking());
+					state = 2;
+				}
+			
+				else if(texts.getFirst().matches(".*"+default3+".*")){
+					if(texts.getFirst().matches(".*[Aa]ccendi.*"))
+						MainActivity.say(" OK provo a accendere");
+				else if (texts.getFirst().matches("^[Aa]ttiv.*"))
+					MainActivity.say(" OK provo a attivare");
+				else if (texts.getFirst().matches(".*[Aa]pr.*"))
+					MainActivity.say(" OK provo ad aprire");
+					while(MainActivity.talker.isSpeaking());
+					state = 3;
+				}
+				 
 					else {
 						while(MainActivity.talker.isSpeaking());
 						MainActivity.say("Non ho capito ripeti?");
@@ -141,52 +183,7 @@ public class JarviseProtocol {
 				onSuccess(1);
 		}
 
-		 else if(texts.getFirst().matches(".*"+default0+".*")){
-				if(texts.getFirst().matches(".*[Aa]ccendi.*"))
-					MainActivity.say(" OK provo a accendere");
-			else if (texts.getFirst().matches("^[Aa]ttiv.*"))
-				MainActivity.say(" OK provo a attivare");
-			else if (texts.getFirst().matches(".*[Aa]pr.*"))
-				MainActivity.say(" OK provo ad aprire");
-			state = 0;
-			onSuccess(1);
-			}
-		
-		else if(texts.getFirst().matches(".*"+default1+".*")){
-			if(texts.getFirst().matches(".*[Aa]ccendi.*"))
-				MainActivity.say(" OK provo a accendere");
-			else if (texts.getFirst().matches("^[Aa]ttiv.*"))
-			MainActivity.say(" OK provo a attivare");
-			else if (texts.getFirst().matches(".*[Aa]pr.*"))
-			MainActivity.say(" OK provo ad aprire");
-			while(MainActivity.talker.isSpeaking());
-		state = 1;
-		onSuccess(1);
-		}
-	
-		else if(texts.getFirst().matches(".*"+default2+".*")){
-			if(texts.getFirst().matches(".*[Aa]ccendi.*"))
-				MainActivity.say(" OK provo a accendere");
-		else if (texts.getFirst().matches("^[Aa]ttiv.*"))
-			MainActivity.say(" OK provo a attivare");
-		else if (texts.getFirst().matches(".*[Aa]pr.*"))
-			MainActivity.say(" OK provo ad aprire");
-			while(MainActivity.talker.isSpeaking());
-			state = 2;
-			onSuccess(1);
-		}
-	
-		else if(texts.getFirst().matches(".*"+default3+".*")){
-			if(texts.getFirst().matches(".*[Aa]ccendi.*"))
-				MainActivity.say(" OK provo a accendere");
-		else if (texts.getFirst().matches("^[Aa]ttiv.*"))
-			MainActivity.say(" OK provo a attivare");
-		else if (texts.getFirst().matches(".*[Aa]pr.*"))
-			MainActivity.say(" OK provo ad aprire");
-			while(MainActivity.talker.isSpeaking());
-			state = 3;
-			onSuccess(1);
-		}
+		 
 		
 		
 		else if(texts.getFirst().matches(WORD_CONSTANTS.off)){
