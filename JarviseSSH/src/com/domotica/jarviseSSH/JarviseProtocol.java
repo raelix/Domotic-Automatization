@@ -8,6 +8,7 @@ import java.util.LinkedList;
  *
  */
 
+@SuppressWarnings("unused")
 public class JarviseProtocol {
 	private static String nameFile = "jarvise.txt";
 	private String default0;
@@ -128,19 +129,6 @@ public class JarviseProtocol {
 						}
 					
 				
-				 else if(texts.getFirst().matches(".*"+default0+".*")){
-						if(texts.getFirst().matches(".*[Aa]ccendi.*"))
-							MainActivity.say(" OK provo a accendere");
-					else if (texts.getFirst().matches("^[Aa]ttiv.*"))
-						MainActivity.say(" OK provo a attivare");
-					else if (texts.getFirst().matches(".*[Aa]pr.*"))
-						MainActivity.say(" OK provo ad aprire");
-					state = 0;
-					}
-				 
-				 
-					
-					
 					else {
 						while(MainActivity.talker.isSpeaking());
 						MainActivity.say("Non ho capito ripeti?");
@@ -153,12 +141,23 @@ public class JarviseProtocol {
 				onSuccess(1);
 		}
 
+		 else if(texts.getFirst().matches(".*"+default0+".*")){
+				if(texts.getFirst().matches(".*[Aa]ccendi.*"))
+					MainActivity.say(" OK provo a accendere");
+			else if (texts.getFirst().matches("^[Aa]ttiv.*"))
+				MainActivity.say(" OK provo a attivare");
+			else if (texts.getFirst().matches(".*[Aa]pr.*"))
+				MainActivity.say(" OK provo ad aprire");
+			state = 0;
+			onSuccess(1);
+			}
+		
 		else if(texts.getFirst().matches(".*"+default1+".*")){
 			if(texts.getFirst().matches(".*[Aa]ccendi.*"))
 				MainActivity.say(" OK provo a accendere");
-		else if (texts.getFirst().matches("^[Aa]ttiv.*"))
+			else if (texts.getFirst().matches("^[Aa]ttiv.*"))
 			MainActivity.say(" OK provo a attivare");
-		else if (texts.getFirst().matches(".*[Aa]pr.*"))
+			else if (texts.getFirst().matches(".*[Aa]pr.*"))
 			MainActivity.say(" OK provo ad aprire");
 			while(MainActivity.talker.isSpeaking());
 		state = 1;

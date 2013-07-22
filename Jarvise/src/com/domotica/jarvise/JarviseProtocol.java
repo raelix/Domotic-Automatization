@@ -8,13 +8,14 @@ import java.util.LinkedList;
  *
  */
 
+@SuppressWarnings("unused")
 public class JarviseProtocol {
 	private static String nameFile = "jarvise.txt";
 	private String default0;
 	private String default1;
 	private String default2;
 	private String default3;
-    private String default4;
+	private String default4;
 	private String default5;
 	private String default6;
 	private String default7;
