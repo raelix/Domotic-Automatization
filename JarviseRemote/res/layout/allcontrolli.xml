@@ -22,7 +22,7 @@
         <TableLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:stretchColumns="0,5" >
+            android:stretchColumns="*" >
 
             <TableRow
                 android:layout_width="fill_parent"
@@ -30,22 +30,18 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText1"
-                  	android:text="@string/default1"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default1" />
 
                 <Button
                     android:id="@+id/pesonalizzato1On"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:text="@string/On" />
+                   android:text="@string/On"
+                   style="@style/buttonGreenViewStyle" />
 
                 <Button
                     android:id="@+id/pesonalizzato1Off"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/Off" />
+                   	android:text="@string/Off"
+                    style="@style/buttonRedViewStyle" />
             </TableRow>
 
             <TableRow
@@ -54,22 +50,18 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText2"
-                    android:text="@string/default2"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default2" />
 
                 <Button
                     android:id="@+id/pesonalizzato2On"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:text="@string/On" />
+                    android:text="@string/On" 
+                    style="@style/buttonGreenViewStyle" />
 
                 <Button
                     android:id="@+id/pesonalizzato2Off"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/Off" />
+                    android:text="@string/Off"
+                    style="@style/buttonRedViewStyle"  />
             </TableRow>
 
             <TableRow
@@ -85,17 +77,13 @@
 
                 <Button
                     android:id="@+id/pesonalizzato3On"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:text="@string/On" />
+                   android:text="@string/On"
+                   style="@style/buttonGreenViewStyle"  />
 
                 <Button
                     android:id="@+id/pesonalizzato3Off"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/Off" />
+                    android:text="@string/Off" 
+                    style="@style/buttonRedViewStyle" />
             </TableRow>
 
             <TableRow
@@ -104,46 +92,38 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText4"
-                    android:text="@string/default4"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default4" />
 
                 <Button
                     android:id="@+id/pesonalizzato4On"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:text="@string/On" />
+                   android:text="@string/On" 
+                   style="@style/buttonGreenViewStyle" />
 
                 <Button
                     android:id="@+id/pesonalizzato4Off"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/Off" />
+                   android:text="@string/Off" 
+                   style="@style/buttonRedViewStyle" />
             </TableRow>
-            
+
             <TableRow
                 android:layout_width="fill_parent"
                 android:layout_marginTop="50dp" >
 
                 <TextView
                     android:id="@+id/ControlloTextGarage"
-                    android:text="@string/default5"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default5" />
 
                 <Button
                     android:id="@+id/ControlloGarageOn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:text="@string/apri" />
+                    android:text="@string/apri"
+                    style="@style/buttonGreenViewStyle" />
 
                 <Button
                     android:id="@+id/ControlloGarageOff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/chiudi" />
+                    android:text="@string/chiudi" 
+                    style="@style/buttonRedViewStyle" />
             </TableRow>
 
             <TableRow
@@ -152,22 +132,18 @@
 
                 <TextView
                     android:id="@+id/ControlloTextAllarmeGarage"
-                    android:text="@string/default6"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default6" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeGarageOn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:text="@string/On" />
+                   android:text="@string/On" 
+                   style="@style/buttonGreenViewStyle" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeGarageOff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/Off" />
+                    android:text="@string/Off" 
+                    style="@style/buttonRedViewStyle" />
             </TableRow>
 
             <TableRow
@@ -176,39 +152,33 @@
 
                 <TextView
                     android:id="@+id/ControlloTextAllarmeCasa"
-                    android:text="@string/default7"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default7" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeCasaOn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:text="@string/On" />
+                    android:text="@string/On" 
+                    style="@style/buttonGreenViewStyle" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeCasaOff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/Off" />
+                    android:text="@string/Off"
+                    style="@style/buttonRedViewStyle"  />
             </TableRow>
+
             <TableRow
                 android:layout_width="fill_parent"
                 android:layout_marginTop="50dp" >
 
                 <TextView
                     android:id="@+id/SensoreTextAcquario"
-                    android:text="@string/default8"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default8" />
 
                 <Button
                     android:id="@+id/ControlloPerditaAcquarioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:text="@string/controlla" />
-
+                    android:text="@string/controlla" 
+                      style="@style/buttonBluViewStyle"/>
             </TableRow>
 
             <TableRow
@@ -217,16 +187,13 @@
 
                 <TextView
                     android:id="@+id/SensoreTextCasa"
-                    android:text="@string/default9"
-                    style="@style/textViewStyle"/>
+                    style="@style/textViewStyle"
+                    android:text="@string/default9" />
 
                 <Button
                     android:id="@+id/ControlloPerditaCasaButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:text="@string/controlla" />
-
+                    android:text="@string/controlla"
+                     style="@style/buttonBluViewStyle" />
             </TableRow>
 
             <TableRow
@@ -235,16 +202,13 @@
 
                 <TextView
                     android:id="@+id/SensoreTextMovimento"
-                    android:text="@string/default10"
-                    style="@style/textViewStyle"/>
+                    style="@style/textViewStyle"
+                    android:text="@string/default10" />
 
                 <Button
                     android:id="@+id/ControlloMovimentoCasaButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:text="@string/controlla" />
-
+                    android:text="@string/controlla"
+                     style="@style/buttonBluViewStyle" />
             </TableRow>
         </TableLayout>
     </RelativeLayout>

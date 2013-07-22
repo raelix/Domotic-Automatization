@@ -6,10 +6,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Locale;
 
+import android.R.menu;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Environment;
+import android.renderscript.Allocation;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -17,15 +19,17 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 	public Configuration config=new Configuration("jarvise.txt");
 	SectionsPagerAdapter mSectionsPagerAdapter;
 	ViewPager mViewPager;
-	
+	ActionBar actionBar ;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -58,7 +62,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		            e.printStackTrace();
 		        }
 		}
-		final ActionBar actionBar = getActionBar();
+		actionBar =  getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		mSectionsPagerAdapter = new SectionsPagerAdapter(
 		getSupportFragmentManager());
@@ -108,8 +112,26 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
+		
 		return true;
 	}
+	
+	@Override
+	 public boolean onOptionsItemSelected(MenuItem item) {
+	  // TODO Auto-generated method stub
+	  switch(item.getItemId()){
+	   case(R.id.action_settings):
+	    Toast.makeText(this, "Settaggi", Toast.LENGTH_LONG).show();
+	 	actionBar.setSelectedNavigationItem(4);
+//	    actionBar.setSelectedNavigationItem(5);
+	
+	   break;
+	   
+	  } 
+	  
+	  return super.onOptionsItemSelected(item);
+	 } 
+	
 
 	@Override
 	public void onTabSelected(ActionBar.Tab tab,

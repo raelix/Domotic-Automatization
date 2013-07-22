@@ -121,6 +121,7 @@ public void refresh(){
 	this.default2 = readFile.getDefault1();
 	this.default3 = readFile.getDefault2();
 	this.default4 = readFile.getDefault3();
+
 }
 	
 	public static void log(String log){
@@ -132,6 +133,7 @@ public void refresh(){
 	public void onClick(View button) {
 
 		if(button == button1on){
+			
 			}
 		if(button == button1off){
 			

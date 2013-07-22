@@ -30,21 +30,17 @@
 
                 <TextView
                     android:id="@+id/ControlloTextGarage"
-                    android:text="@string/default5"
-                    style="@style/textViewStyle"/>
+                    style="@style/textViewStyle"
+                    android:text="@string/default5" />
 
                 <Button
                     android:id="@+id/ControlloGarageOn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
+                    style="@style/buttonGreenViewStyle"
                     android:text="@string/apri" />
 
                 <Button
                     android:id="@+id/ControlloGarageOff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    style="@style/buttonRedViewStyle"
                     android:text="@string/chiudi" />
             </TableRow>
 
@@ -54,21 +50,17 @@
 
                 <TextView
                     android:id="@+id/ControlloTextAllarmeGarage"
-                    android:text="@string/default6"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default6" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeGarageOn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
+                    style="@style/buttonGreenViewStyle"
                     android:text="@string/On" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeGarageOff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    style="@style/buttonRedViewStyle"
                     android:text="@string/Off" />
             </TableRow>
 
@@ -78,22 +70,24 @@
 
                 <TextView
                     android:id="@+id/ControlloTextAllarmeCasa"
-                    android:text="@string/default7"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default7" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeCasaOn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_marginRight="20dp"
-                    android:text="@string/On" />
+                    android:background="@layout/acceso"
+                    android:text="@string/On"
+                    android:textColor="@android:color/white" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeCasaOff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/Off" />
+                    android:layout_width="90dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@layout/spento"
+                    android:text="@string/Off"
+                    android:textColor="@android:color/white" />
             </TableRow>
         </TableLayout>
     </RelativeLayout>

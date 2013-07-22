@@ -35,17 +35,13 @@
 
                 <Button
                     android:id="@+id/pesonalizzato1On"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:text="@string/On" />
+                    android:text="@string/On"
+                    style="@style/buttonGreenViewStyle"  />
 
                 <Button
                     android:id="@+id/pesonalizzato1Off"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/Off" />
+                    android:text="@string/Off"
+                    style="@style/buttonRedViewStyle"  />
             </TableRow>
 
             <TableRow
@@ -61,17 +57,13 @@
 
                 <Button
                     android:id="@+id/pesonalizzato2On"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:text="@string/On" />
+                    android:text="@string/On" 
+                    style="@style/buttonGreenViewStyle" />
 
                 <Button
                     android:id="@+id/pesonalizzato2Off"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/Off" />
+                    android:text="@string/Off"
+                    style="@style/buttonRedViewStyle"  />
             </TableRow>
 
             <TableRow
@@ -85,17 +77,13 @@
 
                 <Button
                     android:id="@+id/pesonalizzato3On"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:text="@string/On" />
+                    android:text="@string/On" 
+                    style="@style/buttonGreenViewStyle" />
 
                 <Button
                     android:id="@+id/pesonalizzato3Off"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/Off" />
+                    android:text="@string/Off" 
+                    style="@style/buttonRedViewStyle" />
             </TableRow>
 
             <TableRow
@@ -105,22 +93,27 @@
                 <TextView
                     android:id="@+id/personalizzatoText4"
                     android:text="@string/default4"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                     />
 
                 <Button
                     android:id="@+id/pesonalizzato4On"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_marginRight="20dp"
-                    android:text="@string/On" />
+                    android:text="@string/On"
+                    android:background="@layout/acceso"
+                    android:textColor="@android:color/white"/>
 
                 <Button
                     android:id="@+id/pesonalizzato4Off"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/Off" />
+                    android:layout_width="90dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/Off" 
+                    android:background="@layout/spento"
+                    android:textColor="@android:color/white"/>
             </TableRow>
+            
+            
         </TableLayout>
     </RelativeLayout>
 
