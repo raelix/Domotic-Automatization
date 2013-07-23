@@ -62,10 +62,10 @@ public class GestioneGpio {
 		this.default8 = MainServer.default8;
 		this.default9 = MainServer.default9;
 		this.default10 = MainServer.default10;
-		this.gpio0 = gpio.provisionDigitalOutputPin(this.default0,PinState.LOW);
-		this.gpio1 = gpio.provisionDigitalOutputPin(this.default1,PinState.LOW);
-		this.gpio2 = gpio.provisionDigitalOutputPin(this.default2,PinState.LOW);
-		this.gpio3 = gpio.provisionDigitalOutputPin(this.default3,PinState.LOW);
+		this.gpio0 = gpio.provisionDigitalOutputPin(this.default0,PinState.HIGH);
+		this.gpio1 = gpio.provisionDigitalOutputPin(this.default1,PinState.HIGH);
+		this.gpio2 = gpio.provisionDigitalOutputPin(this.default2,PinState.HIGH);
+		this.gpio3 = gpio.provisionDigitalOutputPin(this.default3,PinState.HIGH);
 //		this.gpio4 = gpio.provisionDigitalOutputPin(this.default4,PinState.LOW);
 //		this.gpio5 = gpio.provisionDigitalOutputPin(this.default5,PinState.LOW);
 //		this.gpio6 = gpio.provisionDigitalOutputPin(this.default6,PinState.LOW);
@@ -83,7 +83,7 @@ public class GestioneGpio {
 		
 		case 0:
 			if(!MainServer.GPIO_00){
-			gpio0.high();
+			gpio0.low();
 			MainServer.GPIO_00 = true;
 			}
 			else return acceso;
@@ -91,7 +91,7 @@ public class GestioneGpio {
 			
 		case 1:
 			if(!MainServer.GPIO_01){
-				gpio1.high();
+				gpio1.low();
 				MainServer.GPIO_01 = true;
 				}
 			else return acceso;
@@ -99,7 +99,7 @@ public class GestioneGpio {
 			
 		case 2:
 			if(!MainServer.GPIO_02){
-				gpio2.high();
+				gpio2.low();
 				MainServer.GPIO_02 = true;
 				}
 			else return acceso;
@@ -107,7 +107,7 @@ public class GestioneGpio {
 		
 		case 3:
 			if(!MainServer.GPIO_03){
-				gpio3.high();
+				gpio3.low();
 				MainServer.GPIO_03 = true;
 				}
 			else return acceso;
@@ -140,7 +140,7 @@ public class GestioneGpio {
 		
 		case 0:
 			if(MainServer.GPIO_00){
-			gpio0.low();
+			gpio0.high();
 			MainServer.GPIO_00 = false;
 			}
 			else return spento;
@@ -148,7 +148,7 @@ public class GestioneGpio {
 			
 		case 1:
 			if(MainServer.GPIO_01){
-			gpio1.low();
+			gpio1.high();
 			MainServer.GPIO_01 = false;
 			}
 			else return spento;
@@ -156,7 +156,7 @@ public class GestioneGpio {
 			
 		case 2:
 			if(MainServer.GPIO_02){
-			gpio2.low();
+			gpio2.high();
 			MainServer.GPIO_02 = false;
 			}
 			else return spento;
@@ -164,7 +164,7 @@ public class GestioneGpio {
 		
 		case 3:
 			if(MainServer.GPIO_03){
-			gpio3.low();
+			gpio3.high();
 			MainServer.GPIO_03 = false;
 			}
 			else return spento;

@@ -41,7 +41,7 @@ public class MainServer {
 	public static Pin default9  	= acquaCasa;       		//sensore acqua casa
 	public static Pin default10 	= move;            		//sensore movimento casa
 	private static int PORT = 20;
-	public static String destinationFile = "/home/raelix/LogServer.txt";
+	public static String destinationFile = "/home/pi/LogServer.txt";
 	public static boolean GPIO_00 	= false;
 	public static boolean GPIO_01  	= false;
 	public static boolean GPIO_02  	= false;

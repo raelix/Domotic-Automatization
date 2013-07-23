@@ -30,23 +30,23 @@ public Garage(GpioController gpio){
 	this.allarmeCasa   = MainServer.allarmeCasa;
 	this.garageOn = MainServer.garageOn;
 	this.garageOff = MainServer.garageOff;
-	GarageOn = gpio.provisionDigitalOutputPin(this.garageOn,"GarageAperto",PinState.LOW);
-	GarageOff = gpio.provisionDigitalOutputPin(this.garageOff,"GarageChiuso",PinState.LOW);
-	AllarmeGarage = gpio.provisionDigitalOutputPin(this.allarmeGarage,"allarmeGarage",PinState.LOW);
-	AllarmeCasa = gpio.provisionDigitalOutputPin(this.allarmeCasa,"allarmeCasa",PinState.LOW);
+	GarageOn = gpio.provisionDigitalOutputPin(this.garageOn,"GarageAperto",PinState.HIGH);
+	GarageOff = gpio.provisionDigitalOutputPin(this.garageOff,"GarageChiuso",PinState.HIGH);
+	AllarmeGarage = gpio.provisionDigitalOutputPin(this.allarmeGarage,"allarmeGarage",PinState.HIGH);
+	AllarmeCasa = gpio.provisionDigitalOutputPin(this.allarmeCasa,"allarmeCasa",PinState.HIGH);
 	};
 	
 public void apriGarage(int sec){
 	if (state == BUSY){
 		state = OPENING;
-		GarageOn.high();
+		GarageOn.low();
 		try {
 			Thread.sleep(sec);
 		} catch (InterruptedException e) {
 			System.out.println("sorry can't sleep");
 			e.printStackTrace();
 		}
-		GarageOn.low();
+		GarageOn.high();
 		MainServer.garage = true;
 		state = BUSY;
 	}
@@ -56,14 +56,14 @@ public void apriGarage(int sec){
 public void chiudiGarage(int sec){
 	if (state == BUSY){
 		state = CLOSING;
-		GarageOff.high();
+		GarageOff.low();
 		try {
 			Thread.sleep(sec);
 		} catch (InterruptedException e) {
 			System.out.println("sorry can't sleep");
 			e.printStackTrace();
 		}
-		GarageOff.low();
+		GarageOff.high();
 		MainServer.garage = false;
 		state = BUSY;
 	}
@@ -74,14 +74,14 @@ public void chiudiGarage(int sec){
 public void attivaAlarmGarage(int sec){
 	if (stateAlarm == BUSY){
 		stateAlarm = ACTIVE;
-		AllarmeGarage.high();
+		AllarmeGarage.low();
 		try {
 			Thread.sleep(sec);
 		} catch (InterruptedException e) {
 			System.out.println("sorry can't sleep");
 			e.printStackTrace();
 		}
-		AllarmeGarage.low();
+		AllarmeGarage.high();
 		MainServer.AllarmeGarage = true;
 		stateAlarm = BUSY;
 	}
@@ -92,14 +92,14 @@ public void attivaAlarmGarage(int sec){
 public void disattivaAlarmGarage(int sec){
 	if (stateAlarm == BUSY){
 		stateAlarm = DEACTIVE;
-		AllarmeGarage.high();
+		AllarmeGarage.low();
 		try {
 			Thread.sleep(sec);
 		} catch (InterruptedException e) {
 			System.out.println("sorry can't sleep");
 			e.printStackTrace();
 		}
-		AllarmeGarage.low();
+		AllarmeGarage.high();
 		MainServer.AllarmeGarage = false;
 		stateAlarm = BUSY;
 	}
@@ -109,14 +109,14 @@ public void disattivaAlarmGarage(int sec){
 public void attivaAlarmCasa(int sec){
 	if (stateAlarm == BUSY){
 		stateAlarm = ACTIVE;
-		AllarmeCasa.high();
+		AllarmeCasa.low();
 		try {
 			Thread.sleep(sec);
 		} catch (InterruptedException e) {
 			System.out.println("sorry can't sleep");
 			e.printStackTrace();
 		}
-		AllarmeCasa.low();
+		AllarmeCasa.high();
 		MainServer.AllarmeCasa = true;
 		stateAlarm = BUSY;
 	}
@@ -127,14 +127,14 @@ public void attivaAlarmCasa(int sec){
 public void disattivaAlarmCasa(int sec){
 	if (stateAlarm == BUSY){
 		stateAlarm = DEACTIVE;
-		AllarmeCasa.high();
+		AllarmeCasa.low();
 		try {
 			Thread.sleep(sec);
 		} catch (InterruptedException e) {
 			System.out.println("sorry can't sleep");
 			e.printStackTrace();
 		}
-		AllarmeCasa.low();
+		AllarmeCasa.high();
 		MainServer.AllarmeCasa = false;
 		stateAlarm = BUSY;
 	}
