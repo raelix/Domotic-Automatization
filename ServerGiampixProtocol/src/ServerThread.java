@@ -191,6 +191,17 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 							s = MainServer.gpio.apriGarage();
 							MainServer.file.write("Ricezione: Apro garage "+s);
 						}
+						else if(gpio[1] == 3){
+							 MainServer.garage = true;
+							s = "allarme garage settato su on";
+							 MainServer.file.write("Ricezione: attivo Garage "+s);
+						}
+						else if(gpio[1] == 4){
+							 MainServer.garage = false;
+							s = "garage settato su off";
+							MainServer.file.write("Ricezione: Disattivo Garage "+s);
+						}
+						
 						/*else if(gpio[1] == PROTOCOL_CONSTANTS.GPIO_OFF){
 							s = MainServer.gpio.chiudiGarage();							LAVORA SU DUE RELE' DISTINTI 1 APRE L'ALTRO CHIUDE
 							MainServer.file.write("Ricezione: Chiudo garage "+s);
@@ -206,6 +217,16 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 							s = MainServer.gpio.chiudiGarage();
 							MainServer.file.write("Ricezione: Chiudo Garage "+s);
 						}
+						else if(gpio[1] == 3){
+							 MainServer.garage = true;
+							s = "allarme garage settato su on";
+							 MainServer.file.write("Ricezione: attivo  Garage "+s);
+						}
+						else if(gpio[1] == 4){
+							 MainServer.garage = false;
+							s = "garage settato su off";
+							MainServer.file.write("Ricezione: Disattivo  Garage "+s);
+						}
 						break;
 					
 					case PROTOCOL_CONSTANTS.GPIO_06:
@@ -215,6 +236,16 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 						}
 						else if(gpio[1] == PROTOCOL_CONSTANTS.GPIO_OFF){
 							s = MainServer.gpio.disattivaAllarmeGarage();
+							MainServer.file.write("Ricezione: Disattivo Allarme Garage "+s);
+						}
+						else if(gpio[1] == 3){
+							 MainServer.AllarmeGarage = true;
+							s = "allarme garage settata su on";
+							 MainServer.file.write("Ricezione: attivo Allarme Garage "+s);
+						}
+						else if(gpio[1] == 4){
+							 MainServer.AllarmeGarage = false;
+							s = "allarme garage settata su off";
 							MainServer.file.write("Ricezione: Disattivo Allarme Garage "+s);
 						}
 						break;
@@ -227,6 +258,16 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 						else if(gpio[1] == PROTOCOL_CONSTANTS.GPIO_OFF){
 							s = MainServer.gpio.disattivaAllarmeCasa();
 							MainServer.file.write("Ricezione: Disattivo Allarme Casa "+s);
+						}
+						else if(gpio[1] == 3){
+							 MainServer.AllarmeCasa = true;
+							s = "allarme casa settata su on";
+							 MainServer.file.write("Ricezione: attivo Allarme Garage "+s);
+						}
+						else if(gpio[1] == 4){
+							 MainServer.AllarmeCasa = false;
+							s = "allarme casa settata su off";
+							MainServer.file.write("Ricezione: Disattivo Allarme Garage "+s);
 						}
 						break;
 					

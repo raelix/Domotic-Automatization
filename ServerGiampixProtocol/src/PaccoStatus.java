@@ -27,7 +27,7 @@ public class PaccoStatus extends Pacco {
 		DataInputStream ds = new DataInputStream(bas);
 		try {
 			int i = 0 ;
-			while(ds.available() > 0 )
+			while(ds.readInt() > 0 )
 			{
 				setting[i] = ds.readInt();
 				i++;
