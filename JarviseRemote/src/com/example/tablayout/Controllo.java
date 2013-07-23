@@ -16,6 +16,12 @@ public class Controllo extends Fragment  implements OnClickListener {
 	Button AllarmeCasaOff;
 	Button AllarmeGarageOn;
 	Button AllarmeGarageOff;
+	Button setgarageOn;
+	Button setgarageOff;
+	Button setAllarmeCasaOn;
+	Button setAllarmeCasaOff;
+	Button setAllarmeGarageOn;
+	Button setAllarmeGarageOff;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,12 +47,24 @@ public class Controllo extends Fragment  implements OnClickListener {
 		AllarmeCasaOff = (Button)view.findViewById(R.id.ControlloAllarmeCasaOn);
 		AllarmeGarageOn = (Button)view.findViewById(R.id.ControlloAllarmeGarageOn);
 		AllarmeGarageOff = (Button)view.findViewById(R.id.ControlloAllarmeGarageOff);
+		setgarageOn = (Button)view.findViewById(R.id.SetGarageOn);
+		setgarageOff = (Button)view.findViewById(R.id.SetGarageOff);
+		setAllarmeCasaOn = (Button)view.findViewById(R.id.SetAllarmeCasaOn);
+		setAllarmeCasaOff = (Button)view.findViewById(R.id.SetAllarmeCasaOff);
+		setAllarmeGarageOn = (Button)view.findViewById(R.id.SetAllarmeGarageOn);
+		setAllarmeGarageOff = (Button)view.findViewById(R.id.SetAllarmeGarageOff);
 		garageOn.setOnClickListener(this);
 		garageOff.setOnClickListener(this);
 		AllarmeCasaOn.setOnClickListener(this);
 		AllarmeCasaOff.setOnClickListener(this);
 		AllarmeGarageOn.setOnClickListener(this);
 		AllarmeGarageOff.setOnClickListener(this);
+		setgarageOn.setOnClickListener(this);
+		setgarageOff.setOnClickListener(this);
+		setAllarmeCasaOn.setOnClickListener(this);
+		setAllarmeCasaOff.setOnClickListener(this);
+		setAllarmeGarageOn.setOnClickListener(this);
+		setAllarmeGarageOff.setOnClickListener(this);
         return view;
     }
 
@@ -69,6 +87,24 @@ public class Controllo extends Fragment  implements OnClickListener {
 		}
 		if(button == AllarmeGarageOn){
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 1));
+		}
+		if(button == setgarageOn){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(4, 3));
+		}
+		if(button == setgarageOff){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(5, 4));
+		}
+		if(button == setAllarmeCasaOn){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 3));
+		}
+		if(button == setAllarmeCasaOff){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 4));
+		}
+		if(button == setAllarmeGarageOff){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 3));
+		}
+		if(button == setAllarmeGarageOn){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 4));
 		}
 		
 	}

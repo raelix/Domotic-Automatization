@@ -38,11 +38,10 @@ public class MultiThread{
 	private String password;
 	Session session ;
 	Configuration readFile;
-	Semaphore sem;
+	public Semaphore sem;
 	int[] settings;
 	@TargetApi(Build.VERSION_CODES.GINGERBREAD)
 	@SuppressLint("NewApi")
-	@SuppressWarnings("unchecked")
 	public MultiThread(String dest, int port,Pacco pkt,Semaphore sem){
 		this.readFile = new Configuration(nameFile);
 		this.host = readFile.getHost();
@@ -56,7 +55,6 @@ public class MultiThread{
 		new SSHConnection().execute();
 	};
 	
-	@SuppressWarnings("unchecked")
 	public MultiThread(String dest, int port,Pacco pkt){
 		this.readFile = new Configuration(nameFile);
 		this.host = readFile.getHost();
@@ -113,7 +111,9 @@ public class MultiThread{
 		}
 		public void connected(){
 			Pacco p = btsock.readPkt();
-			if (p == null || p.getType() != PROTOCOL_CONSTANTS.PACKET_TYPE_STRING || p.getType()!= PROTOCOL_CONSTANTS.PACKET_TYPE_STATUS){
+			if (p == null ){
+//				MainActivity.log("ricevuto pacchetto errato dal server");
+				System.out.println("ricevuto pacchetto errato dal server");
 				this.close();
 				return;
 			}
@@ -121,16 +121,18 @@ public class MultiThread{
 				try {
 					System.out.println("Ricevuta Stringa di ritorno dal Server: "+new PaccoString(p).getString());
 //					MainActivity.say(new PaccoString(p).getString());
-					AllControlli.log(new PaccoString(p).getString());
+//					AllControlli.log(new PaccoString(p).getString());
+					System.out.println(new PaccoString(p).getString());
 					this.close();
 				} catch (ProtocolException e) {
 					e.printStackTrace();
 				}}
 				else if(p.getType() == PROTOCOL_CONSTANTS.PACKET_TYPE_STATUS){
-					System.out.println("Ricevuta Status di ritorno dal Server ");
+					System.out.println("Ricevuto Status di ritorno dal Server ");
 //						MainActivity.say(new PaccoString(p).getString());
-//						AllControlli.log(new PaccoString(p).getString());
-					settings = new PaccoStatus(p).getSettings();
+//						AllControlli.log("ricevute informazioni sullo stato");
+					settings = new PaccoStatus(p).deserialize();
+					System.out.println("deserializzo e rilascio seme");
 					sem.release();
 					this.close();
 			}
@@ -150,8 +152,8 @@ public class MultiThread{
 	};
 
 	@SuppressWarnings("rawtypes")
-	private class SSHConnection extends AsyncTask {
-
+	public class SSHConnection extends AsyncTask {
+		
 		@Override
 		protected Object doInBackground(Object... arg0) {
 			execute();
@@ -192,10 +194,9 @@ public class MultiThread{
 			errore = false;
 			AllControlli.log("mando segnale al server");
 			new Connection().execute();
-			
+			return;
 		};
 
-		@SuppressWarnings("unused")
 		class SSHUserInfo implements UserInfo {  
 			private String password;  
 

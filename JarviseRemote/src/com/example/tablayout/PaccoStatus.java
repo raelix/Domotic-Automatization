@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 public class PaccoStatus extends Pacco {
 
-	int setting[];
+	int setting[] = new int[]{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
 
 	public PaccoStatus(int...x) {
 		super(PROTOCOL_CONSTANTS.PACKET_TYPE_STATUS,Utils.serializeManyInt(x),Utils.serializeManyInt(x).length);
@@ -32,7 +32,8 @@ public class PaccoStatus extends Pacco {
 			int i = 0 ;
 			while(ds.available() > 0 )
 			{
-				setting[i] = ds.readInt();
+				
+				setting[i] =  ds.readInt() ;
 				i++;
 			}
 		} catch (IOException e) {

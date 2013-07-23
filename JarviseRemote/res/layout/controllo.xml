@@ -2,7 +2,7 @@
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/iron" >
+    android:background="@drawable/layout" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -79,7 +79,7 @@
                     android:layout_marginRight="20dp"
                     android:background="@layout/acceso"
                     android:text="@string/On"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/black" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeCasaOff"
@@ -87,7 +87,93 @@
                     android:layout_marginRight="20dp"
                     android:background="@layout/spento"
                     android:text="@string/Off"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:layout_marginTop="50dp"
+                android:background="@android:color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/SetPosition"
+                android:layout_marginLeft="60dp"
+                android:text="Reset Stati:"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="@android:color/holo_blue_dark" />
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/ControlloTextGarage"
+                    style="@style/textViewStyle"
+                    android:text="@string/default5" />
+
+                <Button
+                    android:id="@+id/SetGarageOn"
+                    style="@style/buttonGreenViewStyle"
+                    android:text="Aperto" />
+
+                <Button
+                    android:id="@+id/SetGarageOff"
+                    style="@style/buttonRedViewStyle"
+                    android:text="Chiuso" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/ControlloTextAllarmeGarage"
+                    style="@style/textViewStyle"
+                    android:text="@string/default6" />
+
+                <Button
+                    android:id="@+id/SetAllarmeGarageOn"
+                    style="@style/buttonGreenViewStyle"
+                    android:text="Attivata" />
+
+                <Button
+                    android:id="@+id/SetAllarmeGarageOff"
+                    style="@style/buttonRedViewStyle"
+                    android:text="Disattiva" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/ControlloTextAllarmeCasa"
+                    style="@style/textViewStyle"
+                    android:text="@string/default7" />
+
+                <Button
+                    android:id="@+id/SetAllarmeCasaOn"
+                    android:layout_width="90dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@layout/acceso"
+                    android:text="Attivata"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/SetAllarmeCasaOff"
+                    android:layout_width="90dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@layout/spento"
+                    android:text="Disattivata"
+                    android:textColor="@android:color/black" />
             </TableRow>
         </TableLayout>
     </RelativeLayout>

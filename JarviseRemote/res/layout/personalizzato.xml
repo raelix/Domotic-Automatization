@@ -2,7 +2,7 @@
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/iron">
+    android:background="@drawable/layout">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -100,7 +100,7 @@
                     android:layout_marginRight="20dp"
                     android:text="@string/On"
                     android:background="@layout/acceso"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@android:color/black"/>
 
                 <Button
                     android:id="@+id/pesonalizzato4Off"
@@ -108,7 +108,7 @@
                     android:layout_marginRight="20dp"
                     android:text="@string/Off" 
                     android:background="@layout/spento"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@android:color/black"/>
             </TableRow>
             
             

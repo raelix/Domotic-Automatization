@@ -2,7 +2,7 @@
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-   android:background="@drawable/iron" >
+   android:background="@drawable/layout" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,7 +18,19 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/white"
             android:textSize="20dp" />
-
+		
+         <Button
+            android:id="@+id/getStatus"
+            android:layout_width="150dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Aggiorna" 
+            android:background="@layout/rosso"
+            android:textColor="@android:color/white"
+            />
+        
         <TableLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -63,10 +75,8 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/default3"
-                    android:textColor="@android:color/white" />
+                     style="@style/textViewStyle"
+                    android:text="@string/default3"/>
 
                 <ToggleButton
                     android:id="@+id/pesonalizzato3"

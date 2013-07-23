@@ -8,6 +8,7 @@ import java.util.Locale;
 
 import android.R.menu;
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Environment;
@@ -35,6 +36,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	public static String def2;
 	public static String def3;
 	public static String def4;
+	public static Activity thisActivity = null;
 	ViewPager mViewPager;
 	ActionBar actionBar ;
 	@SuppressWarnings("static-access")
@@ -42,7 +44,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+		this.thisActivity = getParent();
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		File file = new File(Environment.getExternalStorageDirectory()+"/jarvise.txt");
 		if (!file.exists()) {
@@ -127,6 +129,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		
 	}
 
+	public static void log(String log){
+		Toast.makeText(thisActivity, log, Toast.LENGTH_LONG).show();
+
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -140,7 +147,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	  // TODO Auto-generated method stub
 	  switch(item.getItemId()){
 	   case(R.id.action_settings):
-	    Toast.makeText(this, "Settaggi", Toast.LENGTH_LONG).show();
+	    Toast.makeText(this.getParent(), "Settaggi", Toast.LENGTH_LONG).show();
 	 	actionBar.setSelectedNavigationItem(5);
 //	    actionBar.setSelectedNavigationItem(5);
 	

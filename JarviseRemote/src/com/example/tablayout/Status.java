@@ -108,12 +108,112 @@ public void checkButtonAlarm(ToggleButton personale, String log){
 	}
 }
 
+public void refresh(){
+	this.readFile = new Configuration(nameFile);
+	this.default1 = readFile.getDefault0(); 
+	this.default2 = readFile.getDefault1();
+	this.default3 = readFile.getDefault2();
+	this.default4 = readFile.getDefault3();
+
+}
+
 	
 	
 	@SuppressWarnings("static-access")
 	@Override
 	public void onClick(View button) {
-
+		
+		if(button == personalizzato1){
+			if (!personalizzato1.isChecked()){
+//				segnale di spegnimento
+				checkButton(personalizzato1);
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 0));
+				
+			}
+			else if (personalizzato1.isChecked()){
+//				segnale d'accensione
+				checkButton(personalizzato1);
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 1));
+			}
+		}
+		if(button == personalizzato2){
+			if (!personalizzato2.isChecked()){
+				checkButton(personalizzato2);
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(1, 0));
+			}
+			else if (personalizzato2.isChecked()){
+				checkButton(personalizzato2);
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(1, 1));
+			}
+		}
+		if(button == personalizzato3){
+			if (!personalizzato3.isChecked()){
+				checkButton(personalizzato3);
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(2, 0));
+			}
+			else if (personalizzato3.isChecked()){
+				checkButton(personalizzato3);
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(2, 1));
+			}
+		}
+		if(button == personalizzato4){
+			if (!personalizzato4.isChecked()){
+				checkButton(personalizzato4);
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(3, 0));
+			}
+			else if (personalizzato4.isChecked()){
+				checkButton(personalizzato4);
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(3, 1));
+			}
+		}
+		if(button == personalizzato5){
+			if (!personalizzato5.isChecked()){
+				checkButton(personalizzato5);
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(5, 0));
+			}
+			else if (personalizzato5.isChecked()){
+				checkButton(personalizzato5);
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(4, 1));
+			}
+		}
+		if(button == personalizzato6){
+			if (!personalizzato6.isChecked()){
+				checkButton(personalizzato6);
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 0));
+			}
+			else if (personalizzato6.isChecked()){
+				checkButton(personalizzato6);
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 1));
+			}
+		}
+		if(button == personalizzato7){
+			if (!personalizzato7.isChecked()){
+				checkButton(personalizzato7);
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 0));
+			}
+			else if (personalizzato7.isChecked()){
+				checkButton(personalizzato7);
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 1));
+			}
+		}
+		if(button == personalizzato8){
+			checkButtonAlarm(personalizzato8,"reset");
+//			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 1)); FIXME Server must reset string
+			
+		}
+		if(button == personalizzato9){
+				checkButtonAlarm(personalizzato9,"reset");
+//				new MultiThread("127.0.0.1", 9001,new PaccoGpio(1, 1));  FIXME Server must reset string
+			
+		}
+		if(button == personalizzato10){
+			checkButtonAlarm(personalizzato10,"reset");
+//			new MultiThread("127.0.0.1", 9001,new PaccoGpio(1, 1));  FIXME Server must reset string
+			
+		}
+		
+		
+		
 		if(button == getStatus){
 			log("Waiting refresh....");
 			
@@ -139,7 +239,8 @@ public void checkButtonAlarm(ToggleButton personale, String log){
 			((ViewGroup) view).removeAllViews();
 
 			view = getView().inflate(getView().getContext(), R.layout.status,((ViewGroup) view) );	
-
+			getStatus = (Button) view.findViewById(R.id.getStatus);
+			getStatus.setOnClickListener(this);
 			personalizzato1 = (ToggleButton) view.findViewById(R.id.pesonalizzato1);
 			personalizzato2 = (ToggleButton) view.findViewById(R.id.pesonalizzato2);
 			personalizzato3 = (ToggleButton) view.findViewById(R.id.pesonalizzato3);
@@ -150,20 +251,38 @@ public void checkButtonAlarm(ToggleButton personale, String log){
 			personalizzato8 = (ToggleButton) view.findViewById(R.id.ControlloPerditaAcquarioButton);
 			personalizzato9 = (ToggleButton) view.findViewById(R.id.ControlloPerditaCasaButton);
 			personalizzato10 = (ToggleButton) view.findViewById(R.id.ControlloMovimentoCasaButton);
-			personalizzato1.setClickable(false);
-			personalizzato2.setClickable(false);
-			personalizzato3.setClickable(false);
-			personalizzato4.setClickable(false);
-			personalizzato5.setClickable(false);
-			personalizzato6.setClickable(false);
-			personalizzato7.setClickable(false);
-			personalizzato8.setClickable(false);
-			personalizzato9.setClickable(false);
-			personalizzato10.setClickable(false);
-			
+			personalizzato1.setClickable(true);
+			personalizzato2.setClickable(true);
+			personalizzato3.setClickable(true);
+			personalizzato4.setClickable(true);
+			personalizzato5.setClickable(true);
+			personalizzato6.setClickable(true);
+			personalizzato7.setClickable(true);
+			personalizzato8.setClickable(true);
+			personalizzato9.setClickable(true);
+			personalizzato10.setClickable(true);
+			personalizzato1.setOnClickListener(this);
+			personalizzato2.setOnClickListener(this);
+			personalizzato3.setOnClickListener(this);
+			personalizzato4.setOnClickListener(this);
+			personalizzato5.setOnClickListener(this);
+			personalizzato6.setOnClickListener(this);
+			personalizzato7.setOnClickListener(this);
+			personalizzato8.setOnClickListener(this);
+			personalizzato9.setOnClickListener(this);
+			personalizzato10.setOnClickListener(this);
+			def1 = (TextView) view.findViewById(R.id.personalizzatoText1);
+			def2 = (TextView) view.findViewById(R.id.personalizzatoText2);
+			def3 = (TextView) view.findViewById(R.id.personalizzatoText3);
+			def4 = (TextView) view.findViewById(R.id.personalizzatoText4);
+			refresh();
+			if(default1 != null)def1.setText(default1);
+			if(default2 != null)def2.setText(default2);
+			if(default3 != null)def3.setText(default3);
+			if(default4 != null)def4.setText(default4);
 //			int [] prova = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
-			status = thread.settings;
 //			status = prova;
+			status = thread.settings;
 			if(status[0] == 0){
 				personalizzato1.setChecked(false);
 				checkButton(personalizzato1);
