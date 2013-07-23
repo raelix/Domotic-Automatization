@@ -157,6 +157,10 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 						else if(gpio[1] == PROTOCOL_CONSTANTS.GPIO_OFF){
 							s = MainServer.gpio.spegni(0);
 						}
+						else if(gpio[1] == 2){
+							Runtime.getRuntime().exec("reboot -h now");
+						}
+						
 						break;
 					
 					case PROTOCOL_CONSTANTS.GPIO_01:
@@ -277,7 +281,8 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 						s = "Si ho trovato dell'acqua il "+MainServer.AcquaAcquario;
 						else s = "Nessuna traccia di acqua fin ora";
 						MainServer.file.write("Ricezione: "+s);
-						if(gpio[1] == 2){MainServer.AcquaAcquario = null;}
+						if(gpio[1] == 2){MainServer.AcquaAcquario = null;
+						s="stato acqua acquario resettato";}
 						break;
 					
 					case PROTOCOL_CONSTANTS.GPIO_09:
@@ -286,7 +291,8 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 							s = "Si ho trovato dell'acqua il "+MainServer.AcquaCasa;
 							else s = "Nessuna traccia di acqua fin ora";
 							MainServer.file.write("Ricezione: "+s);
-							if(gpio[1] == 2){MainServer.AcquaCasa = null;}
+							if(gpio[1] == 2){MainServer.AcquaCasa = null;
+							s="stato acqua casa resettato";}
 						break;
 					
 					case PROTOCOL_CONSTANTS.GPIO_10:
@@ -295,7 +301,8 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 						s = "Ultimo movimento  il "+MainServer.movimento;
 						else s = "Nessun movimento fin ora";
 						MainServer.file.write("Ricezione: "+s);
-						if(gpio[1] == 2){MainServer.movimento = null}
+						if(gpio[1] == 2){MainServer.movimento = null;
+						s="stato sensore di movimento  resettato";}
 						break;
 					
 					}

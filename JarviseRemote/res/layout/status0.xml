@@ -15,6 +15,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:background="@android:color/holo_blue_dark"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/white"
             android:textSize="20dp" />
@@ -26,10 +27,9 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="95dp"
-            android:text="GetStatus" 
             android:background="@layout/spento"
-            android:textColor="@android:color/white"
-            />
+            android:text="GetStatus"
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/erroreConnessione"
@@ -37,9 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/getStatus"
             android:layout_centerHorizontal="true"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="41dp" />
-     
+            android:layout_marginTop="41dp"
+            android:textColor="@android:color/white" />
     </RelativeLayout>
 
 </ScrollView>

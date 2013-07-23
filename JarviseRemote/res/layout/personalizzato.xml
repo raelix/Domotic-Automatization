@@ -2,7 +2,7 @@
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/layout">
+    android:background="@drawable/layout" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,6 +15,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:background="@android:color/holo_blue_dark"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/white"
             android:textSize="20dp" />
@@ -30,18 +31,18 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText1"
-                    android:text="@string/default1"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default1" />
 
                 <Button
                     android:id="@+id/pesonalizzato1On"
-                    android:text="@string/On"
-                    style="@style/buttonGreenViewStyle"  />
+                    style="@style/buttonGreenViewStyle"
+                    android:text="@string/On" />
 
                 <Button
                     android:id="@+id/pesonalizzato1Off"
-                    android:text="@string/Off"
-                    style="@style/buttonRedViewStyle"  />
+                    style="@style/buttonRedViewStyle"
+                    android:text="@string/Off" />
             </TableRow>
 
             <TableRow
@@ -50,18 +51,18 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText2"
-                    android:text="@string/default2"
-                     style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default2" />
 
                 <Button
                     android:id="@+id/pesonalizzato2On"
-                    android:text="@string/On" 
-                    style="@style/buttonGreenViewStyle" />
+                    style="@style/buttonGreenViewStyle"
+                    android:text="@string/On" />
 
                 <Button
                     android:id="@+id/pesonalizzato2Off"
-                    android:text="@string/Off"
-                    style="@style/buttonRedViewStyle"  />
+                    style="@style/buttonRedViewStyle"
+                    android:text="@string/Off" />
             </TableRow>
 
             <TableRow
@@ -70,18 +71,18 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText3"
-                    android:text="@string/default3"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default3" />
 
                 <Button
                     android:id="@+id/pesonalizzato3On"
-                    android:text="@string/On" 
-                    style="@style/buttonGreenViewStyle" />
+                    style="@style/buttonGreenViewStyle"
+                    android:text="@string/On" />
 
                 <Button
                     android:id="@+id/pesonalizzato3Off"
-                    android:text="@string/Off" 
-                    style="@style/buttonRedViewStyle" />
+                    style="@style/buttonRedViewStyle"
+                    android:text="@string/Off" />
             </TableRow>
 
             <TableRow
@@ -90,28 +91,25 @@
 
                 <TextView
                     android:id="@+id/personalizzatoText4"
-                    android:text="@string/default4"
                     style="@style/textViewStyle"
-                     />
+                    android:text="@string/default4" />
 
                 <Button
                     android:id="@+id/pesonalizzato4On"
                     android:layout_width="90dp"
                     android:layout_marginRight="20dp"
-                    android:text="@string/On"
                     android:background="@layout/acceso"
-                    android:textColor="@android:color/black"/>
+                    android:text="@string/On"
+                    android:textColor="@android:color/black" />
 
                 <Button
                     android:id="@+id/pesonalizzato4Off"
                     android:layout_width="90dp"
                     android:layout_marginRight="20dp"
-                    android:text="@string/Off" 
                     android:background="@layout/spento"
-                    android:textColor="@android:color/black"/>
+                    android:text="@string/Off"
+                    android:textColor="@android:color/black" />
             </TableRow>
-            
-            
         </TableLayout>
     </RelativeLayout>
 

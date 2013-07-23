@@ -113,22 +113,27 @@ public class MultiThread{
 			System.out.println("Connect Thread: Adesso spedisco le informazioni");
 			btsock.writePkt(pkt);
 			new ConnectionServer().execute();
+			
 		};
 	};
 
+	
+	
 
-
+	// to use:
+	   
 	@SuppressWarnings({ "rawtypes" })
 	private class ConnectionServer extends AsyncTask {
 
 		@Override
 		protected Object doInBackground(Object... arg0) {
-	
+
 			connected();
 			return null;
 		}
 		public void connected(){
 			Pacco p = btsock.readPkt();
+
 			if (p == null ){
 //				MainActivity.log("ricevuto pacchetto errato dal server");
 				System.out.println("ricevuto pacchetto errato dal server");
@@ -140,6 +145,9 @@ public class MultiThread{
 					System.out.println("Ricevuta Stringa di ritorno dal Server: "+new PaccoString(p).getString());
 //					MainActivity.say(new PaccoString(p).getString());
 //					MainActivity.log(new PaccoString(p).getString());
+
+					 new ToastMessageTask().execute("GPIO selezionato: "+new PaccoString(p).getString());
+					
 //					Toast.makeText(activity, new PaccoString(p).getString(), Toast.LENGTH_LONG).show();
 					System.out.println(new PaccoString(p).getString());
 					this.close();
@@ -152,6 +160,7 @@ public class MultiThread{
 //						AllControlli.log("ricevute informazioni sullo stato");
 					settings = new PaccoStatus(p).deserialize();
 					System.out.println("deserializzo e rilascio seme");
+					 new ToastMessageTask().execute("Stato della Casa ricevuto correttamente.");
 					sem.release();
 					this.close();
 			}
@@ -207,7 +216,7 @@ public class MultiThread{
 			} 
 			catch (JSchException e) {
 				System.out.println("non riesco a raggiungere il server");
-				AllControlli.log("non riesco a raggiungere il server");
+				 new ToastMessageTask().execute("Non riesco a raggiungere il Server");
 				e.printStackTrace();
 				errore = true;
 				if(sem != null)
@@ -216,7 +225,8 @@ public class MultiThread{
 				return;
 			}
 			errore = false;
-			AllControlli.log("mando segnale al server");
+//			AllControlli.log("Stabilita Connessione Criptata in SSH");
+			 new ToastMessageTask().execute("Stabilita Connessione Criptata con Casa");
 			new Connection().execute();
 			return;
 		};

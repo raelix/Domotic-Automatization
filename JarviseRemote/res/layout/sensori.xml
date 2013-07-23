@@ -15,6 +15,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:background="@android:color/holo_blue_dark"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/white"
             android:textSize="20dp" />
@@ -30,15 +31,13 @@
 
                 <TextView
                     android:id="@+id/SensoreTextAcquario"
-                    android:text="@string/default8"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default8" />
 
                 <Button
                     android:id="@+id/ControlloPerditaAcquarioButton"
-                    
-                    android:text="@string/controlla" 
-                     style="@style/buttonBluViewStyle"/>
-
+                    style="@style/buttonBluViewStyle"
+                    android:text="@string/controlla" />
             </TableRow>
 
             <TableRow
@@ -47,15 +46,13 @@
 
                 <TextView
                     android:id="@+id/SensoreTextCasa"
-                    android:text="@string/default9"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default9" />
 
                 <Button
                     android:id="@+id/ControlloPerditaCasaButton"
-                   
-                    android:text="@string/controlla"
-                     style="@style/buttonBluViewStyle" />
-
+                    style="@style/buttonBluViewStyle"
+                    android:text="@string/controlla" />
             </TableRow>
 
             <TableRow
@@ -64,15 +61,14 @@
 
                 <TextView
                     android:id="@+id/SensoreTextMovimento"
-                    android:text="@string/default10"
-                    style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default10" />
 
                 <Button
                     android:id="@+id/ControlloMovimentoCasaButton"
+                    style="@style/buttonBluViewStyle"
                     android:layout_width="90dp"
-                    android:text="@string/controlla"
-                     style="@style/buttonBluViewStyle" />
-
+                    android:text="@string/controlla" />
             </TableRow>
         </TableLayout>
     </RelativeLayout>

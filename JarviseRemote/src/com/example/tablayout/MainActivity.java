@@ -18,6 +18,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -82,6 +83,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		}
 		actionBar =  getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		
+		
+		
 		mSectionsPagerAdapter = new SectionsPagerAdapter(
 		getSupportFragmentManager());
 		mViewPager = (ViewPager) findViewById(R.id.pager);	
@@ -149,8 +153,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	  // TODO Auto-generated method stub
 	  switch(item.getItemId()){
 	   case(R.id.action_settings):
-	    Toast.makeText(this.getParent(), "Settaggi", Toast.LENGTH_LONG).show();
-	 	actionBar.setSelectedNavigationItem(5);
+//	    Toast.makeText(this.getParent(), "Settaggi", Toast.LENGTH_LONG).show();
+	   new ToastMessageTask().execute("Settaggi");
+	   actionBar.setSelectedNavigationItem(5);
 //	    actionBar.setSelectedNavigationItem(5);
 	
 	   break;

@@ -15,6 +15,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:background="@android:color/holo_blue_dark"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/white"
             android:textSize="20dp" />
@@ -89,7 +90,8 @@
                     android:text="@string/Off"
                     android:textColor="@android:color/black" />
             </TableRow>
-
+            <!--
+     ### 
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="2dip"
@@ -174,7 +176,8 @@
                     android:background="@layout/spento"
                     android:text="Disattivata"
                     android:textColor="@android:color/black" />
-            </TableRow>
+            </TableRow 													END COMMENT
+            -->
         </TableLayout>
     </RelativeLayout>
 

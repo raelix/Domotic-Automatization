@@ -47,25 +47,25 @@ public class Controllo extends Fragment  implements OnClickListener {
 		AllarmeCasaOff = (Button)view.findViewById(R.id.ControlloAllarmeCasaOn);
 		AllarmeGarageOn = (Button)view.findViewById(R.id.ControlloAllarmeGarageOn);
 		AllarmeGarageOff = (Button)view.findViewById(R.id.ControlloAllarmeGarageOff);
-		setgarageOn = (Button)view.findViewById(R.id.SetGarageOn);
-		setgarageOff = (Button)view.findViewById(R.id.SetGarageOff);
-		setAllarmeCasaOn = (Button)view.findViewById(R.id.SetAllarmeCasaOn);
-		setAllarmeCasaOff = (Button)view.findViewById(R.id.SetAllarmeCasaOff);
-		setAllarmeGarageOn = (Button)view.findViewById(R.id.SetAllarmeGarageOn);
-		setAllarmeGarageOff = (Button)view.findViewById(R.id.SetAllarmeGarageOff);
 		garageOn.setOnClickListener(this);
 		garageOff.setOnClickListener(this);
 		AllarmeCasaOn.setOnClickListener(this);
 		AllarmeCasaOff.setOnClickListener(this);
 		AllarmeGarageOn.setOnClickListener(this);
 		AllarmeGarageOff.setOnClickListener(this);
+		/*setgarageOn = (Button)view.findViewById(R.id.SetGarageOn);
+		setgarageOff = (Button)view.findViewById(R.id.SetGarageOff);
+		setAllarmeCasaOn = (Button)view.findViewById(R.id.SetAllarmeCasaOn);
+		setAllarmeCasaOff = (Button)view.findViewById(R.id.SetAllarmeCasaOff);
+		setAllarmeGarageOn = (Button)view.findViewById(R.id.SetAllarmeGarageOn);
+		setAllarmeGarageOff = (Button)view.findViewById(R.id.SetAllarmeGarageOff);
 		setgarageOn.setOnClickListener(this);
 		setgarageOff.setOnClickListener(this);
 		setAllarmeCasaOn.setOnClickListener(this);
 		setAllarmeCasaOff.setOnClickListener(this);
 		setAllarmeGarageOn.setOnClickListener(this);
 		setAllarmeGarageOff.setOnClickListener(this);
-        return view;
+        */return view;
     }
 
 	@Override

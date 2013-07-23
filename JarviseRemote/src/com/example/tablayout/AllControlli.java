@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,7 @@ public class AllControlli extends Fragment implements OnClickListener{
 	Button AcquaAcquario;
 	Button AcquaCasa;
 	Button movimento;
-	static Activity thisActivity = null;
+	public static Activity thisActivity = null;
 	Configuration readFile;
 	@SuppressWarnings("static-access")
 	@Override
@@ -135,6 +136,7 @@ public void refresh(){
 
 		if(button == button1on){
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 1));
+			
 			
 			}
 		if(button == button1off){

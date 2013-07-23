@@ -12,12 +12,11 @@
         <TextView
             android:id="@+id/infoTuttiControlli"
             android:layout_width="wrap_content"
-            
-           
-      android:textAllCaps = "true"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:background="@android:color/holo_blue_dark"
+            android:textAllCaps="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/white"
             android:textSize="20dp" />
@@ -25,7 +24,7 @@
         <TableLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:stretchColumns="*" >
+            android:dividerPadding="150dp" >
 
             <TableRow
                 android:layout_width="fill_parent"
@@ -38,13 +37,13 @@
 
                 <Button
                     android:id="@+id/pesonalizzato1On"
-                   android:text="@string/On"
-                   style="@style/buttonGreenViewStyle" />
+                    style="@style/buttonGreenViewStyle"
+                    android:text="@string/On" />
 
                 <Button
                     android:id="@+id/pesonalizzato1Off"
-                   	android:text="@string/Off"
-                    style="@style/buttonRedViewStyle" />
+                    style="@style/buttonRedViewStyle"
+                    android:text="@string/Off" />
             </TableRow>
 
             <TableRow
@@ -58,13 +57,13 @@
 
                 <Button
                     android:id="@+id/pesonalizzato2On"
-                    android:text="@string/On" 
-                    style="@style/buttonGreenViewStyle" />
+                    style="@style/buttonGreenViewStyle"
+                    android:text="@string/On" />
 
                 <Button
                     android:id="@+id/pesonalizzato2Off"
-                    android:text="@string/Off"
-                    style="@style/buttonRedViewStyle"  />
+                    style="@style/buttonRedViewStyle"
+                    android:text="@string/Off" />
             </TableRow>
 
             <TableRow
@@ -78,13 +77,13 @@
 
                 <Button
                     android:id="@+id/pesonalizzato3On"
-                   android:text="@string/On"
-                   style="@style/buttonGreenViewStyle"  />
+                    style="@style/buttonGreenViewStyle"
+                    android:text="@string/On" />
 
                 <Button
                     android:id="@+id/pesonalizzato3Off"
-                    android:text="@string/Off" 
-                    style="@style/buttonRedViewStyle" />
+                    style="@style/buttonRedViewStyle"
+                    android:text="@string/Off" />
             </TableRow>
 
             <TableRow
@@ -98,13 +97,13 @@
 
                 <Button
                     android:id="@+id/pesonalizzato4On"
-                   android:text="@string/On" 
-                   style="@style/buttonGreenViewStyle" />
+                    style="@style/buttonGreenViewStyle"
+                    android:text="@string/On" />
 
                 <Button
                     android:id="@+id/pesonalizzato4Off"
-                   android:text="@string/Off" 
-                   style="@style/buttonRedViewStyle" />
+                    style="@style/buttonRedViewStyle"
+                    android:text="@string/Off" />
             </TableRow>
 
             <TableRow
@@ -118,13 +117,13 @@
 
                 <Button
                     android:id="@+id/ControlloGarageOn"
-                    android:text="@string/apri"
-                    style="@style/buttonGreenViewStyle" />
+                    style="@style/buttonGreenViewStyle"
+                    android:text="@string/apri" />
 
                 <Button
                     android:id="@+id/ControlloGarageOff"
-                    android:text="@string/chiudi" 
-                    style="@style/buttonRedViewStyle" />
+                    style="@style/buttonRedViewStyle"
+                    android:text="@string/chiudi" />
             </TableRow>
 
             <TableRow
@@ -138,13 +137,13 @@
 
                 <Button
                     android:id="@+id/ControlloAllarmeGarageOn"
-                   android:text="@string/On" 
-                   style="@style/buttonGreenViewStyle" />
+                    style="@style/buttonGreenViewStyle"
+                    android:text="@string/On" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeGarageOff"
-                    android:text="@string/Off" 
-                    style="@style/buttonRedViewStyle" />
+                    style="@style/buttonRedViewStyle"
+                    android:text="@string/Off" />
             </TableRow>
 
             <TableRow
@@ -158,13 +157,13 @@
 
                 <Button
                     android:id="@+id/ControlloAllarmeCasaOn"
-                    android:text="@string/On" 
-                    style="@style/buttonGreenViewStyle" />
+                    style="@style/buttonGreenViewStyle"
+                    android:text="@string/On" />
 
                 <Button
                     android:id="@+id/ControlloAllarmeCasaOff"
-                    android:text="@string/Off"
-                    style="@style/buttonRedViewStyle"  />
+                    style="@style/buttonRedViewStyle"
+                    android:text="@string/Off" />
             </TableRow>
 
             <TableRow
@@ -178,8 +177,8 @@
 
                 <Button
                     android:id="@+id/ControlloPerditaAcquarioButton"
-                    android:text="@string/controlla" 
-                      style="@style/buttonBluViewStyle"/>
+                    style="@style/buttonBluViewStyle"
+                    android:text="@string/controlla" />
             </TableRow>
 
             <TableRow
@@ -193,8 +192,8 @@
 
                 <Button
                     android:id="@+id/ControlloPerditaCasaButton"
-                    android:text="@string/controlla"
-                     style="@style/buttonBluViewStyle" />
+                    style="@style/buttonBluViewStyle"
+                    android:text="@string/controlla" />
             </TableRow>
 
             <TableRow
@@ -208,8 +207,8 @@
 
                 <Button
                     android:id="@+id/ControlloMovimentoCasaButton"
-                    android:text="@string/controlla"
-                     style="@style/buttonBluViewStyle" />
+                    style="@style/buttonBluViewStyle"
+                    android:text="@string/controlla" />
             </TableRow>
         </TableLayout>
     </RelativeLayout>

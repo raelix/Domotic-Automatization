@@ -204,26 +204,26 @@ public void refresh(){
 			}
 		}
 		if(button == personalizzato8){
-			checkButtonAlarm(personalizzato8,"reset");
-			new MultiThread("127.0.0.1", 9001,new PaccoGpio(8, 2)); 
-			
+			checkButtonAlarm(personalizzato8,"info");
+//			new MultiThread("127.0.0.1", 9001,new PaccoGpio(8, 2)); 
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(8, 0));
 		}
 		if(button == personalizzato9){
-				checkButtonAlarm(personalizzato9,"reset");
-				new MultiThread("127.0.0.1", 9001,new PaccoGpio(9, 2)); 
-			
+				checkButtonAlarm(personalizzato9,"info");
+//				new MultiThread("127.0.0.1", 9001,new PaccoGpio(9, 2)); 
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(9, 0));
 		}
 		if(button == personalizzato10){
-			checkButtonAlarm(personalizzato10,"reset");
-		new MultiThread("127.0.0.1", 9001,new PaccoGpio(10, 2));  
-			
+			checkButtonAlarm(personalizzato10,"info");
+//			new MultiThread("127.0.0.1", 9001,new PaccoGpio(10, 2));  
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(10, 0));
 		}
 		
 		
 		
 		if(button == getStatus){
-			log("Waiting refresh....");
-			
+//			log("Waiting refresh....");
+			 new ToastMessageTask().execute("Ricevo aggiornamenti...");
 			errore =(TextView) view.findViewById(R.id.erroreConnessione);
 			
 			try {
@@ -262,11 +262,11 @@ public void refresh(){
 			int height = displaymetrics.heightPixels;
 			int width = displaymetrics.widthPixels;
 			Animation slideUp = new TranslateAnimation(0, 0, -height,0);
-			slideUp.setDuration(1800);
+			slideUp.setDuration(800);
 			Animation slideDown = new TranslateAnimation(0, 0,0,height/4);
-			slideDown.setDuration(2000);
+			slideDown.setDuration(1200);
 			Animation slideNormal = new TranslateAnimation(0, 0,height/4,-height/4);
-			slideNormal.setDuration(3000);
+			slideNormal.setDuration(1900);
 			AnimationSet animSet = new AnimationSet(true);
 		
 //			animSet.addAnimation(scale);

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
  
 public class Avanzate extends Fragment implements OnClickListener{
 	private static String nameFile = "jarvise.txt";
@@ -23,7 +24,17 @@ public class Avanzate extends Fragment implements OnClickListener{
 	EditText def2;
 	EditText def3;
 	EditText def4;
+	Button setgarageOn;
+	Button setgarageOff;
+	Button setAllarmeCasaOn;
+	Button setAllarmeCasaOff;
+	Button setAllarmeGarageOn;
+	Button setAllarmeGarageOff;
+	Button personalizzato8;
+	Button personalizzato9;
+	Button personalizzato10;
 	Button save;
+	Button reboot;
 	Configuration readFile;
 	static Activity thisActivity = null;
 	
@@ -34,6 +45,7 @@ public class Avanzate extends Fragment implements OnClickListener{
         Log.e("Personalizzato", "Selezionato");
         this.thisActivity = this.getActivity();
     	this.readFile = new Configuration(nameFile);
+    	
     	
     }
  
@@ -49,6 +61,7 @@ public class Avanzate extends Fragment implements OnClickListener{
         View view = inflater.inflate(R.layout.avanzate, container, false);
         TextView textView = (TextView) view.findViewById(R.id.infoAvanzate);
         textView.setText("OPZIONI  AVANZATE");
+        reboot = (Button) view.findViewById(R.id.Riavvio);
         save = (Button)	  view.findViewById(R.id.Salva);
         user = (EditText) view.findViewById(R.id.UserValore);
         host = (EditText) view.findViewById(R.id.hostValore);
@@ -57,7 +70,29 @@ public class Avanzate extends Fragment implements OnClickListener{
         def2 = (EditText) view.findViewById(R.id.default2Value);
         def3 = (EditText) view.findViewById(R.id.default3Value);
         def4 = (EditText) view.findViewById(R.id.default4Value);
+        setgarageOn = (Button)view.findViewById(R.id.SetGarageOn);
+		setgarageOff = (Button)view.findViewById(R.id.SetGarageOff);
+		setAllarmeCasaOn = (Button)view.findViewById(R.id.SetAllarmeCasaOn);
+		setAllarmeCasaOff = (Button)view.findViewById(R.id.SetAllarmeCasaOff);
+		setAllarmeGarageOn = (Button)view.findViewById(R.id.SetAllarmeGarageOn);
+		setAllarmeGarageOff = (Button)view.findViewById(R.id.SetAllarmeGarageOff);
+		personalizzato8 = (Button) view.findViewById(R.id.ControlloPerditaAcquarioButton);
+		personalizzato9 = (Button) view.findViewById(R.id.ControlloPerditaCasaButton);
+		personalizzato10 = (Button) view.findViewById(R.id.ControlloMovimentoCasaButton);
+		reboot.setOnClickListener(this);
+		setgarageOn.setOnClickListener(this);
+		setgarageOff.setOnClickListener(this);
+		setAllarmeCasaOn.setOnClickListener(this);
+		setAllarmeCasaOff.setOnClickListener(this);
+		setAllarmeGarageOn.setOnClickListener(this);
+		setAllarmeGarageOff.setOnClickListener(this);
+		personalizzato8.setOnClickListener(this);
+		personalizzato9.setOnClickListener(this);
+		personalizzato10.setOnClickListener(this);
         save.setOnClickListener(this);
+		personalizzato8.setText("Resetta");
+		personalizzato9.setText("Resetta");
+		personalizzato10.setText("Resetta");
         return view;
     }
 
@@ -65,6 +100,13 @@ public class Avanzate extends Fragment implements OnClickListener{
 		Toast.makeText(thisActivity, log, Toast.LENGTH_LONG).show();
 
 	}
+    
+    public void checkButtonAlarm(Button personale, String log){
+    	
+    		personale.setBackgroundResource(R.layout.rosso);
+    		personale.setText(log);
+    	
+    }
    
 	@Override
 	public void onClick(View button) {
@@ -83,6 +125,46 @@ public class Avanzate extends Fragment implements OnClickListener{
 			def2.getText().clear();
 			def3.getText().clear();
 			def4.getText().clear();
+			
+		}
+		
+		if(button == setgarageOn){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(4, 3));
+		}
+		if(button == setgarageOff){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(5, 4));
+		}
+		if(button == setAllarmeCasaOn){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 3));
+		}
+		if(button == setAllarmeCasaOff){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 4));
+		}
+		if(button == setAllarmeGarageOff){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 4));
+		}
+		if(button == setAllarmeGarageOn){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 3));
+		}
+		if(button == personalizzato8){
+			checkButtonAlarm(personalizzato8,"Resettato");
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(8, 2)); 
+			
+		}
+		if(button == personalizzato9){
+				checkButtonAlarm(personalizzato9,"Resettato");
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(9, 2)); 
+			
+		}
+		if(button == personalizzato10){
+			checkButtonAlarm(personalizzato10,"Resettato");
+		new MultiThread("127.0.0.1", 9001,new PaccoGpio(10, 2));  
+			
+		}
+		
+		if(button == reboot){
+			new ToastMessageTask().execute("Provo a riavviare");
+		new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 2));  
 			
 		}
 		

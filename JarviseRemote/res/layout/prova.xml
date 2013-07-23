@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/layout" >
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="344dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/infoSensori"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+
+
+                <TextView
+                    android:id="@+id/SensoreTextAcquario"
+                    android:text="@string/default8"
+                    style="@style/textViewStyle" />
+
+                <Button
+                    android:id="@+id/ControlloPerditaAcquarioButton"
+                    
+                    android:text="@string/controlla" 
+                     style="@style/buttonBluViewStyle"/>
+
+
+                <TextView
+                    android:id="@+id/SensoreTextCasa"
+                    android:text="@string/default9"
+                    style="@style/textViewStyle" />
+
+                <Button
+                    android:id="@+id/ControlloPerditaCasaButton"
+                   
+                    android:text="@string/controlla"
+                     style="@style/buttonBluViewStyle" />
+
+                <TextView
+                    android:id="@+id/SensoreTextMovimento"
+                    android:text="@string/default10"
+                    style="@style/textViewStyle" />
+
+                <Button
+                    android:id="@+id/ControlloMovimentoCasaButton"
+                    android:layout_width="90dp"
+                    android:text="@string/controlla"
+                     style="@style/buttonBluViewStyle" />
+</ListView>
+    </RelativeLayout>
+

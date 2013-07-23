@@ -15,6 +15,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:background="@android:color/holo_blue_dark"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/white"
             android:textSize="20dp" />
@@ -30,12 +31,12 @@
 
                 <TextView
                     android:id="@+id/UserTesto"
-                    android:text="@string/nome"
-					style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/nome" />
 
                 <EditText
                     android:id="@+id/UserValore"
-                     style="@style/editTextStyle" >
+                    style="@style/editTextStyle" >
                 </EditText>
             </TableRow>
 
@@ -45,12 +46,13 @@
 
                 <TextView
                     android:id="@+id/testoPassword"
-                    android:text="@string/password"
-					style="@style/textViewStyle"/>
+                    style="@style/textViewStyle"
+                    android:text="@string/password" />
 
                 <EditText
                     android:id="@+id/passwordValore"
-                     style="@style/editTextStyle"  >
+                    style="@style/editTextStyle"
+                    android:inputType="textPassword" >
                 </EditText>
             </TableRow>
 
@@ -60,12 +62,12 @@
 
                 <TextView
                     android:id="@+id/testoHost"
-					style="@style/textViewStyle"
+                    style="@style/textViewStyle"
                     android:text="@string/host" />
 
                 <EditText
                     android:id="@+id/hostValore"
-                     style="@style/editTextStyle"  >
+                    style="@style/editTextStyle" >
                 </EditText>
             </TableRow>
 
@@ -75,8 +77,8 @@
 
                 <TextView
                     android:id="@+id/default1"
-                    android:text="@string/default1"
-					style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default1" />
 
                 <EditText
                     android:id="@+id/default1Value"
@@ -90,12 +92,12 @@
 
                 <TextView
                     android:id="@+id/default2"
-                    android:text="@string/default2"
-					style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default2" />
 
                 <EditText
                     android:id="@+id/default2Value"
-                     style="@style/editTextStyle" >
+                    style="@style/editTextStyle" >
                 </EditText>
             </TableRow>
 
@@ -105,12 +107,12 @@
 
                 <TextView
                     android:id="@+id/default3"
-                    android:text="@string/default3"
-					style="@style/textViewStyle" />
+                    style="@style/textViewStyle"
+                    android:text="@string/default3" />
 
                 <EditText
                     android:id="@+id/default3Value"
-                   style="@style/editTextStyle"  >
+                    style="@style/editTextStyle" >
                 </EditText>
             </TableRow>
 
@@ -120,12 +122,12 @@
 
                 <TextView
                     android:id="@+id/default4"
-                    android:text="@string/default4"
-                    style="@style/textViewStyle"/>
+                    style="@style/textViewStyle"
+                    android:text="@string/default4" />
 
                 <EditText
                     android:id="@+id/default4Value"
-                   style="@style/editTextStyle" >
+                    style="@style/editTextStyle" >
                 </EditText>
             </TableRow>
 
@@ -137,8 +139,180 @@
                     android:id="@+id/Salva"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="left"
                     android:layout_marginRight="20dp"
+                    android:background="@layout/spento"
                     android:text="Salva" />
+            </TableRow>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/Riavvio"
+                android:background="@android:color/black"
+                android:gravity="center_horizontal"
+                android:text="Riavvia il Server"
+                android:textColor="@android:color/white"
+                android:textStyle="italic"
+                android:typeface="serif" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="@android:color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/Use"
+                android:layout_marginTop="30dp"
+                android:gravity="top|center_horizontal"
+                android:text="Usa a tuo rischio e pericolo"
+                android:textColor="@android:color/white"
+                android:textStyle="italic"
+                android:typeface="serif" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="170dp"
+                android:layout_marginTop="20dp"
+                android:background="@layout/rosso"
+                android:text="Riavvia"
+                android:textColor="@android:color/white"
+                android:textStyle="italic"
+                android:typeface="serif" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/ResetStatus"
+                android:background="@android:color/black"
+                android:gravity="center_horizontal"
+                android:text="Reset Stato Controlli"
+                android:textColor="@android:color/white"
+                android:textStyle="italic"
+                android:typeface="serif" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="@android:color/holo_blue_dark" />
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/ControlloTextGarage"
+                    style="@style/textViewStyle"
+                    android:text="@string/default5" />
+
+                <Button
+                    android:id="@+id/SetGarageOn"
+                    style="@style/buttonGreenViewStyle"
+                    android:text="Aperto" />
+
+                <Button
+                    android:id="@+id/SetGarageOff"
+                    style="@style/buttonRedViewStyle"
+                    android:text="Chiuso" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/ControlloTextAllarmeGarage"
+                    style="@style/textViewStyle"
+                    android:text="@string/default6" />
+
+                <Button
+                    android:id="@+id/SetAllarmeGarageOn"
+                    style="@style/buttonGreenViewStyle"
+                    android:text="Attivata" />
+
+                <Button
+                    android:id="@+id/SetAllarmeGarageOff"
+                    style="@style/buttonRedViewStyle"
+                    android:text="Disattiva" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/ControlloTextAllarmeCasa"
+                    style="@style/textViewStyle"
+                    android:text="@string/default7" />
+
+                <Button
+                    android:id="@+id/SetAllarmeCasaOn"
+                    style="@style/buttonGreenViewStyle"
+                    android:text="Attivata" />
+
+                <Button
+                    android:id="@+id/SetAllarmeCasaOff"
+                    style="@style/buttonRedViewStyle"
+                    android:text="Disattiva" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/SensoreTextAcquario"
+                    style="@style/textViewStyle"
+                    android:text="@string/default8" />
+
+                <Button
+                    android:id="@+id/ControlloPerditaAcquarioButton"
+                    style="@style/buttonBluViewStyle"
+                    android:layout_gravity="center_horizontal|center_horizontal"
+                    android:text="@string/controlla" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/SensoreTextCasa"
+                    style="@style/textViewStyle"
+                    android:text="@string/default9" />
+
+                <Button
+                    android:id="@+id/ControlloPerditaCasaButton"
+                    style="@style/buttonBluViewStyle"
+                    android:layout_gravity="center"
+                    android:text="@string/controlla" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_marginTop="50dp" >
+
+                <TextView
+                    android:id="@+id/SensoreTextMovimento"
+                    style="@style/textViewStyle"
+                    android:text="@string/default10" />
+
+                <Button
+                    android:id="@+id/ControlloMovimentoCasaButton"
+                    style="@style/buttonBluViewStyle"
+                    android:layout_gravity="center"
+                    android:text="@string/controlla" />
             </TableRow>
         </TableLayout>
     </RelativeLayout>
