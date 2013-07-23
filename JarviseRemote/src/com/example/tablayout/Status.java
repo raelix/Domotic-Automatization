@@ -4,13 +4,20 @@ import java.util.concurrent.Semaphore;
 import com.example.tablayout.R;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -237,8 +244,37 @@ public void refresh(){
 			return;
 		} else {
 			((ViewGroup) view).removeAllViews();
+			
+			view = getView().inflate(getView().getContext(), R.layout.status,((ViewGroup) view) );
+			/*ScaleAnimation scale = new ScaleAnimation((float)1, (float)1, (float)0.1, (float)1,(float)3,(float)3);
+			scale.setFillAfter(true);
+			scale.setDuration(500);
+			view.startAnimation(scale); 
+			*/
+			Animation scale = new ScaleAnimation(1, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+			// 1 second duration
+//			scale.setDuration(1000);
+			// Moving up
+//			Animation slideUp = new TranslateAnimation(1200, 0, 0, 0);
+			// 1 second duration
+			DisplayMetrics displaymetrics = new DisplayMetrics();
+			getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+			int height = displaymetrics.heightPixels;
+			int width = displaymetrics.widthPixels;
+			Animation slideUp = new TranslateAnimation(0, 0, -height,0);
+			slideUp.setDuration(1800);
+			Animation slideDown = new TranslateAnimation(0, 0,0,height/4);
+			slideDown.setDuration(2000);
+			Animation slideNormal = new TranslateAnimation(0, 0,height/4,-height/4);
+			slideNormal.setDuration(3000);
+			AnimationSet animSet = new AnimationSet(true);
+		
+//			animSet.addAnimation(scale);
+			animSet.addAnimation(slideUp);
+			animSet.addAnimation(slideDown);
 
-			view = getView().inflate(getView().getContext(), R.layout.status,((ViewGroup) view) );	
+			animSet.addAnimation(slideNormal);
+			view.startAnimation(animSet);
 			getStatus = (Button) view.findViewById(R.id.getStatus);
 			getStatus.setOnClickListener(this);
 			personalizzato1 = (ToggleButton) view.findViewById(R.id.pesonalizzato1);

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -134,6 +135,7 @@ public void refresh(){
 
 		if(button == button1on){
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 1));
+			
 			}
 		if(button == button1off){
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 0));
