@@ -98,7 +98,7 @@ public void checkButton(ToggleButton personale){
 public void checkButtonAlarm(ToggleButton personale, String log){
 	if(personale.isChecked())
 	{
-		personale.setBackgroundResource(R.layout.spento);
+		personale.setBackgroundResource(R.layout.rosso);
 		personale.setText(log);
 	}
 	else
@@ -198,17 +198,17 @@ public void refresh(){
 		}
 		if(button == personalizzato8){
 			checkButtonAlarm(personalizzato8,"reset");
-//			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 1)); FIXME Server must reset string
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(8, 2)); 
 			
 		}
 		if(button == personalizzato9){
 				checkButtonAlarm(personalizzato9,"reset");
-//				new MultiThread("127.0.0.1", 9001,new PaccoGpio(1, 1));  FIXME Server must reset string
+				new MultiThread("127.0.0.1", 9001,new PaccoGpio(9, 2)); 
 			
 		}
 		if(button == personalizzato10){
 			checkButtonAlarm(personalizzato10,"reset");
-//			new MultiThread("127.0.0.1", 9001,new PaccoGpio(1, 1));  FIXME Server must reset string
+		new MultiThread("127.0.0.1", 9001,new PaccoGpio(10, 2));  
 			
 		}
 		

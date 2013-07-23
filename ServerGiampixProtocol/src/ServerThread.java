@@ -272,24 +272,30 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 						break;
 					
 					case PROTOCOL_CONSTANTS.GPIO_08:
+					
 						if (MainServer.AcquaAcquario != null)
 						s = "Si ho trovato dell'acqua il "+MainServer.AcquaAcquario;
 						else s = "Nessuna traccia di acqua fin ora";
 						MainServer.file.write("Ricezione: "+s);
+						if(gpio[1] == 2){MainServer.AcquaAcquario = null;}
 						break;
 					
 					case PROTOCOL_CONSTANTS.GPIO_09:
+					
 						if (MainServer.AcquaCasa != null)
 							s = "Si ho trovato dell'acqua il "+MainServer.AcquaCasa;
 							else s = "Nessuna traccia di acqua fin ora";
 							MainServer.file.write("Ricezione: "+s);
+							if(gpio[1] == 2){MainServer.AcquaCasa = null;}
 						break;
 					
 					case PROTOCOL_CONSTANTS.GPIO_10:
+					
 						if (MainServer.movimento != null)
 						s = "Ultimo movimento  il "+MainServer.movimento;
 						else s = "Nessun movimento fin ora";
 						MainServer.file.write("Ricezione: "+s);
+						if(gpio[1] == 2){MainServer.movimento = null}
 						break;
 					
 					}
