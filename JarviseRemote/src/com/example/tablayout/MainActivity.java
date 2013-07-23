@@ -129,6 +129,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		
 	}
 
+	
+	
 	public static void log(String log){
 		Toast.makeText(thisActivity, log, Toast.LENGTH_LONG).show();
 

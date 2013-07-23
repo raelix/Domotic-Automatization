@@ -13,9 +13,11 @@ import com.jcraft.jsch.UserInfo;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.StrictMode;
+import android.widget.Toast;
 
 
 
@@ -38,6 +40,7 @@ public class MultiThread{
 	private String password;
 	Session session ;
 	Configuration readFile;
+	Activity activity;
 	public Semaphore sem;
 	int[] settings;
 	@TargetApi(Build.VERSION_CODES.GINGERBREAD)
@@ -65,6 +68,21 @@ public class MultiThread{
 		this.dest = dest;
 		this.port = port;
 		this.pkt = pkt;
+		new SSHConnection().execute();
+		
+	};
+	
+	public MultiThread(String dest, int port,Pacco pkt,Activity activity){
+		this.readFile = new Configuration(nameFile);
+		this.host = readFile.getHost();
+		this.user = readFile.getUser();
+		this.password = readFile.getPass();
+		this.session = null;
+		this.sem = null;
+		this.dest = dest;
+		this.port = port;
+		this.pkt = pkt;
+		this.activity = activity;
 		new SSHConnection().execute();
 		
 	};
@@ -105,7 +123,7 @@ public class MultiThread{
 
 		@Override
 		protected Object doInBackground(Object... arg0) {
-
+	
 			connected();
 			return null;
 		}
@@ -121,7 +139,8 @@ public class MultiThread{
 				try {
 					System.out.println("Ricevuta Stringa di ritorno dal Server: "+new PaccoString(p).getString());
 //					MainActivity.say(new PaccoString(p).getString());
-//					AllControlli.log(new PaccoString(p).getString());
+//					MainActivity.log(new PaccoString(p).getString());
+//					Toast.makeText(activity, new PaccoString(p).getString(), Toast.LENGTH_LONG).show();
 					System.out.println(new PaccoString(p).getString());
 					this.close();
 				} catch (ProtocolException e) {
@@ -151,6 +170,7 @@ public class MultiThread{
 		}
 	};
 
+	
 	@SuppressWarnings("rawtypes")
 	public class SSHConnection extends AsyncTask {
 		
@@ -170,12 +190,16 @@ public class MultiThread{
 			String lhost="127.0.0.1";
 			int lport=9001;   
 			JSch jsch=new JSch();
-			
+		
+
+				
 			try {
 				session=jsch.getSession(user, host, 22);
+				System.out.println("dopo get session");
 				session.setPassword(password.getBytes());
-				session.setConfig("StrictHostKeyChecking", "no");   // Avoid asking for key confirmation
-				session.connect();
+				session.setConfig("StrictHostKeyChecking", "no");
+				System.out.println("faccio la connect");
+				session.connect(7000);
 				System.out.println("connesso? "+session.isConnected());
 				int assinged_port = session.setPortForwardingL(lhost,lport, rhost, rport);
 				System.out.println("localhost:"+assinged_port+" -> "+rhost+":"+rport);
