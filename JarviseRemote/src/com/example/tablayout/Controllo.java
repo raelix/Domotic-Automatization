@@ -95,16 +95,16 @@ public class Controllo extends Fragment  implements OnClickListener {
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(5, 4));
 		}
 		if(button == setAllarmeCasaOn){
-			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 3));
-		}
-		if(button == setAllarmeCasaOff){
-			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 4));
-		}
-		if(button == setAllarmeGarageOff){
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 3));
 		}
-		if(button == setAllarmeGarageOn){
+		if(button == setAllarmeCasaOff){
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 4));
+		}
+		if(button == setAllarmeGarageOff){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 4));
+		}
+		if(button == setAllarmeGarageOn){
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 3));
 		}
 		
 	}

@@ -346,20 +346,20 @@ public void refresh(){
 				checkButton(personalizzato7);
 			}
 			
-			if(status[7] == 0){
+			if(status[7] == 1){
 				personalizzato8.setChecked(false);
 				checkButtonAlarm(personalizzato8,"OK");
 			}
-			else if(status[7]==1){
+			else if(status[7]==0){
 				personalizzato8.setChecked(true);
 				checkButtonAlarm(personalizzato8,"allarme");
 			}
 			
-			if(status[8] == 0){
+			if(status[8] == 1){
 				personalizzato9.setChecked(false);
 				checkButtonAlarm(personalizzato9,"OK");
 			}
-			else if(status[8]==1){
+			else if(status[8]==0){
 				personalizzato9.setChecked(true);
 				checkButtonAlarm(personalizzato9,"allarme");
 			}
