@@ -81,6 +81,7 @@ public class Personalizzato extends Fragment implements OnClickListener{
 		button3off.setOnClickListener(this);
 		button4on.setOnClickListener(this);
 		button4off.setOnClickListener(this);
+
 		/*devo aggiungere il caricamento del testo da file*/
 		return view;
 	}

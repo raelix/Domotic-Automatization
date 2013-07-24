@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -61,7 +62,7 @@ public class Avanzate extends Fragment implements OnClickListener{
         View view = inflater.inflate(R.layout.avanzate, container, false);
         TextView textView = (TextView) view.findViewById(R.id.infoAvanzate);
         textView.setText("OPZIONI  AVANZATE");
-        reboot = (Button) view.findViewById(R.id.Riavvio);
+        reboot = (Button) view.findViewById(R.id.Riavvia);
         save = (Button)	  view.findViewById(R.id.Salva);
         user = (EditText) view.findViewById(R.id.UserValore);
         host = (EditText) view.findViewById(R.id.hostValore);
@@ -126,6 +127,7 @@ public class Avanzate extends Fragment implements OnClickListener{
 			def3.getText().clear();
 			def4.getText().clear();
 			
+			getActivity().getActionBar().setSelectedNavigationItem(0);
 		}
 		
 		if(button == setgarageOn){

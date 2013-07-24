@@ -10,6 +10,7 @@ import android.R.menu;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
 import android.renderscript.Allocation;
@@ -25,6 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
@@ -171,15 +173,16 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			FragmentTransaction fragmentTransaction) {
 		config.refresh();
 		
-		// When the given tab is selected, switch to the corresponding page in
-		// the ViewPager.
 		mViewPager.setCurrentItem(tab.getPosition());
-	}
+		}
 
 	@Override
 	public void onTabUnselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
 		config.refresh();
+		 InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		    in.hideSoftInputFromWindow(mViewPager.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+
 	}
 
 	@Override
