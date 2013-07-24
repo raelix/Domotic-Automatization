@@ -1,4 +1,4 @@
-package com.example.tablayout;
+package com.domomtica.JarviseRemote;
 import android.os.AsyncTask;
 import android.view.Gravity;
 import android.widget.Toast;

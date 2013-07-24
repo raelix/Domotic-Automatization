@@ -190,7 +190,7 @@
                 android:typeface="serif" />
 
             <Button
-                android:id="@+id/Spegni"
+                android:id="@+id/Spento"
                 android:layout_marginLeft="160dp"
                 android:layout_marginRight="40dp"
                 android:background="@layout/rosso"

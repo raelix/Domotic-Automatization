@@ -1,4 +1,4 @@
-package com.example.tablayout;
+package com.domomtica.JarviseRemote;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import com.domotica.JarviseRemote.R;
  
 public class Sensori extends Fragment implements OnClickListener{
 	Button AcquaAcquario;

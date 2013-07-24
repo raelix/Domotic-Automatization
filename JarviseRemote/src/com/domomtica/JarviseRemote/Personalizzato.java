@@ -1,5 +1,5 @@
-package com.example.tablayout;
-import com.example.tablayout.R;
+package com.domomtica.JarviseRemote;
+import com.domotica.JarviseRemote.R;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

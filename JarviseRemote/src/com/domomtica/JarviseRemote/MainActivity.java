@@ -1,4 +1,4 @@
-package com.example.tablayout;
+package com.domomtica.JarviseRemote;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -30,6 +30,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
+import com.domotica.JarviseRemote.R;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 	public Configuration config=new Configuration("jarvise.txt");

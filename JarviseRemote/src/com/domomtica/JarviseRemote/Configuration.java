@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.example.tablayout;
+package com.domomtica.JarviseRemote;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

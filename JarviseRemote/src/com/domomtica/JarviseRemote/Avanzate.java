@@ -1,4 +1,4 @@
-package com.example.tablayout;
+package com.domomtica.JarviseRemote;
 import java.io.IOException;
 
 import android.app.Activity;
@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+import com.domotica.JarviseRemote.R;
  
 public class Avanzate extends Fragment implements OnClickListener{
 	private static String nameFile = "jarvise.txt";
@@ -35,6 +36,7 @@ public class Avanzate extends Fragment implements OnClickListener{
 	Button personalizzato9;
 	Button personalizzato10;
 	Button save;
+	Button shutdown;
 	Button reboot;
 	Configuration readFile;
 	static Activity thisActivity = null;
@@ -62,6 +64,8 @@ public class Avanzate extends Fragment implements OnClickListener{
         View view = inflater.inflate(R.layout.avanzate, container, false);
         TextView textView = (TextView) view.findViewById(R.id.infoAvanzate);
 //        textView.setText("OPZIONI  AVANZATE");
+
+        shutdown = (Button) view.findViewById(R.id.Spento);
         reboot = (Button) view.findViewById(R.id.Riavvia);
         save = (Button)	  view.findViewById(R.id.Salva);
         user = (EditText) view.findViewById(R.id.UserValore);
@@ -91,6 +95,7 @@ public class Avanzate extends Fragment implements OnClickListener{
 		personalizzato9.setOnClickListener(this);
 		personalizzato10.setOnClickListener(this);
         save.setOnClickListener(this);
+        shutdown.setOnClickListener(this);
 		personalizzato8.setText("Resetta");
 		personalizzato9.setText("Resetta");
 		personalizzato10.setText("Resetta");
@@ -167,6 +172,12 @@ public class Avanzate extends Fragment implements OnClickListener{
 		if(button == reboot){
 			new ToastMessageTask().execute("Provo a riavviare");
 		new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 2));  
+			
+		}
+		
+		if(button == shutdown){
+			new ToastMessageTask().execute("Provo a spegnere");
+		new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 3));  
 			
 		}
 		

@@ -1,7 +1,7 @@
-package com.example.tablayout;
+package com.domomtica.JarviseRemote;
 import java.util.concurrent.Semaphore;
 
-import com.example.tablayout.R;
+import com.domotica.JarviseRemote.R;
 
 import android.app.Activity;
 import android.graphics.Color;

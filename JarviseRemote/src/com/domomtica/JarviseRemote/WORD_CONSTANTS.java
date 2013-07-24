@@ -1,4 +1,4 @@
-package com.example.tablayout;
+package com.domomtica.JarviseRemote;
 
 public interface WORD_CONSTANTS {
 	String giusto="^[Ss]i.*|" +
