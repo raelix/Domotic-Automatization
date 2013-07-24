@@ -319,6 +319,7 @@ public void refresh(){
 //			int [] prova = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
 //			status = prova;
 			status = thread.settings;
+			System.out.println("ricevuto array: "+status[0]+status[1]+status[2]+status[3]+status[4]+status[5]+status[6]+status[7]+status[8]+status[9]);
 			if(status[0] == 0){
 				personalizzato1.setChecked(false);
 				checkButton(personalizzato1);
@@ -382,20 +383,20 @@ public void refresh(){
 				checkButton(personalizzato7);
 			}
 			
-			if(status[7] == 1){
+			if(status[7] == 0){
 				personalizzato8.setChecked(false);
 				checkButtonAlarm(personalizzato8,"OK");
 			}
-			else if(status[7]==0){
+			else if(status[7]==1){
 				personalizzato8.setChecked(true);
 				checkButtonAlarm(personalizzato8,"allarme");
 			}
 			
-			if(status[8] == 1){
+			if(status[8] == 0){
 				personalizzato9.setChecked(false);
 				checkButtonAlarm(personalizzato9,"OK");
 			}
-			else if(status[8]==0){
+			else if(status[8]==1){
 				personalizzato9.setChecked(true);
 				checkButtonAlarm(personalizzato9,"allarme");
 			}

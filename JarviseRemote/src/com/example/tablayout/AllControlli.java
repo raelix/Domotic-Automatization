@@ -167,16 +167,16 @@ public void refresh(){
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(5, 0));
 		}
 		if(button == AllarmeCasaOn){
-			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 1));
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 0));//FIXED BUTTON 
 		}
 		if(button == AllarmeCasaOff){
-			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 0));
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 1));//FIXED BUTTON 
 		}
 		if(button == AllarmeGarageOff){
-			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 0));
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 0));
 		}
 		if(button == AllarmeGarageOn){
-			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 1));
+			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 1));
 		}
 		if(button == AcquaAcquario){
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(8, 0));
