@@ -166,6 +166,15 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 							}
 							s = "Riavvio in Corso...";
 						}
+						else if(gpio[1] == 3){
+							try {
+								Runtime.getRuntime().exec("sudo halt");
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								s = "Non riesco a spegnere il pc";
+							}
+							s = "Spegnimento in Corso...Arrivederci";
+						}						
 						
 						break;
 					
