@@ -158,7 +158,13 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 							s = MainServer.gpio.spegni(0);
 						}
 						else if(gpio[1] == 2){
-							Runtime.getRuntime().exec("reboot -h now");
+							try {
+								Runtime.getRuntime().exec("sudo reboot -h");
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								s = "Non riesco a riavviare il pc";
+							}
+							s = "Riavvio in Corso...";
 						}
 						
 						break;
@@ -278,7 +284,7 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 					case PROTOCOL_CONSTANTS.GPIO_08:
 					
 						if (MainServer.AcquaAcquario != null)
-						s = "Si ho trovato dell'acqua il "+MainServer.AcquaAcquario;
+						s = "Trovata dell'acqua vicino l'acquario alle "+MainServer.AcquaAcquario;
 						else s = "Nessuna traccia di acqua fin ora";
 						MainServer.file.write("Ricezione: "+s);
 						if(gpio[1] == 2){MainServer.AcquaAcquario = null;
@@ -288,7 +294,7 @@ public class ServerThread extends Thread implements PROTOCOL_CONSTANTS{
 					case PROTOCOL_CONSTANTS.GPIO_09:
 					
 						if (MainServer.AcquaCasa != null)
-							s = "Si ho trovato dell'acqua il "+MainServer.AcquaCasa;
+							s = "Trovata dell'acqua in casa alle "+MainServer.AcquaCasa;
 							else s = "Nessuna traccia di acqua fin ora";
 							MainServer.file.write("Ricezione: "+s);
 							if(gpio[1] == 2){MainServer.AcquaCasa = null;

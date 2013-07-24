@@ -111,15 +111,14 @@ public static int[] getStatus (){
 	if(AllarmeCasa)status[6]=1;
 	else if(!AllarmeCasa) status[6]=0;
 	
-	if(acquaAquario == null) status[7]=0;
-	else if(acquaAquario != null) status[7]=1;
+	if(AcquaAcquario==null) status[7]=0;
+	else if(AcquaAcquario != null) status[7]=1;
 	
-	if(acquaCasa == null) status[8]=0;
-	else if(acquaCasa != null) status[8]=1;
+	if(AcquaCasa == null) status[8]=0;
+	else if(AcquaCasa != null) status[8]=1;
 	
 	if(movimento == null) status[9]=0;
 	else if(movimento != null) status[9]=1;
-	
 	return status;
 	
 }
