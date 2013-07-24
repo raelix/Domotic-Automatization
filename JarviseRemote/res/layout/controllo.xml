@@ -52,6 +52,7 @@
                 <TextView
                     android:id="@+id/ControlloTextAllarmeGarage"
                     style="@style/textViewStyle"
+                    android:textSize="13sp"
                     android:text="@string/default6" />
 
                 <Button

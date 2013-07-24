@@ -28,7 +28,7 @@
 
             <TableRow
                 android:layout_width="fill_parent"
-                android:layout_marginTop="90dp" >
+                android:layout_marginTop="50dp" >
 
                 <TextView
                     android:id="@+id/personalizzatoText1"
@@ -178,6 +178,8 @@
                 <Button
                     android:id="@+id/ControlloPerditaAcquarioButton"
                     style="@style/buttonBluViewStyle"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="20"
                     android:text="@string/controlla" />
             </TableRow>
 
@@ -193,6 +195,8 @@
                 <Button
                     android:id="@+id/ControlloPerditaCasaButton"
                     style="@style/buttonBluViewStyle"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="20"
                     android:text="@string/controlla" />
             </TableRow>
 
@@ -208,6 +212,8 @@
                 <Button
                     android:id="@+id/ControlloMovimentoCasaButton"
                     style="@style/buttonBluViewStyle"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="20"
                     android:text="@string/controlla" />
             </TableRow>
         </TableLayout>

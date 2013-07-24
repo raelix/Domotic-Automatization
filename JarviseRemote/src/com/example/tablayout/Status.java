@@ -75,8 +75,8 @@ public class Status extends Fragment implements OnClickListener{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		 view = inflater.inflate(R.layout.status0, container, false);
-		TextView textView = (TextView) view.findViewById(R.id.infoStatus);
-		textView.setText("STATUS   GPIO");
+//		TextView textView = (TextView) view.findViewById(R.id.infoStatus);
+//		textView.setText("STATUS   GPIO");
 		getStatus = (Button) view.findViewById(R.id.getStatus);
 		getStatus.setOnClickListener(this);
 		return view;

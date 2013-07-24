@@ -40,7 +40,7 @@ public class Controllo extends Fragment  implements OnClickListener {
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.controllo, container, false);
         TextView textView = (TextView) view.findViewById(R.id.infoControlli);
-        textView.setText("CONTROLLO  REMOTO  RELE'");
+//        textView.setText("CONTROLLO  REMOTO  RELE'");
         garageOn = (Button)view.findViewById(R.id.ControlloGarageOn);
 		garageOff = (Button)view.findViewById(R.id.ControlloGarageOff);
 		AllarmeCasaOn = (Button)view.findViewById(R.id.ControlloAllarmeCasaOff);

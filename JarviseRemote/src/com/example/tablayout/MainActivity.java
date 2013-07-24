@@ -11,6 +11,8 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.renderscript.Allocation;
@@ -48,6 +50,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		this.thisActivity = getParent();
+//		mViewPager.setBackgroundColor(android.graphics.Color.GRAY);
+		
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		File file = new File(Environment.getExternalStorageDirectory()+"/jarvise.txt");
 		if (!file.exists()) {
@@ -84,10 +88,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		        this.def4 = config.getDefault3();
 		}
 		actionBar =  getActionBar();
+	actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.carbo));
+//		actionBar.setBackgroundDrawable((new ColorDrawable(android.graphics.Color.BLUE)));
+
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		
-		
-		
+		actionBar.setStackedBackgroundDrawable(getResources().getDrawable(
+	            R.drawable.layout));
 		mSectionsPagerAdapter = new SectionsPagerAdapter(
 		getSupportFragmentManager());
 		mViewPager = (ViewPager) findViewById(R.id.pager);	

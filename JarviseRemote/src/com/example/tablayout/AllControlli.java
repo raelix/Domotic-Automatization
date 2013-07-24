@@ -67,8 +67,8 @@ public class AllControlli extends Fragment implements OnClickListener{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.allcontrolli, container, false);
-		TextView textView = (TextView) view.findViewById(R.id.infoTuttiControlli);
-		textView.setText("TUTTI   I   CONTROLLI");
+//		TextView textView = (TextView) view.findViewById(R.id.infoTuttiControlli);
+//		textView.setText("TUTTI   I   CONTROLLI");
 		refresh();
 		def1 = (TextView) view.findViewById(R.id.personalizzatoText1);
 		def2 = (TextView) view.findViewById(R.id.personalizzatoText2);

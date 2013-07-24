@@ -154,6 +154,7 @@
                 
             </TableRow>
 
+          
             <TableRow
                 android:layout_width="fill_parent"
                 android:layout_marginTop="50dp" >
@@ -165,8 +166,10 @@
 
                 <ToggleButton
                     android:id="@+id/ControlloPerditaAcquarioButton"
-                    android:text="@string/controlla" 
-                      style="@style/buttonBluViewStyle"/>
+                    style="@style/buttonBluViewStyle"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="20"
+                    android:text="@string/controlla" />
             </TableRow>
 
             <TableRow
@@ -180,8 +183,10 @@
 
                 <ToggleButton
                     android:id="@+id/ControlloPerditaCasaButton"
-                    android:text="@string/controlla"
-                     style="@style/buttonBluViewStyle" />
+                    style="@style/buttonBluViewStyle"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="20"
+                    android:text="@string/controlla" />
             </TableRow>
 
             <TableRow
@@ -195,8 +200,10 @@
 
                 <ToggleButton
                     android:id="@+id/ControlloMovimentoCasaButton"
-                    android:text="@string/controlla"
-                     style="@style/buttonBluViewStyle" />
+                    style="@style/buttonBluViewStyle"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="20"
+                    android:text="@string/controlla" />
             </TableRow>
         </TableLayout>
     </RelativeLayout>
