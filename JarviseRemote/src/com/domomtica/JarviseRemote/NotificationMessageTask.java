@@ -30,7 +30,7 @@ public class NotificationMessageTask extends AsyncTask<String, String, String> {
 	    	Notification notification = new Notification(R.drawable.logo, result, System.currentTimeMillis());
 	    	Intent intent = new Intent(AllControlli.thisActivity, MainActivity.class); 
 	    	PendingIntent pIntent = PendingIntent.getActivity(AllControlli.thisActivity, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT); 
-	    	notification.setLatestEventInfo(AllControlli.thisActivity, "JarviseRemote", "Click to return in JarviseRemote", pIntent);
+	    	notification.setLatestEventInfo(AllControlli.thisActivity, "JarviseRemote",result, pIntent);
 	    	NotificationManager mNotificationManager =
 	    		    (NotificationManager) AllControlli.thisActivity.getSystemService(Context.NOTIFICATION_SERVICE);
 	    		// mId allows you to update the notification later on.
