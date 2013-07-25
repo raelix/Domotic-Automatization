@@ -148,7 +148,8 @@ public class MultiThread{
 //					MainActivity.log(new PaccoString(p).getString());
 
 					 new ToastMessageTask().execute("GPIO selezionato: "+new PaccoString(p).getString());
-					
+
+						new NotificationMessageTask().execute("GPIO selezionato: "+new PaccoString(p).getString());
 //					Toast.makeText(activity, new PaccoString(p).getString(), Toast.LENGTH_LONG).show();
 					System.out.println(new PaccoString(p).getString());
 					this.close();
