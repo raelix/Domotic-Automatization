@@ -140,45 +140,46 @@ public class Avanzate extends Fragment implements OnClickListener{
 		}
 		
 		if(button == setgarageOn){
+			new ProgressMessageTask().execute("");
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(4, 3));
 		}
 		if(button == setgarageOff){
+			new ProgressMessageTask().execute("");
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(5, 4));
 		}
 		if(button == setAllarmeCasaOn){
+			new ProgressMessageTask().execute("");
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 3));
 		}
 		if(button == setAllarmeCasaOff){
+			new ProgressMessageTask().execute("");
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 4));
 		}
 		if(button == setAllarmeGarageOff){
+			new ProgressMessageTask().execute("");
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 4));
 		}
 		if(button == setAllarmeGarageOn){
+			new ProgressMessageTask().execute("");
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(6, 3));
 		}
 		if(button == personalizzato8){
+			new ProgressMessageTask().execute("");
 			checkButtonAlarm(personalizzato8,"Resettato");
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(8, 2)); 
 			
 		}
 		if(button == personalizzato9){
+			new ProgressMessageTask().execute("");
 				checkButtonAlarm(personalizzato9,"Resettato");
 				new MultiThread("127.0.0.1", 9001,new PaccoGpio(9, 2)); 
 			
 		}
 		if(button == personalizzato10){
-			   final ProgressDialog dialog = ProgressDialog.show(this.getActivity(), "Connessione...","Contatto il Server..Attendere.." , true);
-			   dialog.show();
-			   Handler handler = new Handler();
-			   handler.postDelayed(new Runnable() {
-			       public void run() {
-			   		MultiThread p10= new MultiThread("127.0.0.1", 9001,new PaccoGpio(10, 2)); 
-			   		
-					if(!p10.errore)checkButtonAlarm(personalizzato10,"Resettato");
-			                   dialog.dismiss();
-			       }   
-			   }, 3000);
+			new ProgressMessageTask().execute("");
+			 MultiThread p10 = new MultiThread("127.0.0.1", 9001,new PaccoGpio(10, 2)); 
+		   		if(!p10.errore)checkButtonAlarm(personalizzato10,"Resettato");
+			   
 			
 		}
 		
@@ -189,8 +190,12 @@ public class Avanzate extends Fragment implements OnClickListener{
 			builder.setMessage("Sei sicuro di voler riavviare il Raspberry?").setCancelable(false); 
 			builder.setPositiveButton("Si", new DialogInterface.OnClickListener(){
 				public void onClick(DialogInterface dialog, int id) {
+					new ProgressMessageTask().execute("");
 					new ToastMessageTask().execute("Provo a riavviare il Raspberry");
-					new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 2));   }});
+					new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 2));  
+					
+					 }});
+			
 			builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int id) { 
 				dialog.cancel();      } 
@@ -206,6 +211,7 @@ public class Avanzate extends Fragment implements OnClickListener{
 			builder.setMessage("Sei sicuro di voler spegnere il Raspberry?").setCancelable(false); 
 			builder.setPositiveButton("Si", new DialogInterface.OnClickListener(){
 				public void onClick(DialogInterface dialog, int id) {
+					new ProgressMessageTask().execute("");
 					new ToastMessageTask().execute("Provo a spegnere il Raspberry");
 					new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 3));   }});
 			builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

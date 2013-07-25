@@ -1,10 +1,12 @@
 package com.domomtica.JarviseRemote;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.view.Gravity;
 import android.widget.Toast;
 
 
-public class ToastMessageTask extends AsyncTask<String, String, String> {
+public class ProgressMessageTask extends AsyncTask<String, String, String> {
 	    String toastMessage;
 
 	    @Override
@@ -18,7 +20,13 @@ public class ToastMessageTask extends AsyncTask<String, String, String> {
 	    }
 	   // This is executed in the context of the main GUI thread
 	    protected void onPostExecute(String result){
-	           Toast toast = Toast.makeText(AllControlli.thisActivity, result, Toast.LENGTH_SHORT);
-	           toast.setGravity(Gravity.BOTTOM, 0, 0);
-	           toast.show();
+	    	if (result.length()<=0) result = "Contatto il Server..Attendere..";
+	    	final	ProgressDialog  dialogo = ProgressDialog.show(AllControlli.thisActivity, "Connessione...",result , true);
+			Handler handler = new Handler();
+			dialogo.show();
+			handler.postDelayed(new Runnable() {
+				public void run() {
+					dialogo.dismiss();
+				}   
+			}, 3000);
 	    }}
