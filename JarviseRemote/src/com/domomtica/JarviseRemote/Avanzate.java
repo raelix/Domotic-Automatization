@@ -2,7 +2,11 @@ package com.domomtica.JarviseRemote;
 import java.io.IOException;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -164,20 +168,52 @@ public class Avanzate extends Fragment implements OnClickListener{
 			
 		}
 		if(button == personalizzato10){
-			checkButtonAlarm(personalizzato10,"Resettato");
-		new MultiThread("127.0.0.1", 9001,new PaccoGpio(10, 2));  
+			   final ProgressDialog dialog = ProgressDialog.show(this.getActivity(), "Connessione...","Contatto il Server..Attendere.." , true);
+			   dialog.show();
+			   Handler handler = new Handler();
+			   handler.postDelayed(new Runnable() {
+			       public void run() {
+			   		MultiThread p10= new MultiThread("127.0.0.1", 9001,new PaccoGpio(10, 2)); 
+			   		
+					if(!p10.errore)checkButtonAlarm(personalizzato10,"Resettato");
+			                   dialog.dismiss();
+			       }   
+			   }, 3000);
 			
 		}
 		
 		if(button == reboot){
-			new ToastMessageTask().execute("Provo a riavviare");
-		new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 2));  
+			
+			
+			AlertDialog.Builder builder = new AlertDialog.Builder(this.getActivity()); 
+			builder.setMessage("Sei sicuro di voler riavviare il Raspberry?").setCancelable(false); 
+			builder.setPositiveButton("Si", new DialogInterface.OnClickListener(){
+				public void onClick(DialogInterface dialog, int id) {
+					new ToastMessageTask().execute("Provo a riavviare il Raspberry");
+					new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 2));   }});
+			builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) { 
+				dialog.cancel();      } 
+			});
+			AlertDialog alert = builder.create();  
+			alert.show();
+			 
 			
 		}
 		
 		if(button == shutdown){
-			new ToastMessageTask().execute("Provo a spegnere");
-		new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 3));  
+			AlertDialog.Builder builder = new AlertDialog.Builder(this.getActivity()); 
+			builder.setMessage("Sei sicuro di voler spegnere il Raspberry?").setCancelable(false); 
+			builder.setPositiveButton("Si", new DialogInterface.OnClickListener(){
+				public void onClick(DialogInterface dialog, int id) {
+					new ToastMessageTask().execute("Provo a spegnere il Raspberry");
+					new MultiThread("127.0.0.1", 9001,new PaccoGpio(0, 3));   }});
+			builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) { 
+				dialog.cancel();      } 
+			});
+			AlertDialog alert = builder.create();  
+			alert.show();
 			
 		}
 		
