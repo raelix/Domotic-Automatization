@@ -223,8 +223,7 @@ public void refresh(){
 		
 		if(button == getStatus){
 //			log("Waiting refresh....");
-			 new ToastMessageTask().execute("Ricevo aggiornamenti...");
-			errore =(TextView) view.findViewById(R.id.erroreConnessione);
+			 errore =(TextView) view.findViewById(R.id.erroreConnessione);
 			
 			try {
 			thread = new MultiThread("127.0.0.1", 9001,new PaccoStatus(1), sem);
@@ -232,17 +231,17 @@ public void refresh(){
 			}
 			catch (InterruptedException e) {
 			errore.setText("Non riesco a raggiungere il Server di Casa");
-			log("Nessun server trovato");
 			System.out.println("Non riesco a raggiungere il Server di Casa");
 			e.printStackTrace();
 			return;
 			}
 		if(thread.errore){
 			errore.setText("Non riesco a raggiungere il Server di Casa");
-			log("Nessun server trovato");
 			System.out.println("Non riesco a raggiungere il Server di Casa");
 			return;
 		} else {
+			new ToastMessageTask().execute("Ricevo aggiornamenti...");
+			
 			((ViewGroup) view).removeAllViews();
 			
 			view = getView().inflate(getView().getContext(), R.layout.status,((ViewGroup) view) );

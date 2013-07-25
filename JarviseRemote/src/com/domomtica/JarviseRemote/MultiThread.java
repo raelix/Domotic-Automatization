@@ -216,7 +216,7 @@ public class MultiThread{
 			} 
 			catch (JSchException e) {
 				System.out.println("non riesco a raggiungere il server");
-				 new ToastMessageTask().execute("Non riesco a raggiungere il Server");
+				 new ToastMessageTask().execute("Non riesco a raggiungere il Server di Casa");
 				e.printStackTrace();
 				errore = true;
 				if(sem != null)

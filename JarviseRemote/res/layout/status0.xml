@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/getStatus"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="41dp"
+            android:layout_marginTop="62dp"
             android:textColor="@android:color/white" />
     </RelativeLayout>
 
