@@ -134,7 +134,7 @@ public class MultiThread{
 		public void connected(){
 			Pacco p = btsock.readPkt();
 
-//			new ProgressMessageTask().execute("");
+			new ProgressMessageTask().execute("");
 			if (p == null ){
 //				MainActivity.log("ricevuto pacchetto errato dal server");
 				System.out.println("ricevuto pacchetto errato dal server");

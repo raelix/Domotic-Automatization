@@ -228,7 +228,6 @@ public class Status extends Fragment implements OnClickListener{
 			//			log("Waiting refresh....");
 			errore =(TextView) view.findViewById(R.id.erroreConnessione);
 
-			new ProgressMessageTask().execute("Recupero Stato gpio....");
 			
 			try {
 
