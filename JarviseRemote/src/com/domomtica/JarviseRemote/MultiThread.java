@@ -210,7 +210,7 @@ public class MultiThread{
 				session.setPassword(password.getBytes());
 				session.setConfig("StrictHostKeyChecking", "no");
 				System.out.println("faccio la connect");
-				session.connect(7000);
+				session.connect(20000);
 				System.out.println("connesso? "+session.isConnected());
 				int assinged_port = session.setPortForwardingL(lhost,lport, rhost, rport);
 				System.out.println("localhost:"+assinged_port+" -> "+rhost+":"+rport);
