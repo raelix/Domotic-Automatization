@@ -197,7 +197,7 @@ public class MultiThread{
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 			String rhost="127.0.0.1";
-			int rport=20;	
+			int rport=2000;	
 			String lhost="127.0.0.1";
 			int lport=9001;   
 			JSch jsch=new JSch();

@@ -1,4 +1,4 @@
-import java.io.IOException;
+﻿import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -40,7 +40,7 @@ public class MainServer {
 	public static Pin default8  	= acquaAquario;    		//Sensore acqua acquario
 	public static Pin default9  	= acquaCasa;       		//sensore acqua casa
 	public static Pin default10 	= move;            		//sensore movimento casa
-	private static int PORT = 20;
+	private static int PORT = 2000;
 	public static String destinationFile = "/home/pi/LogServer.txt";
 	public static boolean GPIO_00 	= false;
 	public static boolean GPIO_01  	= false;

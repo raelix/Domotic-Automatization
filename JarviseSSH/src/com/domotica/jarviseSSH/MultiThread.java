@@ -136,7 +136,7 @@ public class MultiThread{
 			StrictMode.setThreadPolicy(policy); 
 		
 			String rhost="127.0.0.1";
-			int rport=20;	
+			int rport=2000;	
 			String lhost="127.0.0.1";
 			int lport=9001;      
 			
