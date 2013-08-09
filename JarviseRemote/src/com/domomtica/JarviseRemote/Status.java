@@ -4,7 +4,9 @@ import java.util.concurrent.Semaphore;
 import com.domotica.JarviseRemote.R;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -177,6 +179,43 @@ public class Status extends Fragment implements OnClickListener{
 			}
 		}
 		if(button == personalizzato5){
+			AlertDialog.Builder builder = new AlertDialog.Builder(this.getActivity()); 
+			if (!personalizzato5.isChecked())builder.setMessage("Sei sicuro di voler chiudere il Garage?").setCancelable(false); 
+			else builder.setMessage("Sei sicuro di voler aprire il Garage?").setCancelable(false); 
+			builder.setPositiveButton("Si", new DialogInterface.OnClickListener(){
+				public void onClick(DialogInterface dialog, int id) {
+					new ProgressMessageTask().execute("");
+					if (!personalizzato5.isChecked()){
+						checkButton(personalizzato5);
+						new MultiThread("127.0.0.1", 9001,new PaccoGpio(5, 0));
+					}
+					else if (personalizzato5.isChecked()){
+						checkButton(personalizzato5);
+						new MultiThread("127.0.0.1", 9001,new PaccoGpio(4, 1));
+					}
+					 }});
+			
+			builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) { 
+				dialog.cancel();  
+				if (!personalizzato5.isChecked()){
+					personalizzato5.setChecked(true);
+					personalizzato5.setText("Aperto");
+					checkButton(personalizzato5);
+				}
+				else if (personalizzato5.isChecked()){
+					
+					personalizzato5.setChecked(false);
+					personalizzato5.setText("Chiuso");
+					checkButton(personalizzato5);
+				}} 
+			});
+			AlertDialog alert = builder.create();  
+			alert.show();
+		}
+		
+		/*
+		if(button == personalizzato5){
 			if (!personalizzato5.isChecked()){
 				checkButton(personalizzato5);
 				new MultiThread("127.0.0.1", 9001,new PaccoGpio(5, 0));
@@ -185,7 +224,7 @@ public class Status extends Fragment implements OnClickListener{
 				checkButton(personalizzato5);
 				new MultiThread("127.0.0.1", 9001,new PaccoGpio(4, 1));
 			}
-		}
+		}*/
 		if(button == personalizzato6){
 			if (!personalizzato6.isChecked()){
 				checkButton(personalizzato6);
@@ -322,7 +361,7 @@ public class Status extends Fragment implements OnClickListener{
 				//			int [] prova = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
 				//			status = prova;
 				status = thread.settings;
-				System.out.println("ricevuto array: "+status[0]+status[1]+status[2]+status[3]+status[4]+status[5]+status[6]+status[7]+status[8]+status[9]);
+//				System.out.println("ricevuto array: "+status[0]+status[1]+status[2]+status[3]+status[4]+status[5]+status[6]+status[7]+status[8]+status[9]);
 				if(status[0] == 0){
 					personalizzato1.setChecked(false);
 					checkButton(personalizzato1);

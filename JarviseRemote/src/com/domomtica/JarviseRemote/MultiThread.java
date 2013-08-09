@@ -55,7 +55,7 @@ public class MultiThread{
 		this.port = port;
 		this.pkt = pkt;
 		this.sem = sem;
-		new SSHConnection().execute();
+		new Connection().connect();
 	};
 	
 	public MultiThread(String dest, int port,Pacco pkt){
@@ -68,7 +68,7 @@ public class MultiThread{
 		this.dest = dest;
 		this.port = port;
 		this.pkt = pkt;
-		new SSHConnection().execute();
+		new Connection().connect();
 		
 	};
 	
@@ -83,7 +83,7 @@ public class MultiThread{
 		this.port = port;
 		this.pkt = pkt;
 		this.activity = activity;
-		new SSHConnection().execute();
+		new Connection().connect();
 		
 	};
 
@@ -99,19 +99,32 @@ public class MultiThread{
 		}
 		@SuppressWarnings("unchecked")
 		private void connect(){
+			
 			try {
-				sock = new Socket(dest,port);
+
+				StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+				StrictMode.setThreadPolicy(policy);
+				sock = new Socket(host,20);
 				System.out.println("Connect Thread:  Inizio");
 				btsock = new DataSocket(sock.getInputStream(),sock.getOutputStream());
 
 			} catch (IOException e) {
 				System.out.println("Connect Thread: Errore");
+				System.out.println("non riesco a raggiungere il server");
+//				 new ToastMessageTask().execute("Non riesco a raggiungere il Server di Casa");
 				e.printStackTrace();
+				errore = true;
+				if(sem != null)
+				sem.release();
+				Thread.interrupted();
+				return;
 			}
+			errore = false;
 			System.out.println("Connect Thread: Scrivo pacco di riconoscimento");
 			btsock.writePkt(new PaccoStart());
 			System.out.println("Connect Thread: Adesso spedisco le informazioni");
 			btsock.writePkt(pkt);
+			System.out.println("Connect Thread: Adesso spedisco le informazioni");
 			new ConnectionServer().execute();
 			
 		};
@@ -132,12 +145,14 @@ public class MultiThread{
 			return null;
 		}
 		public void connected(){
+			System.out.println("Leggo pacco");
 			Pacco p = btsock.readPkt();
 
 			new ProgressMessageTask().execute("");
 			if (p == null ){
 //				MainActivity.log("ricevuto pacchetto errato dal server");
 				System.out.println("ricevuto pacchetto errato dal server");
+				if(sem!=null)sem.release();
 				this.close();
 				return;
 			}
@@ -173,7 +188,7 @@ public class MultiThread{
 			btsock.close();
 			try {
 				sock.close();
-				session.disconnect();
+//				session.disconnect();
 				System.out.println("Chiuso");
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -197,7 +212,7 @@ public class MultiThread{
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 			String rhost="127.0.0.1";
-			int rport=2000;	
+			int rport=20;	
 			String lhost="127.0.0.1";
 			int lport=9001;   
 			JSch jsch=new JSch();

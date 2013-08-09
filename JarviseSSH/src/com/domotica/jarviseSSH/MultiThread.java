@@ -1,8 +1,11 @@
 package com.domotica.jarviseSSH;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.ProtocolException;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
+
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
@@ -47,7 +50,8 @@ public class MultiThread{
 		this.dest = dest;
 		this.port = port;
 		this.pkt = pkt;
-		new SSHConnection().execute();
+//		new SSHConnection().execute();
+		new Connection().execute();
 	};
 
 
@@ -62,14 +66,32 @@ public class MultiThread{
 		}
 		@SuppressWarnings("unchecked")
 		private void connect(){
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy); 
+		
 			try {
-				sock = new Socket(dest,port);
+//				sock = new Socket(host,2000);
+				sock = new Socket();
+				sock.connect(new InetSocketAddress(host, 20), 5000);
 				System.out.println("Connect Thread:  Inizio");
 				btsock = new DataSocket(sock.getInputStream(),sock.getOutputStream());
 
-			} catch (IOException e) {
+			} catch (SocketTimeoutException e) {
+				MainActivity.say("Non riesco a contattare il Server di Casa");
 				System.out.println("Connect Thread: Errore");
 				e.printStackTrace();
+				return;
+			} catch (IOException e) {
+				MainActivity.say("Non riesco a contattare il Server di Casa");
+				System.out.println("Connect Thread: Errore");
+				e.printStackTrace();
+				return;
+			}
+			catch (IllegalArgumentException e){
+				MainActivity.say("Non riesco a contattare il Server di Casa");
+				System.out.println("Connect Thread: Errore");
+				e.printStackTrace();
+				return;
 			}
 			System.out.println("Connect Thread: Scrivo pacco di riconoscimento");
 			btsock.writePkt(new PaccoStart());
@@ -112,7 +134,7 @@ public class MultiThread{
 			btsock.close();
 			try {
 				sock.close();
-				session.disconnect();
+//				session.disconnect();
 				System.out.println("Chiuso");
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -134,12 +156,10 @@ public class MultiThread{
 		private void execute(){
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy); 
-		
 			String rhost="127.0.0.1";
 			int rport=2000;	
 			String lhost="127.0.0.1";
 			int lport=9001;      
-			
 			JSch jsch=new JSch(); 
 			try {
 				session=jsch.getSession(user, host, 22);

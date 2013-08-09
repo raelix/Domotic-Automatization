@@ -1,4 +1,6 @@
 package com.domomtica.JarviseRemote;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -8,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.domotica.JarviseRemote.R;
  
 public class Controllo extends Fragment  implements OnClickListener {
@@ -72,10 +75,39 @@ public class Controllo extends Fragment  implements OnClickListener {
 	@Override
 	public void onClick(View button) {
 		if(button == garageOn){
-			new MultiThread("127.0.0.1", 9001,new PaccoGpio(4, 1));
+			AlertDialog.Builder builder = new AlertDialog.Builder(this.getActivity()); 
+			builder.setMessage("Sei sicuro di voler aprire il Garage?").setCancelable(false); 
+			builder.setPositiveButton("Si", new DialogInterface.OnClickListener(){
+				public void onClick(DialogInterface dialog, int id) {
+					new ProgressMessageTask().execute("");
+					new ToastMessageTask().execute("Provo ad aprire il garage");
+					new MultiThread("127.0.0.1", 9001,new PaccoGpio(4, 1));
+					
+					 }});
+			
+			builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) { 
+				dialog.cancel();      } 
+			});
+			AlertDialog alert = builder.create();  
+			alert.show();
 		}
 		if(button == garageOff){
-			new MultiThread("127.0.0.1", 9001,new PaccoGpio(5, 0));
+			AlertDialog.Builder builder = new AlertDialog.Builder(this.getActivity()); 
+			builder.setMessage("Sei sicuro di voler chiudere il Garage?").setCancelable(false); 
+			builder.setPositiveButton("Si", new DialogInterface.OnClickListener(){
+				public void onClick(DialogInterface dialog, int id) {
+					new ProgressMessageTask().execute("");
+					new ToastMessageTask().execute("Provo a chiudere il garage");
+					new MultiThread("127.0.0.1", 9001,new PaccoGpio(5, 0));
+					 }});
+			
+			builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) { 
+				dialog.cancel();      } 
+			});
+			AlertDialog alert = builder.create();  
+			alert.show();
 		}
 		if(button == AllarmeCasaOn){
 			new MultiThread("127.0.0.1", 9001,new PaccoGpio(7, 0));//FIXED BUTTON 

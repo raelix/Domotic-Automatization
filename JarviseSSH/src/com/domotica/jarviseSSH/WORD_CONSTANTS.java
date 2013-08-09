@@ -29,6 +29,7 @@ public interface WORD_CONSTANTS {
 	
 	String on=".*[Aa]ccendi.*|" +
 			"^[Aa]ttiv.*|"+
+			".*[Aa]lz.*|" +
 			".*[Aa]pr.*";
 	
 	String casa=".*[Cc]asa.*|" +
@@ -36,6 +37,7 @@ public interface WORD_CONSTANTS {
 	
 	String off=".*[Ss]pegni.*|" +
 			".*[Dd]isattiv.*|" +
+			".*[Aa]bbas.*|" +
 			".*[Cc]hiud.*";
 	
 	String inizio="^[Hh]o [Dd]ett.*|";
